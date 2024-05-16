@@ -25,7 +25,8 @@ public class HarpoonController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(1) && !isLaunched)
+        // Verifică dacă harponul este dezactivat înainte de a permite o nouă lansare
+        if (Input.GetMouseButtonDown(1) && !isLaunched && !harpoon.activeSelf)
         {
             LaunchHarpoon();
         }
