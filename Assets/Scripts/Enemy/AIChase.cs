@@ -11,7 +11,7 @@ public class AIChase : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindWithTag("player");
+        player = GameObject.FindWithTag("Player");
         health = GetComponent<maxHealth>();
 
         if (player == null)
