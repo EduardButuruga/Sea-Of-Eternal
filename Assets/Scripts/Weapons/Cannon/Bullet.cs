@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.Rendering;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -11,7 +9,7 @@ public class Bullet : MonoBehaviour
 
     private void Awake()
     {
-        Destroy(gameObject,life);
+        Destroy(gameObject, life);
     }
 
     public void SetDamage(float damage)
@@ -19,11 +17,16 @@ public class Bullet : MonoBehaviour
         this.damage = damage;
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            Debug.Log(this.damage);
+            Debug.Log("Bullet hit enemy with damage: " + this.damage); // Debug message
+            maxHealth enemyHealth = collision.GetComponent<maxHealth>();
+            if (enemyHealth != null)
+            {
+                enemyHealth.TakeDamage(this.damage);
+            }
             Destroy(gameObject);
         }
     }
