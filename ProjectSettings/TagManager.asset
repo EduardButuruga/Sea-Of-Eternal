@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - EnemyC
   - Treasure
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - EnemyEvasion
   - Treasure
   - Harpoon
-  - 
+  - Bullet
   - 
   - 
   - 

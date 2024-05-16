@@ -2,14 +2,24 @@
 
 public class AIChase : MonoBehaviour
 {
-    public GameObject player;
     public float speed;
 
+    public GameObject player;
     private Animator animator;
     private Vector2 currentDirection;
+    private maxHealth health;
 
     void Start()
     {
+        player = GameObject.FindWithTag("player");
+        health = GetComponent<maxHealth>();
+
+        if (player == null)
+        {
+            Debug.LogError("Player not found. Make sure the player object is tagged 'Player'.");
+            return;
+        }
+
         animator = GetComponent<Animator>();
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
@@ -17,10 +27,17 @@ public class AIChase : MonoBehaviour
         {
             rb.freezeRotation = true;
         }
+
+        health.IncreaseHealth(1);
     }
 
     void Update()
-    {     
+    {
+        if (player == null)
+        {
+            return;
+        }
+
         Vector2 directionToPlayer = (player.transform.position - transform.position).normalized;       
         currentDirection = directionToPlayer;      
         transform.position = Vector2.MoveTowards(transform.position, (Vector2)transform.position + currentDirection, speed * Time.deltaTime);      

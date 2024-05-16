@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1655670094777442071}
   - component: {fileID: 5532798483033482380}
   - component: {fileID: 4467058239861264573}
+  - component: {fileID: 2835635806876404974}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
@@ -102,8 +103,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fdc399a2152cd1488846093e0dd77c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   speed: 2.5
+  player: {fileID: 0}
 --- !u!50 &1655670094777442071
 Rigidbody2D:
   serializedVersion: 4
@@ -197,6 +198,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2835635806876404974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195864594365841073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 054522d854aa545459e71615e59cf2ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseHealth: 100
 --- !u!1 &1385739819203758631
 GameObject:
   m_ObjectHideFlags: 0
