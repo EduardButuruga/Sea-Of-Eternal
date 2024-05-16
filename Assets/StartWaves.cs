@@ -8,6 +8,9 @@ public class StartWaves : MonoBehaviour
     public PlayerCtrl playerController;
     public bool Activ = true;
 
+    public AudioSource audioSource; // Componenta AudioSource
+    public AudioClip shootSound; // Sunetul de împușcare
+
     private void OnMouseDown()
     {
         Debug.Log("Clopot");
@@ -21,6 +24,10 @@ public class StartWaves : MonoBehaviour
             if (playerController != null)
             {
                 playerController.canMove = true; // Permite mișcarea jucătorului
+            }
+            if (audioSource != null && shootSound != null)
+            {
+                audioSource.PlayOneShot(shootSound);
             }
             Activ = false;
         }
