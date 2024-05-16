@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerCtrl : MonoBehaviour
@@ -26,6 +27,8 @@ public class PlayerCtrl : MonoBehaviour
     public AudioSource audioSource; // Componenta AudioSource
     public AudioClip shootSound; // Sunetul de împușcare
 
+    public bool canMove = false;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -46,6 +49,8 @@ public class PlayerCtrl : MonoBehaviour
 
     void Update()
     {
+        //if (!canMove) return;
+
         float speedX = Input.GetAxis("Horizontal");
         float speedY = Input.GetAxis("Vertical");
         Vector2 targetDirection = new Vector2(speedX, speedY).normalized;
@@ -75,6 +80,8 @@ public class PlayerCtrl : MonoBehaviour
 
     void FixedUpdate()
     {
+        //if (!canMove) return;
+
         rb.AddForce(currentDirection * movSpeed);
 
         if (rb.velocity.magnitude > maxSpeed)
