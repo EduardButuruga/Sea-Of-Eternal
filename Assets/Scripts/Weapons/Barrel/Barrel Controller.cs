@@ -10,6 +10,7 @@ public class ExplosiveBarrel : MonoBehaviour
     public float stopTime = 2f; // Timpul după care butoiul se oprește
     public float explosionRadius = 2f; // Raza exploziei
     public LayerMask destroyableLayer; // Layer-ul obiectelor ce pot fi distruse
+    public float damage = 50f;
 
     public AudioSource audioSource; // Componenta AudioSource
     public AudioClip shootSound;
@@ -47,7 +48,7 @@ public class ExplosiveBarrel : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy") || ((1 << collision.gameObject.layer) & destroyableLayer) != 0)
+        if (collision.gameObject.CompareTag("Enemy") || ((1 << collision.gameObject.layer) & destroyableLayer) != 0 || collision.gameObject.CompareTag("Bullet"))
         {
             Explode();
         }
