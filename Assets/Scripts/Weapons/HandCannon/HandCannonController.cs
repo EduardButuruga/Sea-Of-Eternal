@@ -12,9 +12,16 @@ public class CannonController : MonoBehaviour
 
     private Vector3 lastMousePosition; // Ultima poziție a cursorului la momentul tragerii
 
+    public AudioSource audioSource; // Componenta AudioSource
+    public AudioClip shootSound; // Sunetul de împușcare
+
     void Start()
     {
         mainCamera = Camera.main;
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
     }
 
     void Update()
@@ -68,6 +75,12 @@ public class CannonController : MonoBehaviour
             // Compensează viteza bărcii
             Vector2 boatVelocity = playerController != null ? playerController.GetComponent<Rigidbody2D>().velocity : Vector2.zero;
             rb.velocity = direction * cannonballSpeed + boatVelocity;
+        }
+
+        // Redă sunetul de împușcare
+        if (audioSource != null && shootSound != null)
+        {
+            audioSource.PlayOneShot(shootSound);
         }
     }
 

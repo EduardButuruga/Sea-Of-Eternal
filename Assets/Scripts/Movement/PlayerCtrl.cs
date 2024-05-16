@@ -23,6 +23,9 @@ public class PlayerCtrl : MonoBehaviour
     private Vector2 lastInputDirection;
     private float nextBarrelTime = 0f;
 
+    public AudioSource audioSource; // Componenta AudioSource
+    public AudioClip shootSound; // Sunetul de împușcare
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -34,6 +37,11 @@ public class PlayerCtrl : MonoBehaviour
         lastInputDirection = Vector2.right;
 
         cannonController = GetComponentInChildren<CannonController>();
+
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
     }
 
     void Update()
@@ -80,6 +88,11 @@ public class PlayerCtrl : MonoBehaviour
         var barrel = Instantiate(explosiveBarrelPrefab, barrelSpawnPoint.position, barrelSpawnPoint.rotation);
         Rigidbody2D barrelRb = barrel.GetComponent<Rigidbody2D>();
         barrelRb.velocity = -currentDirection * barrelLaunchSpeed;
+
+        if (audioSource != null && shootSound != null)
+        {
+            audioSource.PlayOneShot(shootSound);
+        }
     }
 
     void UpdateCannonPoint()

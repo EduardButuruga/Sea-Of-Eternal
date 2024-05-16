@@ -14,10 +14,16 @@ public class Cannon : MonoBehaviour
     public Animator boatAnimator; // Referința la Animator-ul bărcii
 
     private bool isFiring = false;
+    public AudioSource audioSource; // Componenta AudioSource
+    public AudioClip shootSound; // Sunetul de împușcare
 
     private void Start()
     {
         StartFiring();
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
     }
 
     private void Fire()
@@ -40,6 +46,11 @@ public class Cannon : MonoBehaviour
         // Creează gloanța pentru tunul drept
         var bulletR = Instantiate(bulletPrefab, bulletSpawnPointR.position, bulletSpawnPointR.rotation);
         bulletR.GetComponent<Rigidbody2D>().velocity = bulletSpawnPointR.up * bulletSpeed;
+
+        if (audioSource != null && shootSound != null)
+        {
+            audioSource.PlayOneShot(shootSound);
+        }
     }
 
     private IEnumerator AutoFire()

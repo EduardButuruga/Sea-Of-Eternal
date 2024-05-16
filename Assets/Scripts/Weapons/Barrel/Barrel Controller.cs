@@ -11,6 +11,9 @@ public class ExplosiveBarrel : MonoBehaviour
     public float explosionRadius = 2f; // Raza exploziei
     public LayerMask destroyableLayer; // Layer-ul obiectelor ce pot fi distruse
 
+    public AudioSource audioSource; // Componenta AudioSource
+    public AudioClip shootSound;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -19,6 +22,11 @@ public class ExplosiveBarrel : MonoBehaviour
 
         // Declanșează animația de splash când butoiul este aruncat
         animator.SetTrigger("Splash");
+
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
     }
 
     void Update()
@@ -56,6 +64,11 @@ public class ExplosiveBarrel : MonoBehaviour
         foreach (var obj in objectsToDestroy)
         {
             Destroy(obj.gameObject); // Distruge obiectele din raza exploziei
+        }
+
+        if (audioSource != null && shootSound != null)
+        {
+            audioSource.PlayOneShot(shootSound);
         }
 
         Destroy(gameObject, 0.7f); // Distruge butoiul după explozie după un mic delay pentru a permite animația să ruleze
