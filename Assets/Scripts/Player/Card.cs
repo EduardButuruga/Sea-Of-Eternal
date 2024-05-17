@@ -26,7 +26,7 @@ public class Card : ScriptableObject
         Debug.Log(effect);
         Debug.Log(playerStats);
         switch (cardName)
-        {
+        {//TO DO: De luat fiecare fisier la rand si scris codul pentru fiecare in parte
             case "Increase Health":
                 playerStats.IncreaseMaxHealth((int)effect);
                 break;
