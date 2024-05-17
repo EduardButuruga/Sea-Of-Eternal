@@ -99,7 +99,7 @@ public class UpgradeManager : MonoBehaviour
         if (CanAfford(prices.harpoonStationUpgrades.launchSpeedPrice))
         {
             CoinManager.instance.AddCoin(-prices.harpoonStationUpgrades.launchSpeedPrice);
-            playerStats.cannonballSpeed += prices.harpoonStationUpgrades.launchSpeedPrice;
+            playerStats.launchSpeed += prices.harpoonStationUpgrades.launchSpeedPrice;
             UpdateText(prices.harpoonStationUpgrades.launchSpeedPriceText, playerStats.cannonballSpeed);
             IncreasePrice(ref prices.harpoonStationUpgrades.launchSpeedPrice, prices.harpoonStationUpgrades.launchSpeedPriceIncrease, prices.harpoonStationUpgrades.isLaunchSpeedPriceIncreasePercentage);
         }
@@ -110,7 +110,7 @@ public class UpgradeManager : MonoBehaviour
         if (CanAfford(prices.harpoonStationUpgrades.returnSpeedPrice))
         {
             CoinManager.instance.AddCoin(-prices.harpoonStationUpgrades.returnSpeedPrice);
-            playerStats.attackSpeed += prices.harpoonStationUpgrades.returnSpeedPrice;
+            playerStats.returnSpeed += prices.harpoonStationUpgrades.returnSpeedPrice;
             UpdateText(prices.harpoonStationUpgrades.returnSpeedPriceText, playerStats.attackSpeed);
             IncreasePrice(ref prices.harpoonStationUpgrades.returnSpeedPrice, prices.harpoonStationUpgrades.returnSpeedPriceIncrease, prices.harpoonStationUpgrades.isReturnSpeedPriceIncreasePercentage);
         }
@@ -121,7 +121,7 @@ public class UpgradeManager : MonoBehaviour
         if (CanAfford(prices.harpoonStationUpgrades.maxDistancePrice))
         {
             CoinManager.instance.AddCoin(-prices.harpoonStationUpgrades.maxDistancePrice);
-            playerStats.pickupRadius += prices.harpoonStationUpgrades.maxDistancePrice;
+            playerStats.maxDistance += prices.harpoonStationUpgrades.maxDistancePrice;
             UpdateText(prices.harpoonStationUpgrades.maxDistancePriceText, playerStats.pickupRadius);
             IncreasePrice(ref prices.harpoonStationUpgrades.maxDistancePrice, prices.harpoonStationUpgrades.maxDistancePriceIncrease, prices.harpoonStationUpgrades.isMaxDistancePriceIncreasePercentage);
         }
