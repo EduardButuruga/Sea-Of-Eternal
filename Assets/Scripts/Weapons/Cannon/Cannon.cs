@@ -22,6 +22,8 @@ public class Cannon : MonoBehaviour
     public float criticalDamageMultiplier = 2f; // Multiplicatorul de damage pentru lovitura critică
     public int bulletsPerSide = 1; // Numărul de gloanțe pe fiecare parte
     public float cannonballSpeed = 10f;
+    public PlayerCtrl playerController;
+
 
     private void Start()
     {
@@ -88,6 +90,7 @@ public class Cannon : MonoBehaviour
     {
         while (isFiring)
         {
+            if (!playerController.isInPort)
             Fire();
             yield return new WaitForSeconds(1f/attackSpeed);
         }

@@ -7,6 +7,8 @@ public class StartWaves : MonoBehaviour
     public WaveManager waveManager; // Referință către scriptul WaveManager
     public bool Activ = true;
     public WaveTimer waveTimer;
+    public PlayerCtrl playerController;
+    
 
     public AudioSource audioSource; // Componenta AudioSource
     public AudioClip shootSound; // Sunetul de împușcare
@@ -24,6 +26,11 @@ public class StartWaves : MonoBehaviour
             if(waveTimer != null)
             {
                 waveTimer.StartTimer();
+            }
+
+            if (playerController != null)
+            {
+                playerController.isInPort = false; // Setează că corabia nu mai este în port
             }
 
             if (audioSource != null && shootSound != null)

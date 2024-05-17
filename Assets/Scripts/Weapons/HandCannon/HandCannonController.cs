@@ -26,7 +26,6 @@ public class CannonController : MonoBehaviour
     private bool canFire = true;
     private Coroutine firingCoroutine;
 
-
     void Start()
     {
         mainCamera = Camera.main;
@@ -38,6 +37,8 @@ public class CannonController : MonoBehaviour
 
     void Update()
     {
+        if (playerController.isInPort) return;
+
         if (cannonPoint != null)
         {
             // Sincronizează poziția tunului cu poziția punctului de ancorare

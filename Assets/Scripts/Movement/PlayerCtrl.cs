@@ -27,7 +27,7 @@ public class PlayerCtrl : MonoBehaviour
     public AudioSource audioSource; // Componenta AudioSource
     public AudioClip shootSound; // Sunetul de împușcare
 
-    public bool canMove = false;
+    public bool isInPort = true;
 
     void Start()
     {
@@ -49,7 +49,7 @@ public class PlayerCtrl : MonoBehaviour
 
     void Update()
     {
-        //if (!canMove) return;
+        if (isInPort) return;
 
         float speedX = Input.GetAxis("Horizontal");
         float speedY = Input.GetAxis("Vertical");
@@ -80,7 +80,7 @@ public class PlayerCtrl : MonoBehaviour
 
     void FixedUpdate()
     {
-        //if (!canMove) return;
+        if (isInPort) return;
 
         rb.AddForce(currentDirection * movSpeed);
 
