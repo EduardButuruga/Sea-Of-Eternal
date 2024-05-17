@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerCtrl : MonoBehaviour
@@ -14,7 +13,7 @@ public class PlayerCtrl : MonoBehaviour
     public float barrelLaunchSpeed = 2f;
     public float barrelCooldown = 3f;
     public float pickupRadius = 5f;
-
+    public bool areBarrelsUnlocked = false;
     public Transform[] cannonPoints; // Array cu punctele de ancorare ale tunului pentru fiecare sprite
     public CannonController cannonController; // Referință către scriptul CannonController
 
@@ -40,7 +39,15 @@ public class PlayerCtrl : MonoBehaviour
         verticalParamHash = Animator.StringToHash("Vertical");
         lastInputDirection = Vector2.right;
 
-        cannonController = GetComponentInChildren<CannonController>();
+        // Activează temporar tunul pentru a obține referința la CannonController
+        bool initialCannonActiveState = false;
+        if (cannonController == null && cannonPoints.Length > 0 && cannonPoints[0].gameObject != null)
+        {
+            initialCannonActiveState = cannonPoints[0].gameObject.activeSelf;
+            cannonPoints[0].gameObject.SetActive(true);
+            cannonController = cannonPoints[0].GetComponentInChildren<CannonController>();
+            cannonPoints[0].gameObject.SetActive(initialCannonActiveState);
+        }
 
         if (audioSource == null)
         {
@@ -94,6 +101,12 @@ public class PlayerCtrl : MonoBehaviour
 
     void DropExplosiveBarrel()
     {
+        if (!areBarrelsUnlocked)
+        {
+            Debug.Log("Butoaiele nu sunt deblocate încă!");
+            return;
+        }
+
         var barrel = Instantiate(explosiveBarrelPrefab, barrelSpawnPoint.position, barrelSpawnPoint.rotation);
         Rigidbody2D barrelRb = barrel.GetComponent<Rigidbody2D>();
         barrelRb.velocity = -currentDirection * barrelLaunchSpeed;

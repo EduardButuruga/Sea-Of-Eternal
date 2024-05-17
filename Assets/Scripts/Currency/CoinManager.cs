@@ -5,7 +5,8 @@ public class CoinManager : MonoBehaviour
 {
     public static CoinManager instance;
     public Text coinText;
-    private int coins;
+    public Text coinText2;
+    public int coins;
 
     void Awake()
     {
@@ -19,10 +20,12 @@ public class CoinManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    void Start()
+    void Update()
     {
-        coins = 0;
+        UpdateCoinText();
+    }
+    void Start()
+    {     
         UpdateCoinText();
     }
 
@@ -41,6 +44,7 @@ public class CoinManager : MonoBehaviour
     {
         if (coinText != null)
         {
+            coinText2.text = "x" + coins;
             coinText.text = "x" + coins;
         }
     }
