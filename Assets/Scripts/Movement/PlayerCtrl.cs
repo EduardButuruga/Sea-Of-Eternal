@@ -13,6 +13,7 @@ public class PlayerCtrl : MonoBehaviour
     public Transform barrelSpawnPoint;
     public float barrelLaunchSpeed = 2f;
     public float barrelCooldown = 3f;
+    public float pickupRadius = 5f;
 
     public Transform[] cannonPoints; // Array cu punctele de ancorare ale tunului pentru fiecare sprite
     public CannonController cannonController; // Referință către scriptul CannonController
@@ -76,6 +77,7 @@ public class PlayerCtrl : MonoBehaviour
             DropExplosiveBarrel();
             nextBarrelTime = Time.time + barrelCooldown;
         }
+        AttractCoins();
     }
 
     void FixedUpdate()
@@ -121,6 +123,19 @@ public class PlayerCtrl : MonoBehaviour
         if (cannonController != null && index < cannonPoints.Length)
         {
             cannonController.SetCannonPoint(cannonPoints[index]);
+        }
+    }
+
+    void AttractCoins()
+    {
+        Collider2D[] coins = Physics2D.OverlapCircleAll(transform.position, pickupRadius, LayerMask.GetMask("Coin"));
+        foreach (var coinCollider in coins)
+        {
+            Coin coin = coinCollider.GetComponent<Coin>();
+            if (coin != null)
+            {
+                coin.StartAttraction(transform);
+            }
         }
     }
 }

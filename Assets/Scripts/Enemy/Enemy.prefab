@@ -167,6 +167,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseHealth: 100
+  coinPrefab: {fileID: 1802321396517906589, guid: d485e01ecfa628e4caa421c7ced0fcab, type: 3}
+  coinsToDrop: 3
   damagePopupOffset: {x: 3.09, y: -0.21, z: 0}
 --- !u!61 &4179903854507214639
 BoxCollider2D:

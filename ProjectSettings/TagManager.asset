@@ -8,6 +8,7 @@ TagManager:
   - EnemyC
   - Treasure
   - Bullet
+  - Coin
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - Harpoon
   - Bullet
   - Barrel
-  - 
+  - Coin
   - 
   - 
   - 

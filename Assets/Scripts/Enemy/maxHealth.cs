@@ -10,6 +10,10 @@ public class maxHealth : MonoBehaviour
 
     private float currentHealth;
     private float Health;
+    public GameObject coinPrefab;
+    public int minCoins = 1; // Numărul minim de monede droppate
+    public int maxCoins = 5;// Numărul de monede droppate
+    public float dropRadius = 0.5f;
     public Vector3 damagePopupOffset = new Vector3(0, 1, 0); // Offset pentru poziția popup-ului
 
     void Start()
@@ -55,7 +59,25 @@ public class maxHealth : MonoBehaviour
             playerXp.AddXP(xpValue);
         }
 
+        DropCoins();
         Destroy(gameObject);
         // Sau alte efecte la moarte, de exemplu: animații, particule etc.
+    }
+
+    void DropCoins()
+    {
+        int coinDropCount = Random.Range(minCoins, maxCoins + 1);
+        for (int i = 0; i < coinDropCount; i++)
+        {
+            Vector2 dropPosition = GetRandomDropPosition();
+            Instantiate(coinPrefab, dropPosition, Quaternion.identity);
+        }
+    }
+
+    Vector2 GetRandomDropPosition()
+    {
+        // Adaugă un offset random în jurul poziției inamicului
+        Vector2 randomOffset = Random.insideUnitCircle * dropRadius;
+        return (Vector2)transform.position + randomOffset;
     }
 }
