@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,12 +9,17 @@ public class PlayerXp : MonoBehaviour
     public Slider xpSlider; // Referință către bara de XP
     public Text levelText; // Referință către textul pentru nivel
     public RewardSelection rewardSelection;
+    public PlayerStats playerStats;
 
     public AudioSource audioSource; // Componenta AudioSource
     public AudioClip shootSound; // Sunetul de împușcare
 
     void Start()
     {
+        if (playerStats == null)
+        {
+            playerStats = GetComponent<PlayerStats>();
+        }
         if (audioSource == null)
         {
             audioSource = GetComponent<AudioSource>();
@@ -26,7 +29,8 @@ public class PlayerXp : MonoBehaviour
 
     public void AddXP(int xp)
     {
-        currentXP += xp;
+        float xpp = xp * playerStats.xpMultiplier;
+        currentXP += (int)xpp;
 
         if (currentXP >= xpToNextLevel)
         {
@@ -40,7 +44,7 @@ public class PlayerXp : MonoBehaviour
     {
         currentXP -= xpToNextLevel;
         currentLevel++;
-        xpToNextLevel = Mathf.RoundToInt(xpToNextLevel * 1.25f); // Crește cerința de XP pentru următorul nivel
+        xpToNextLevel = Mathf.RoundToInt(xpToNextLevel * 1.20f); // Crește cerința de XP pentru următorul nivel
 
         // Actualizează UI-ul pentru nivel
         levelText.text = "Level: " + currentLevel;

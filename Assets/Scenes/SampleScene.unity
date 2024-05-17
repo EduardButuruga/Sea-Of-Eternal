@@ -7691,6 +7691,7 @@ GameObject:
   - component: {fileID: 565056954}
   - component: {fileID: 565056955}
   - component: {fileID: 565056956}
+  - component: {fileID: 565056957}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -8185,8 +8186,25 @@ MonoBehaviour:
   xpSlider: {fileID: 1775672729}
   levelText: {fileID: 760987304}
   rewardSelection: {fileID: 1341762897}
+  playerStats: {fileID: 1612453693}
   audioSource: {fileID: 565056950}
   shootSound: {fileID: 8300000, guid: 2c6c19484f8c9fd44ab5fbf1c9b78a49, type: 3}
+--- !u!114 &565056957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565056943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d267bb9add20044faef5362378b91f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  luck: 10
+  armor: 1
+  lifeRegen: 1
+  xpMultiplier: 1
 --- !u!1 &572449185
 GameObject:
   m_ObjectHideFlags: 0
@@ -10038,6 +10056,7 @@ MonoBehaviour:
   - {fileID: 150724036}
   playerXP: {fileID: 565056956}
   cardDatabase: {fileID: 11400000, guid: 8fa119e800bae8e42be22cd2472fb989, type: 2}
+  playerStats: {fileID: 0}
 --- !u!1 &1357211117
 GameObject:
   m_ObjectHideFlags: 0
@@ -11218,6 +11237,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1612453691}
   - component: {fileID: 1612453692}
+  - component: {fileID: 1612453693}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -11254,6 +11274,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinText: {fileID: 267643268}
+--- !u!114 &1612453693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612453690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d267bb9add20044faef5362378b91f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  luck: 10
+  armor: 0
+  lifeRegen: 0
+  xpMultiplier: 1
 --- !u!1 &1698437488
 GameObject:
   m_ObjectHideFlags: 0

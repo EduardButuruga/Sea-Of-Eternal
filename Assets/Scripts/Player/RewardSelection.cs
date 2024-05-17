@@ -13,6 +13,7 @@ public class RewardSelection : MonoBehaviour
     public Text[] names;
     public PlayerXp playerXP;
     public CardDatabase cardDatabase; // Referință către baza de date a cardurilor
+    public PlayerStats playerStats;
 
     private void Start()
     {
@@ -21,13 +22,11 @@ public class RewardSelection : MonoBehaviour
 
     public void ShowRewardSelection()
     {
+        Debug.Log(playerStats);
         rewardPanel.SetActive(true);
         Time.timeScale = 0f;
 
         List<Card> randomCards = cardDatabase.GetRandomCards(rewardButtons.Length);
-
-        Debug.Log(randomCards.Count);
-        Debug.Log(rewardButtons.Count());
 
         for (int i = 0; i < rewardButtons.Length; i++)
         {
