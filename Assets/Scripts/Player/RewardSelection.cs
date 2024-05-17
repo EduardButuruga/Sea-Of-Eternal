@@ -17,6 +17,10 @@ public class RewardSelection : MonoBehaviour
 
     private void Start()
     {
+        if(playerStats == null)
+        {
+            playerStats = FindObjectOfType<PlayerStats>();
+        }
         rewardPanel.SetActive(false);
     }
 
@@ -26,7 +30,7 @@ public class RewardSelection : MonoBehaviour
         rewardPanel.SetActive(true);
         Time.timeScale = 0f;
 
-        List<Card> randomCards = cardDatabase.GetRandomCards(rewardButtons.Length);
+        List<Card> randomCards = cardDatabase.GetRandomCards(rewardButtons.Length, playerStats.luck);
 
         for (int i = 0; i < rewardButtons.Length; i++)
         {

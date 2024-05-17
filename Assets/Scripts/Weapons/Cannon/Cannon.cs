@@ -14,19 +14,20 @@ public class Cannon : MonoBehaviour
     private bool isFiring = false;
     public AudioSource audioSource; // Componenta AudioSource
     public AudioClip shootSound; // Sunetul de împușcare
+    public PlayerStats playerStats;
 
     // Adaugă variabilele pentru statusuri
-    public float damage = 10f; // Damage-ul tunului
-    public float attackSpeed = 1f; // Viteza de atac
-    public float criticalStrikeChance = 0.1f; // Șansa de lovitură critică
-    public float criticalDamageMultiplier = 2f; // Multiplicatorul de damage pentru lovitura critică
-    public int bulletsPerSide = 1; // Numărul de gloanțe pe fiecare parte
-    public float cannonballSpeed = 10f;
+
+
     public PlayerCtrl playerController;
 
 
     private void Start()
     {
+        if (playerStats == null)
+        {
+            playerStats = FindObjectOfType<PlayerStats>();
+        }
         StartFiring();
         if (audioSource == null)
         {
@@ -49,10 +50,10 @@ public class Cannon : MonoBehaviour
         }
 
         // Calculează unghiurile pentru ghiulele
-        float angleStep = bulletsPerSide > 1 ? 60f / (bulletsPerSide - 1) : 0f;
-        float startAngle = bulletsPerSide > 1 ? -30f : 0f;
+        float angleStep = playerStats.bulletsPerSide > 1 ? 60f / (playerStats.bulletsPerSide - 1) : 0f;
+        float startAngle = playerStats.bulletsPerSide > 1 ? -30f : 0f;
 
-        for (int i = 0; i < bulletsPerSide; i++)
+        for (int i = 0; i < playerStats.bulletsPerSide; i++)
         {
             float currentAngle = startAngle + i * angleStep;
             FireBullet(bulletSpawnPoint, baseAngle + currentAngle);
@@ -81,11 +82,11 @@ public class Cannon : MonoBehaviour
         Bullet cannonballScript = bullet.GetComponent<Bullet>();
         if (cannonballScript != null)
         {
-            float finalDamage = damage;
-            bool isCriticalHit = Random.value < criticalStrikeChance;
+            float finalDamage = playerStats.damage;
+            bool isCriticalHit = Random.value < playerStats.criticalStrikeChance;
             if (isCriticalHit)
             {
-                finalDamage *= criticalDamageMultiplier;
+                finalDamage *= playerStats.criticalDamageMultiplier;
                 Debug.Log("Critical hit!");
             }
             cannonballScript.SetDamage(finalDamage, isCriticalHit);
@@ -98,7 +99,7 @@ public class Cannon : MonoBehaviour
             }
         }
 
-        rb.velocity = direction * cannonballSpeed;
+        rb.velocity = direction * playerStats.cannonballSpeed;
     }
 
     private IEnumerator AutoFire()
@@ -107,7 +108,7 @@ public class Cannon : MonoBehaviour
         {
             if (!playerController.isInPort)
             Fire();
-            yield return new WaitForSeconds(1f / attackSpeed);
+            yield return new WaitForSeconds(1f / playerStats.attackSpeed);
         }
     }
 

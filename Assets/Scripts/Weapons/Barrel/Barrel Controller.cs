@@ -8,15 +8,18 @@ public class ExplosiveBarrel : MonoBehaviour
     private Rigidbody2D rb;
 
     public float stopTime = 2f; // Timpul după care butoiul se oprește
-    public float explosionRadius = 2f; // Raza exploziei
     public LayerMask destroyableLayer; // Layer-ul obiectelor ce pot fi distruse
-    public float damage = 50f;
 
     public AudioSource audioSource; // Componenta AudioSource
     public AudioClip shootSound;
+    public PlayerStats playerStats;
 
     void Start()
     {
+        if (playerStats == null)
+        {
+            playerStats = FindObjectOfType<PlayerStats>();
+        }
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         StartCoroutine(StopAfterTime());
@@ -60,14 +63,14 @@ public class ExplosiveBarrel : MonoBehaviour
         animator.SetTrigger("Explode");
 
         // Adaugă logica pentru explozie (efecte vizuale, sunete, damage)
-        Collider2D[] objectsToDestroy = Physics2D.OverlapCircleAll(transform.position, explosionRadius, destroyableLayer);
+        Collider2D[] objectsToDestroy = Physics2D.OverlapCircleAll(transform.position, playerStats.BarrelExplosionRadius, destroyableLayer);
 
         foreach (var obj in objectsToDestroy)
         {
             maxHealth enemyHealth = obj.GetComponent<maxHealth>();
             if (enemyHealth != null)
             {
-                enemyHealth.TakeFlatDamage(this.damage);
+                enemyHealth.TakeFlatDamage(playerStats.BarrelDamage);
             }
         }
 
@@ -91,6 +94,6 @@ public class ExplosiveBarrel : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, explosionRadius);
+        Gizmos.DrawWireSphere(transform.position, playerStats.BarrelExplosionRadius);
     }
 }

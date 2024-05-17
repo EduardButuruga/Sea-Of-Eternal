@@ -11,8 +11,6 @@ public class PlayerCtrl : MonoBehaviour
     public GameObject explosiveBarrelPrefab;
     public Transform barrelSpawnPoint;
     public float barrelLaunchSpeed = 2f;
-    public float barrelCooldown = 3f;
-    public float pickupRadius = 5f;
     public bool areBarrelsUnlocked = false;
     public Transform[] cannonPoints; // Array cu punctele de ancorare ale tunului pentru fiecare sprite
     public CannonController cannonController; // Referință către scriptul CannonController
@@ -23,6 +21,7 @@ public class PlayerCtrl : MonoBehaviour
     private Vector2 currentDirection;
     private Vector2 lastInputDirection;
     private float nextBarrelTime = 0f;
+    PlayerStats playerStats;
 
     public AudioSource audioSource; // Componenta AudioSource
     public AudioClip shootSound; // Sunetul de împușcare
@@ -31,6 +30,10 @@ public class PlayerCtrl : MonoBehaviour
 
     void Start()
     {
+        if (playerStats == null)
+        {
+            playerStats = FindObjectOfType<PlayerStats>();
+        }
         rb = GetComponent<Rigidbody2D>();
         currentDirection = Vector2.right;
         rb.drag = 2;
@@ -82,7 +85,7 @@ public class PlayerCtrl : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && Time.time >= nextBarrelTime)
         {
             DropExplosiveBarrel();
-            nextBarrelTime = Time.time + barrelCooldown;
+            nextBarrelTime = Time.time + playerStats.barrelCooldown;
         }
         AttractCoins();
     }
@@ -141,7 +144,7 @@ public class PlayerCtrl : MonoBehaviour
 
     void AttractCoins()
     {
-        Collider2D[] coins = Physics2D.OverlapCircleAll(transform.position, pickupRadius, LayerMask.GetMask("Coin"));
+        Collider2D[] coins = Physics2D.OverlapCircleAll(transform.position, playerStats.pickupRadius, LayerMask.GetMask("Coin"));
         foreach (var coinCollider in coins)
         {
             Coin coin = coinCollider.GetComponent<Coin>();

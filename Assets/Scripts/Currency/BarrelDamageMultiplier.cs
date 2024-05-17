@@ -19,16 +19,6 @@ public class UpgradeBarrackManager : MonoBehaviour
 
     public void IncreaseDamage()
     {
-        if (explosiveBarrel != null)
-        {
-            explosiveBarrel.damage += damageIncreaseAmount;
-            Debug.Log("Damage-ul butoiului a fost crescut la: " + explosiveBarrel.damage);
-        }
-
-        if (cannonController != null)
-        {
-            cannonController.damage += damageIncreaseAmount;
-            Debug.Log("Damage-ul tunului a fost crescut la: " + cannonController.damage);
-        }
+        
     }
 }

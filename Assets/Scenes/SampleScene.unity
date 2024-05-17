@@ -8176,9 +8176,9 @@ GameObject:
   - component: {fileID: 565056951}
   - component: {fileID: 565056952}
   - component: {fileID: 565056953}
-  - component: {fileID: 565056954}
   - component: {fileID: 565056955}
   - component: {fileID: 565056956}
+  - component: {fileID: 565056954}
   - component: {fileID: 565056957}
   m_Layer: 7
   m_Name: Player
@@ -8227,14 +8227,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movSpeed: 100
-  rotationSpeed: 10
+  rotationSpeed: 2
   maxSpeed: 2
   animator: {fileID: 565056949}
   explosiveBarrelPrefab: {fileID: 3892395704446459728, guid: 4ee02db451f6bfb49aa1c969f520a28b, type: 3}
   barrelSpawnPoint: {fileID: 737972555}
   barrelLaunchSpeed: 1
-  barrelCooldown: 2
-  pickupRadius: 6
   areBarrelsUnlocked: 0
   cannonPoints:
   - {fileID: 312344408}
@@ -8341,12 +8339,7 @@ MonoBehaviour:
   boatAnimator: {fileID: 565056949}
   audioSource: {fileID: 565056950}
   shootSound: {fileID: 8300000, guid: d4e7bad90e2c40c4da555c27cfc9d399, type: 3}
-  damage: 10
-  attackSpeed: 1
-  criticalStrikeChance: 0.43
-  criticalDamageMultiplier: 2
-  bulletsPerSide: 1
-  cannonballSpeed: 10
+  playerStats: {fileID: 565056957}
   playerController: {fileID: 565056945}
 --- !u!95 &565056949
 Animator:
@@ -8639,9 +8632,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce8789be5b8eaeb4981918a7cab4ea3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  health: 0
   healthBar: {fileID: 122034572}
+  playerStats: {fileID: 0}
   rb: {fileID: 565056944}
 --- !u!114 &565056955
 MonoBehaviour:
@@ -8669,13 +8661,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bdeaf636cc2cc046be4c20b22f3b94e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentXP: 0
+  currentXP: 80
   currentLevel: 1
   xpToNextLevel: 100
   xpSlider: {fileID: 1775672729}
   levelText: {fileID: 760987304}
   rewardSelection: {fileID: 1341762897}
-  playerStats: {fileID: 1612453693}
+  playerStats: {fileID: 565056957}
   audioSource: {fileID: 565056950}
   shootSound: {fileID: 8300000, guid: 2c6c19484f8c9fd44ab5fbf1c9b78a49, type: 3}
 --- !u!114 &565056957
@@ -8694,6 +8686,24 @@ MonoBehaviour:
   armor: 1
   lifeRegen: 1
   xpMultiplier: 1
+  dmgMultiplier: 1
+  pickupRadius: 5
+  maxHealth: 10
+  barrelCooldown: 3
+  currentHealth: 0
+  damage: 10
+  attackSpeed: 1
+  criticalStrikeChance: 0.1
+  criticalDamageMultiplier: 2
+  bulletsPerSide: 1
+  cannonballSpeed: 10
+  HandCannonDamage: 10
+  HandCannonAttackSpeed: 1
+  HandCannonCannonballSpeed: 10
+  HandCannonCriticalStrikeChance: 0.1
+  HandCannonCriticalDamageMultiplier: 2
+  BarrelDamage: 50
+  BarrelExplosionRadius: 2
 --- !u!1 &572449185
 GameObject:
   m_ObjectHideFlags: 0
@@ -8718,7 +8728,7 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 595591502}
+  m_GameObject: {fileID: 572449185}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -8737,7 +8747,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 595591502}
+  m_GameObject: {fileID: 572449185}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
@@ -8771,7 +8781,7 @@ CanvasRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 595591502}
+  m_GameObject: {fileID: 572449185}
   m_CullTransparentMesh: 1
 --- !u!1 &632409577
 GameObject:
@@ -12702,7 +12712,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1938013188
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13112,13 +13122,9 @@ MonoBehaviour:
   cannonballPrefab: {fileID: 445324803062435423, guid: 8fb7a3340746abe48b13806869ec8798, type: 3}
   animator: {fileID: 2076924728}
   playerController: {fileID: 565056945}
+  playerStats: {fileID: 0}
   audioSource: {fileID: 2076924729}
   shootSound: {fileID: 8300000, guid: 7edf02d83dacbf84fbb2fbeb08baa2de, type: 3}
-  damage: 100
-  attackSpeed: 1
-  cannonballSpeed: 10
-  criticalStrikeChance: 0.1
-  criticalDamageMultiplier: 2
 --- !u!95 &2076924728
 Animator:
   serializedVersion: 5

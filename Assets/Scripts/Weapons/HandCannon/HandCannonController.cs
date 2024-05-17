@@ -9,18 +9,14 @@ public class CannonController : MonoBehaviour
     public GameObject cannonballPrefab; // Prefab pentru ghiulea
     public Animator animator; // Animator pentru tun
     public PlayerCtrl playerController; // Referință către scriptul PlayerCtrl pentru a obține viteza bărcii
+    public PlayerStats playerStats;
 
     private Vector3 lastMousePosition; // Ultima poziție a cursorului la momentul tragerii
 
     public AudioSource audioSource; // Componenta AudioSource
     public AudioClip shootSound; // Sunetul de împușcare
 
-    [Header("Cannon Stats")]
-    public float damage = 10f; // Damage-ul tunului
-    public float attackSpeed = 1f; // Viteza de atac
-    public float cannonballSpeed = 10f; // Viteza ghiulelei
-    public float criticalStrikeChance = 0.1f; // Șansa de lovitură critică
-    public float criticalDamageMultiplier = 2f; // Multiplicatorul de damage pentru lovitura critică
+    
 
     private bool isFiring = false; // Indicator pentru a verifica dacă tunul trage
     private bool canFire = true;
@@ -29,6 +25,10 @@ public class CannonController : MonoBehaviour
 
     void Start()
     {
+        if(playerStats == null)
+        {
+            playerStats = FindObjectOfType<PlayerStats>();
+        }
         mainCamera = Camera.main;
         if (audioSource == null)
         {
@@ -92,13 +92,13 @@ public class CannonController : MonoBehaviour
                 lastMousePosition.z = 0; // Asigură-te că z-ul este 0 pentru calcul corect
 
                 // Determină dacă lovitura este critică
-                isCriticalHit = Random.value < criticalStrikeChance;
+                isCriticalHit = Random.value < playerStats.HandCannonCriticalStrikeChance;
 
                 // Activează trigger-ul pentru animația de tragere
                 animator.SetTrigger("Shoot");
 
                 // Așteaptă până când tunul poate trage din nou, în funcție de viteza de atac
-                yield return new WaitForSeconds(1f / attackSpeed);
+                yield return new WaitForSeconds(1f / playerStats.HandCannonAttackSpeed);
             }
         }
     }
@@ -124,7 +124,7 @@ public class CannonController : MonoBehaviour
             {
                 // Compensează viteza bărcii
                 Vector2 boatVelocity = playerController != null ? playerController.GetComponent<Rigidbody2D>().velocity : Vector2.zero;
-                rb.velocity = direction * cannonballSpeed + boatVelocity;
+                rb.velocity = direction * playerStats.HandCannonCannonballSpeed + boatVelocity;
             }
 
             // Setează parametrul isCritical în Animatorul cannonball-ului
@@ -138,10 +138,10 @@ public class CannonController : MonoBehaviour
             Bullet cannonballScript = cannonball.GetComponent<Bullet>();
             if (cannonballScript != null)
             {
-                float finalDamage = damage;
+                float finalDamage = playerStats.HandCannonDamage * playerStats.dmgMultiplier;
                 if (isCriticalHit)
                 {
-                    finalDamage *= criticalDamageMultiplier;
+                    finalDamage *= playerStats.HandCannonCriticalDamageMultiplier;
                     Debug.Log("Critical hit!");
                 }
                 cannonballScript.SetDamage(finalDamage, isCriticalHit);
@@ -161,7 +161,7 @@ public class CannonController : MonoBehaviour
 
     private IEnumerator Cooldown()
     {
-        yield return new WaitForSeconds(1f / attackSpeed);
+        yield return new WaitForSeconds(1f / playerStats.HandCannonAttackSpeed);
         canFire = true;
     }
 

@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int maxHealth = 10;
-    public int health;
-
     public HealthBar healthBar;
     private Animator animator;
+    public PlayerStats playerStats;
 
     public static PlayerHealth Instance { get; private set; }
     private bool isDead;
@@ -29,19 +27,25 @@ public class PlayerHealth : MonoBehaviour
     }
     void Start()
     {
-        health = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        if (playerStats == null)
+        {
+            playerStats = FindObjectOfType<PlayerStats>();
+        }
+        playerStats.currentHealth = playerStats.maxHealth;
+        healthBar.SetMaxHealth(playerStats.maxHealth);
     }
     public void TakeDamage(int damage, Vector3 enemypos)
     {
-        health -= damage;
-        healthBar.SetHealth(health);
+
+        var trueDamage = damage - playerStats.armor;
+        playerStats.currentHealth -= damage;
+        healthBar.SetHealth(playerStats.currentHealth);
         if (animator != null)
         {
             animator.SetTrigger("hurt");
         }
 
-        if (health <= 0 && !isDead)
+        if (playerStats.currentHealth <= 0 && !isDead)
         {
             isDead = true;
             // Poți adăuga logică pentru când jucătorul moare, de exemplu reîncărcarea scenei
