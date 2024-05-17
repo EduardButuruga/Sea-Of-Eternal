@@ -831,7 +831,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &234314675
 Transform:
   m_ObjectHideFlags: 0
@@ -6691,6 +6691,7 @@ MonoBehaviour:
   waveManager: {fileID: 2134480208}
   Activ: 1
   waveTimer: {fileID: 2134480209}
+  playerController: {fileID: 565056945}
   audioSource: {fileID: 405981617}
   shootSound: {fileID: 8300000, guid: 8f929b9ee66bf4d4d9551dfcf071b77e, type: 3}
 --- !u!61 &405981616
@@ -7200,6 +7201,7 @@ GameObject:
   - component: {fileID: 565056952}
   - component: {fileID: 565056953}
   - component: {fileID: 565056954}
+  - component: {fileID: 565056955}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -7661,6 +7663,20 @@ MonoBehaviour:
   health: 0
   healthBar: {fileID: 122034572}
   rb: {fileID: 565056944}
+--- !u!114 &565056955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565056943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c20a6cbdc6589514a8b23e922f8a342e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foam: {fileID: 234314674}
+  playerCtrl: {fileID: 565056945}
 --- !u!1 &632409577
 GameObject:
   m_ObjectHideFlags: 0
