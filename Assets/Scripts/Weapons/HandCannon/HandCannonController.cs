@@ -25,6 +25,7 @@ public class CannonController : MonoBehaviour
     private bool isFiring = false; // Indicator pentru a verifica dacă tunul trage
     private bool canFire = true;
     private Coroutine firingCoroutine;
+    private bool isCriticalHit; // Variabilă pentru a stoca dacă lovitura este critică
 
     void Start()
     {
@@ -59,26 +60,25 @@ public class CannonController : MonoBehaviour
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
         // Verifică dacă jucătorul ține apăsat butonul stâng de mouse
-       
-            if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (!isFiring)
             {
-                if (!isFiring)
-                {
-                    isFiring = true;
-                        if (canFire)
-                            firingCoroutine = StartCoroutine(FireContinuously());
-                }
+                isFiring = true;
+                if (canFire)
+                    firingCoroutine = StartCoroutine(FireContinuously());
             }
+        }
 
-            if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0))
+        {
+            if (isFiring)
             {
-                if (isFiring)
-                {
-                    isFiring = false;
-                        if (canFire)
-                            StopCoroutine(firingCoroutine);
-                }
+                isFiring = false;
+                if (canFire)
+                    StopCoroutine(firingCoroutine);
             }
+        }
     }
 
     private IEnumerator FireContinuously()
@@ -87,17 +87,18 @@ public class CannonController : MonoBehaviour
         {
             while (isFiring)
             {
-
                 // Salvează poziția cursorului la momentul tragerii
                 lastMousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
                 lastMousePosition.z = 0; // Asigură-te că z-ul este 0 pentru calcul corect
+
+                // Determină dacă lovitura este critică
+                isCriticalHit = Random.value < criticalStrikeChance;
 
                 // Activează trigger-ul pentru animația de tragere
                 animator.SetTrigger("Shoot");
 
                 // Așteaptă până când tunul poate trage din nou, în funcție de viteza de atac
                 yield return new WaitForSeconds(1f / attackSpeed);
-
             }
         }
     }
@@ -126,17 +127,24 @@ public class CannonController : MonoBehaviour
                 rb.velocity = direction * cannonballSpeed + boatVelocity;
             }
 
+            // Setează parametrul isCritical în Animatorul cannonball-ului
+            Animator cannonballAnimator = cannonball.GetComponent<Animator>();
+            if (cannonballAnimator != null)
+            {
+                cannonballAnimator.SetFloat("isCritical", isCriticalHit ? 1f : 0f);
+            }
+
             // Aplică damage-ul și șansa de lovitură critică
             Bullet cannonballScript = cannonball.GetComponent<Bullet>();
             if (cannonballScript != null)
             {
                 float finalDamage = damage;
-                if (Random.value < criticalStrikeChance)
+                if (isCriticalHit)
                 {
                     finalDamage *= criticalDamageMultiplier;
                     Debug.Log("Critical hit!");
                 }
-                cannonballScript.SetDamage(finalDamage);
+                cannonballScript.SetDamage(finalDamage, isCriticalHit);
             }
 
             // Redă sunetul de împușcare

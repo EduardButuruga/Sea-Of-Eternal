@@ -67,23 +67,38 @@ public class Cannon : MonoBehaviour
 
     private void FireBullet(Transform spawnPoint, float angle)
     {
+        // Setează rotația spawn point-ului și instanțiază ghiuleaua
         spawnPoint.rotation = Quaternion.Euler(0, 0, angle);
 
         var bullet = Instantiate(bulletPrefab, spawnPoint.position, spawnPoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.velocity = spawnPoint.up * cannonballSpeed;
+
+        // Calculează direcția și setează rotația ghiulelei în funcție de direcție
+        Vector2 direction = spawnPoint.up;
+        float bulletAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, bulletAngle));
 
         Bullet cannonballScript = bullet.GetComponent<Bullet>();
         if (cannonballScript != null)
         {
             float finalDamage = damage;
-            if (Random.value < criticalStrikeChance)
+            bool isCriticalHit = Random.value < criticalStrikeChance;
+            if (isCriticalHit)
             {
                 finalDamage *= criticalDamageMultiplier;
                 Debug.Log("Critical hit!");
             }
-            cannonballScript.SetDamage(finalDamage);
+            cannonballScript.SetDamage(finalDamage, isCriticalHit);
+
+            // Setează parametrul isCritical în Animatorul cannonball-ului
+            Animator cannonballAnimator = bullet.GetComponent<Animator>();
+            if (cannonballAnimator != null)
+            {
+                cannonballAnimator.SetFloat("isCritical", isCriticalHit ? 1f : 0f);
+            }
         }
+
+        rb.velocity = direction * cannonballSpeed;
     }
 
     private IEnumerator AutoFire()
@@ -92,7 +107,7 @@ public class Cannon : MonoBehaviour
         {
             if (!playerController.isInPort)
             Fire();
-            yield return new WaitForSeconds(1f/attackSpeed);
+            yield return new WaitForSeconds(1f / attackSpeed);
         }
     }
 

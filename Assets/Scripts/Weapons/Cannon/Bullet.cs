@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,15 +6,17 @@ public class Bullet : MonoBehaviour
 {
     public float life = 3;
     private float damage;
+    private bool isCriticalHit;
 
     private void Awake()
     {
         Destroy(gameObject, life);
     }
 
-    public void SetDamage(float damage)
+    public void SetDamage(float damage, bool isCriticalHit)
     {
         this.damage = damage;
+        this.isCriticalHit = isCriticalHit;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -25,7 +27,7 @@ public class Bullet : MonoBehaviour
             maxHealth enemyHealth = collision.GetComponent<maxHealth>();
             if (enemyHealth != null)
             {
-                enemyHealth.TakeDamage(this.damage);
+                enemyHealth.TakeDamage(this.damage, isCriticalHit);
             }
             Destroy(gameObject);
         }

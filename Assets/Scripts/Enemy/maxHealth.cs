@@ -7,6 +7,7 @@ public class maxHealth : MonoBehaviour
     public float baseHealth = 100f;
     private float currentHealth;
     private float Health;
+    public Vector3 damagePopupOffset = new Vector3(0, 1, 0); // Offset pentru poziția popup-ului
 
     void Start()
     {
@@ -14,9 +15,11 @@ public class maxHealth : MonoBehaviour
         currentHealth = Health;
     }
 
-    public void TakeDamage(float amount)
+    public void TakeDamage(float amount, bool isCriticalHit)
     {
         currentHealth -= amount;
+        DamagePopUP.Create(transform.position, (int)amount, isCriticalHit, damagePopupOffset);
+
         if (currentHealth <= 0)
         {
             Die();
