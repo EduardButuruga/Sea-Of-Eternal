@@ -7414,13 +7414,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpawnPoint: {fileID: 1307042802}
   bulletSpawnPointR: {fileID: 1072080132}
-  bulletPrefab: {fileID: 6678981804312863122, guid: 900557e28d85dff4ab165f7b351b153b, type: 3}
+  bulletPrefab: {fileID: 445324803062435423, guid: 8fb7a3340746abe48b13806869ec8798, type: 3}
   boatAnimator: {fileID: 565056949}
   audioSource: {fileID: 565056950}
   shootSound: {fileID: 8300000, guid: d4e7bad90e2c40c4da555c27cfc9d399, type: 3}
   damage: 10
   attackSpeed: 1
-  criticalStrikeChance: 0.1
+  criticalStrikeChance: 0.43
   criticalDamageMultiplier: 2
   bulletsPerSide: 1
   cannonballSpeed: 10
