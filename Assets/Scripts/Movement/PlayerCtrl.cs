@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerCtrl : MonoBehaviour
 {
-    public float movSpeed;
     public float rotationSpeed;
     public float maxSpeed;
     public Animator animator;
@@ -94,7 +93,7 @@ public class PlayerCtrl : MonoBehaviour
     {
         if (isInPort) return;
 
-        rb.AddForce(currentDirection * movSpeed);
+        rb.AddForce(currentDirection * playerStats.moveSpeed);
 
         if (rb.velocity.magnitude > maxSpeed)
         {

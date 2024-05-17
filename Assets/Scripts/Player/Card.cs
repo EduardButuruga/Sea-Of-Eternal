@@ -9,31 +9,37 @@ public class Card : ScriptableObject
 {
     public string cardName;
     public string description;
+    public float effect;
     public CardRarity rarity;
     public Sprite icon;
 
-    public Card(string name, string desc, CardRarity rar, Sprite icn)
+    public Card(string name, string desc, float eff, CardRarity rar, Sprite icn)
     {
         cardName = name;
         description = desc;
+        effect = eff;
         rarity = rar;
         icon = icn;
     }
-    public void ApplyEffect(PlayerXp player)
+    public void ApplyEffect(PlayerStats playerStats)
     {
-        // Implementați logica specifică a efectului cardului aici
+        Debug.Log(effect);
+        Debug.Log(playerStats);
         switch (cardName)
         {
             case "Increase Health":
-                player.IncreaseHealth();
+                playerStats.IncreaseMaxHealth((int)effect);
                 break;
-            case "Increase Speed":
-                player.IncreaseSpeed();
+            case "Increase MoveSpeed":
+                playerStats.IncreaseMoveSpeed(effect);
                 break;
-            case "Increase Damage":
-                player.IncreaseDamage();
+            case "Demonic MoveSpeed":
+                playerStats.IncreaseMoveSpeed(effect);
+                playerStats.IncreaseMaxHealth(-20);
                 break;
-                // Adăugați mai multe cazuri pentru alte efecte de card
+            case "Increase Luck":
+                playerStats.IncreaseLuck(effect);
+                break;
         }
     }
 }

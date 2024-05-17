@@ -61,22 +61,4 @@ public class PlayerXp : MonoBehaviour
     {
         xpSlider.value = (float)currentXP / xpToNextLevel;
     }
-
-    public void IncreaseHealth()
-    {
-        // Logica pentru a mări viața
-        Debug.Log("Health Increased");
-    }
-
-    public void IncreaseSpeed()
-    {
-        // Logica pentru a mări viteza
-        Debug.Log("Speed Increased");
-    }
-
-    public void IncreaseDamage()
-    {
-        // Logica pentru a mări damage-ul
-        Debug.Log("Damage Increased");
-    }
 }

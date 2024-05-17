@@ -4,10 +4,7 @@ public class HarpoonController : MonoBehaviour
 {
     public GameObject harpoon; // Referința la harpon
     public Transform boat; // Referința la barcă
-    public float launchSpeed = 10f; // Viteza de lansare a harponului
-    public float returnSpeed = 5f; // Viteza de întoarcere a harponului
-    public float maxDistance = 10f; // Distanța maximă de lansare a harponului
-    public float detectionRadius = 0.5f; // Raza de detecție pentru OverlapCircle
+    public float detectionRadius = 0.5f;
     public LayerMask treasureLayer; // Layer-ul pentru cufăr
 
     private bool isLaunched = false;
@@ -18,9 +15,14 @@ public class HarpoonController : MonoBehaviour
     private Vector3 initialPosition; // Declarația variabilei initialPosition
     private LineRenderer lineRenderer; // Referință la LineRenderer
     private DistanceJoint2D distanceJoint; // Referință la DistanceJoint2D
+    public PlayerStats playerStats;
 
     void Start()
     {
+        if (playerStats == null)
+        {
+            playerStats = FindObjectOfType<PlayerStats>();
+        }
         harpoon.SetActive(false);
         lineRenderer = harpoon.GetComponent<LineRenderer>();
         distanceJoint = harpoon.GetComponent<DistanceJoint2D>();
@@ -42,7 +44,7 @@ public class HarpoonController : MonoBehaviour
 
         if (isLaunched)
         {
-            harpoon.transform.position += launchDirection * launchSpeed * Time.deltaTime;
+            harpoon.transform.position += launchDirection * playerStats.launchSpeed * Time.deltaTime;
 
             // Actualizează linia sforii
             UpdateLineRenderer();
@@ -59,7 +61,7 @@ public class HarpoonController : MonoBehaviour
             }
 
             // Verifică dacă distanța maximă relativă la barcă a fost atinsă
-            if (Vector3.Distance(boat.position, harpoon.transform.position) >= maxDistance)
+            if (Vector3.Distance(boat.position, harpoon.transform.position) >= playerStats.maxDistance)
             {
                 StartReturning();
             }
@@ -68,7 +70,7 @@ public class HarpoonController : MonoBehaviour
         if (isReturning)
         {
             Vector3 returnPosition = boat.position;
-            harpoon.transform.position = Vector3.MoveTowards(harpoon.transform.position, returnPosition, returnSpeed * Time.deltaTime);
+            harpoon.transform.position = Vector3.MoveTowards(harpoon.transform.position, returnPosition, playerStats.returnSpeed * Time.deltaTime);
 
             // Actualizează linia sforii
             UpdateLineRenderer();
@@ -99,7 +101,7 @@ public class HarpoonController : MonoBehaviour
         mousePosition.z = 0; // Asigură-te că poziția mouse-ului este pe planul 2D
 
         launchDirection = (mousePosition - boat.position).normalized;
-        targetPosition = boat.position + launchDirection * maxDistance;
+        targetPosition = boat.position + launchDirection * playerStats.maxDistance;
 
         harpoon.transform.position = boat.position; // Lansează harponul din poziția bărcii
 

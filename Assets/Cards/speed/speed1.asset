@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e85770c9fb8ec214c8df9f2725012570, type: 3}
-  m_Name: speed4
+  m_Name: speed1
   m_EditorClassIdentifier: 
-  cardName: Move Speed
-  description: Increase you movement speed + 20%
-  rarity: 3
-  icon: {fileID: 21300000, guid: 82ccadb4d4b30d0459719159a920a1a3, type: 3}
+  cardName: Increase Speed
+  description: Increase you movement speed + 5
+  effect: 5
+  rarity: 0
+  icon: {fileID: 21300000, guid: 1bfc39da978fdfb49b3d024c4c0c898f, type: 3}
