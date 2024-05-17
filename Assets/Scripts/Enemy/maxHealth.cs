@@ -5,12 +5,16 @@ using UnityEngine;
 public class maxHealth : MonoBehaviour
 {
     public float baseHealth = 100f;
+    public int xpValue = 20;
+    private PlayerXp playerXp;
+
     private float currentHealth;
     private float Health;
     public Vector3 damagePopupOffset = new Vector3(0, 1, 0); // Offset pentru poziția popup-ului
 
     void Start()
     {
+        playerXp = GameObject.FindWithTag("Player").GetComponent<PlayerXp>();
         Health = baseHealth;
         currentHealth = Health;
     }
@@ -46,6 +50,11 @@ public class maxHealth : MonoBehaviour
 
     private void Die()
     {
+        if (playerXp != null)
+        {
+            playerXp.AddXP(xpValue);
+        }
+
         Destroy(gameObject);
         // Sau alte efecte la moarte, de exemplu: animații, particule etc.
     }
