@@ -13,6 +13,14 @@ public class DamagePopUP : MonoBehaviour
         return damagePopup;
     }
 
+    public static DamagePopUP Create(Vector3 position, int damageAmount, Vector3 offset)
+    {
+        Transform damagePopupTransform = Instantiate(GameAssets.i.pfDamagePopup, position + offset, Quaternion.identity);
+        DamagePopUP damagePopup = damagePopupTransform.GetComponent<DamagePopUP>();
+        damagePopup.Setup(damageAmount);
+        return damagePopup;
+    }
+
     private static int sortingOrder;
     private const float DISSAPEAR_TIMER_MAX = 0.3f;
     private TextMeshPro textMesh;
@@ -40,6 +48,21 @@ public class DamagePopUP : MonoBehaviour
             textMesh.fontSize = 11f;
             ColorUtility.TryParseHtmlString("#b20000", out textColor);
         }
+        textMesh.color = textColor;
+        dissapearTimer = DISSAPEAR_TIMER_MAX;
+        sortingOrder++;
+        textMesh.sortingOrder = sortingOrder;
+        moveVector = new Vector3(0.7f, 1) * 10f;
+    }
+
+    public void Setup(int damageAmount)
+    {
+        textMesh.SetText(damageAmount.ToString());
+            //Normal hit
+            textMesh.fontSize = 8.5f;
+            textColor = Color.yellow;
+        
+
         textMesh.color = textColor;
         dissapearTimer = DISSAPEAR_TIMER_MAX;
         sortingOrder++;

@@ -26,6 +26,17 @@ public class maxHealth : MonoBehaviour
         }
     }
 
+    public void TakeFlatDamage(float amount)
+    {
+        currentHealth -= amount;
+        DamagePopUP.Create(transform.position, (int)amount, damagePopupOffset);
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
     public void IncreaseHealth(int waveNumber)
     {
         //20%

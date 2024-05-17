@@ -64,7 +64,11 @@ public class ExplosiveBarrel : MonoBehaviour
 
         foreach (var obj in objectsToDestroy)
         {
-            Destroy(obj.gameObject); // Distruge obiectele din raza exploziei
+            maxHealth enemyHealth = obj.GetComponent<maxHealth>();
+            if (enemyHealth != null)
+            {
+                enemyHealth.TakeFlatDamage(this.damage);
+            }
         }
 
         if (audioSource != null && shootSound != null)
@@ -73,6 +77,15 @@ public class ExplosiveBarrel : MonoBehaviour
         }
 
         Destroy(gameObject, 0.7f); // Distruge butoiul după explozie după un mic delay pentru a permite animația să ruleze
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        // Verifică dacă butoiul a fost lovit de un glonț
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            Explode();
+        }
     }
 
     private void OnDrawGizmosSelected()
