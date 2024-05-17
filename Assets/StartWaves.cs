@@ -5,8 +5,8 @@ using UnityEngine;
 public class StartWaves : MonoBehaviour
 {
     public WaveManager waveManager; // Referință către scriptul WaveManager
-    public PlayerCtrl playerController;
     public bool Activ = true;
+    public WaveTimer waveTimer;
 
     public AudioSource audioSource; // Componenta AudioSource
     public AudioClip shootSound; // Sunetul de împușcare
@@ -21,10 +21,11 @@ public class StartWaves : MonoBehaviour
                 waveManager.StartWaves();
             }
 
-            if (playerController != null)
+            if(waveTimer != null)
             {
-                playerController.canMove = true; // Permite mișcarea jucătorului
+                waveTimer.StartTimer();
             }
+
             if (audioSource != null && shootSound != null)
             {
                 audioSource.PlayOneShot(shootSound);

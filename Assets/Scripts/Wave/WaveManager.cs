@@ -6,22 +6,15 @@ public class WaveManager : MonoBehaviour
 {
     public GameObject enemyPrefab;
     public WaveTextController waveTextController;
-    public Button testButton;
     public int enemiesPerWave = 5; // Numărul de inamici per val
     public float timeBetweenWaves = 5f;
     public float spawnDistance = 20f;
     private int currentWave = 0;
     // Start is called before the first frame update
-    private int testWaveNumber = 0;
     private Camera mainCamera;
     void Start()
     {
         mainCamera = Camera.main;
-
-        if (testButton != null)
-        {
-            testButton.onClick.AddListener(TestWaveText);
-        }
     }
 
     public void StartWaves()
@@ -33,7 +26,6 @@ public class WaveManager : MonoBehaviour
     {
         while (true)
         {
-            currentWave++;
             for (int i = 0; i < enemiesPerWave; i++)
             {
                 SpawnEnemy();
@@ -78,23 +70,10 @@ public class WaveManager : MonoBehaviour
 
         return spawnPosition;
     }
-    // Update is called once per frame
-    void Update()
+    public void ShowWaveText()
     {
-        
-    }
-    public void TestWaveText()
-    {
-        waveTextController.DisplayWaveText(testWaveNumber);
+        currentWave++;
+        waveTextController.DisplayWaveText(currentWave);
         Debug.Log("Next wave");
-        testWaveNumber++;
     }
-
-    //void StartNewWave()
-    //{
-    //    currentWave++;
-    //    waveTextController.DisplayWaveText(currentWave);
-
-    //    // Logica pentru a începe un nou val de inamici
-    //}
 }
