@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85770c9fb8ec214c8df9f2725012570, type: 3}
   m_Name: demonic
   m_EditorClassIdentifier: 
-  cardName: Increase Speed
+  cardName: IShowSpeed
   description: Increase your MoveSpeed with 60 but lose 20 hp
   effect: 60
   rarity: 3

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85770c9fb8ec214c8df9f2725012570, type: 3}
   m_Name: xpMultiplier 2
   m_EditorClassIdentifier: 
-  cardName: Xp Multiplier
+  cardName: Fast Learner
   description: Increase your xpMultiplier by 0.75
   effect: 0.75
   rarity: 2

@@ -6,7 +6,7 @@ public class WaveManager : MonoBehaviour
 {
     public GameObject enemyPrefab;
     public WaveTextController waveTextController;
-    public int enemiesPerWave = 5; // Numărul de inamici per val
+    public int enemiesPerWave = 120; // Numărul de inamici per val
     public float timeBetweenWaves = 5f;
     public float spawnDistance = 20f;
     private int currentWave = 0;
@@ -29,7 +29,7 @@ public class WaveManager : MonoBehaviour
             for (int i = 0; i < enemiesPerWave; i++)
             {
                 SpawnEnemy();
-                yield return new WaitForSeconds(1f); // Interval între inamici
+                yield return new WaitForSeconds(0.1f); // Interval între inamici
             }
             yield return new WaitForSeconds(timeBetweenWaves); // Interval între valuri
         }

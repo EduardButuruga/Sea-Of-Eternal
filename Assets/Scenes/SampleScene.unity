@@ -12419,16 +12419,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d267bb9add20044faef5362378b91f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  luck: 1000
-  armor: 1
-  lifeRegen: 1
-  xpMultiplier: 30
+  luck: 0
+  armor: 0
+  lifeRegen: 0
+  xpMultiplier: 1
   dmgMultiplier: 1
   pickupRadius: 5
   maxHealth: 10
   currentHealth: 0
-  moveSpeed: 30
-  damage: 10
+  moveSpeed: 10
+  damage: 50
   attackSpeed: 1
   criticalStrikeChance: 0.1
   criticalDamageMultiplier: 2
@@ -12441,7 +12441,7 @@ MonoBehaviour:
   HandCannonCriticalDamageMultiplier: 2
   BarrelDamage: 50
   BarrelExplosionRadius: 2
-  barrelCooldown: 3
+  barrelCooldown: 10
   launchSpeed: 10
   returnSpeed: 5
   maxDistance: 10
