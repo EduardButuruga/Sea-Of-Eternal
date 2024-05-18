@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DoubleCannonBulletPerSide 2
   m_EditorClassIdentifier: 
   cardName: Ball Speed
-  description: Upgrade your ball speed by 2
+  description: Not that kind of ball. Upgrade your ball speed by 2
   effect: 2
   rarity: 1
   icon: {fileID: 21300000, guid: a11f8ced647a9fb469a5726545b79537, type: 3}

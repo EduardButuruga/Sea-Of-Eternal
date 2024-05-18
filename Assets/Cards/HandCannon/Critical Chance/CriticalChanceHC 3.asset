@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85770c9fb8ec214c8df9f2725012570, type: 3}
   m_Name: CriticalChanceHC 3
   m_EditorClassIdentifier: 
-  cardName: Critical Chance
+  cardName: Fire balls
   description: Increase the critical chance of the HandCannon by 12%
   effect: 12
   rarity: 3

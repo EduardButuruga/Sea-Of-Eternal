@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85770c9fb8ec214c8df9f2725012570, type: 3}
   m_Name: DoubleCannonDamage 1
   m_EditorClassIdentifier: 
-  cardName: Damage
+  cardName: Sharp Eyes
   description: Increase your Double Cannon Damage by 20
   effect: 20
   rarity: 1

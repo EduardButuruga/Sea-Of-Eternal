@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85770c9fb8ec214c8df9f2725012570, type: 3}
   m_Name: demonic
   m_EditorClassIdentifier: 
-  cardName: Life Regen
-  description: Increase your xpMultiplier by 6s but lose 40 speed
+  cardName: Blood Bag
+  description: What is in this bag? Increase your liftRegen by 6s but lose 40 speed
   effect: 6
   rarity: 3
   icon: {fileID: 21300000, guid: 39a57dbb9dbe12e479b076a4469de1de, type: 3}

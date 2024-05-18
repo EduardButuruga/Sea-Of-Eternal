@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85770c9fb8ec214c8df9f2725012570, type: 3}
   m_Name: demonic
   m_EditorClassIdentifier: 
-  cardName: Increase Armor
-  description: Increase your armor + 6 but lose 20 health
+  cardName: Painful Tastes
+  description: You'll eat a cactus. Increase your armor + 6 but lose 20 health
   effect: 6
   rarity: 3
   icon: {fileID: 21300000, guid: 39a57dbb9dbe12e479b076a4469de1de, type: 3}

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85770c9fb8ec214c8df9f2725012570, type: 3}
   m_Name: armor
   m_EditorClassIdentifier: 
-  cardName: Increase Armor
-  description: Increase your armor + 1
+  cardName: Stone Skin
+  description: I'm a rock, mama! Increase your armor + 1
   effect: 1
   rarity: 0
   icon: {fileID: 21300000, guid: 1bfc39da978fdfb49b3d024c4c0c898f, type: 3}

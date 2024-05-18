@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85770c9fb8ec214c8df9f2725012570, type: 3}
   m_Name: BarrelCD
   m_EditorClassIdentifier: 
-  cardName: Barrel Cooldown
-  description: Decrease the cooldown of the barrels with 0.5
+  cardName: Barrel Mania
+  description: Easy barrel. Decrease the cooldown of the barrels with 0.5
   effect: 0.5
   rarity: 0
   icon: {fileID: 21300000, guid: 1bfc39da978fdfb49b3d024c4c0c898f, type: 3}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85770c9fb8ec214c8df9f2725012570, type: 3}
   m_Name: HCDamage
   m_EditorClassIdentifier: 
-  cardName: Increase Damage
+  cardName: OneManArmy
   description: Increase the damage of your HandCannon by 10
   effect: 10
   rarity: 0

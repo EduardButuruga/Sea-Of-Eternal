@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85770c9fb8ec214c8df9f2725012570, type: 3}
   m_Name: DoubleCannonAtkSpeed2
   m_EditorClassIdentifier: 
-  cardName: Atk Speed
+  cardName: Polished pipe
   description: Increase your Double Cannon Attack Speed by 0.3
   effect: 0.3
   rarity: 2

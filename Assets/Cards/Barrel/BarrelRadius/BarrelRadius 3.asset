@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85770c9fb8ec214c8df9f2725012570, type: 3}
   m_Name: BarrelRadius 3
   m_EditorClassIdentifier: 
-  cardName: Explosion Radius
-  description: Increase barrel explosion radius with 0.4
+  cardName: Bomba Range
+  description: More gunpowder in barrel! Increase barrel explosion radius with 0.4
   effect: 0.4
   rarity: 3
   icon: {fileID: 21300000, guid: 82ccadb4d4b30d0459719159a920a1a3, type: 3}

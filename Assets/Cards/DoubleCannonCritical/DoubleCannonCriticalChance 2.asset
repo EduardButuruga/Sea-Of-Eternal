@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85770c9fb8ec214c8df9f2725012570, type: 3}
   m_Name: DoubleCannonCriticalChance 2
   m_EditorClassIdentifier: 
-  cardName: Crit Chance
+  cardName: Fine pipe
   description: Increase your Critical Chance by 9%
   effect: 0.09
   rarity: 2

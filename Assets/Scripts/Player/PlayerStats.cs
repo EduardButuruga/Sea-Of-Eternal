@@ -31,7 +31,7 @@ public class PlayerStats : MonoBehaviour
     [Header("Barrel Stats")]
     public float BarrelDamage = 50f;
     public float BarrelExplosionRadius = 2f;
-    public float barrelCooldown = 3f;
+    public float barrelCooldown = 10f;
 
 
     [Header("Harpon Stats")]
@@ -150,8 +150,15 @@ public class PlayerStats : MonoBehaviour
         BarrelExplosionRadius += amount;
     }
 
+    public void IncreaseBarrelCooldown(float amount)
+    {
+        barrelCooldown += amount;
+    }
+
     public void IncreaseMoveSpeed(float amount)
     {
         moveSpeed += amount;
+        if(moveSpeed < 0f) 
+            moveSpeed = 1f;
     }
 }
