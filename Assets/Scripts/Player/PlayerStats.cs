@@ -159,6 +159,6 @@ public class PlayerStats : MonoBehaviour
     {
         moveSpeed += amount;
         if(moveSpeed < 0f) 
-            moveSpeed = 1f;
+            moveSpeed = 5f;
     }
 }
