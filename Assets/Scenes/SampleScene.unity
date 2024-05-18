@@ -8042,7 +8042,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1712533256}
+  m_Father: {fileID: 1014045171}
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -14128,7 +14128,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1014045171
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14143,8 +14143,8 @@ RectTransform:
   m_Children:
   - {fileID: 338005585}
   - {fileID: 499110566}
-  - {fileID: 1467054079}
-  - {fileID: 1028066375}
+  - {fileID: 1782669242}
+  - {fileID: 277673936}
   - {fileID: 546237449}
   - {fileID: 2065266044}
   - {fileID: 38320596}
@@ -14300,7 +14300,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1014045171}
+  m_Father: {fileID: 1712533256}
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -17556,7 +17556,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1014045171}
+  m_Father: {fileID: 1712533256}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -18904,6 +18904,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats: {fileID: 565056957}
   prices: {fileID: 1612453694}
+  artilleryDamageIncrease: 1
+  artilleryAttackSpeedIncrease: 1
+  artilleryAttackVelocityIncrease: 1
+  artilleryCritChanceIncrease: 1
+  artilleryCritMultiplierIncrease: 1
+  barrelDamageIncrease: 1
+  barrelExplosionRadiusIncrease: 1
+  barrelCooldownDecrease: 1
+  harpoonLaunchSpeedIncrease: 1
+  harpoonReturnSpeedIncrease: 1
+  harpoonMaxDistanceIncrease: 1
+  arsenalDamageIncrease: 1
+  arsenalAttackSpeedIncrease: 1
+  arsenalCritChanceIncrease: 1
+  arsenalCritMultiplierIncrease: 1
+  arsenalBulletsPerSideIncrease: 1
+  arsenalAttackVelocityIncrease: 1
 --- !u!1 &1632440175
 GameObject:
   m_ObjectHideFlags: 0
@@ -19533,8 +19550,8 @@ RectTransform:
   - {fileID: 156529726}
   - {fileID: 553525471}
   - {fileID: 1198869998}
-  - {fileID: 1782669242}
-  - {fileID: 277673936}
+  - {fileID: 1467054079}
+  - {fileID: 1028066375}
   m_Father: {fileID: 1341762895}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -19951,7 +19968,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1712533256}
+  m_Father: {fileID: 1014045171}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -21709,7 +21726,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2067074851
 RectTransform:
   m_ObjectHideFlags: 0

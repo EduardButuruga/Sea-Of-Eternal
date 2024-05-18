@@ -6,12 +6,34 @@ public class UpgradeManager : MonoBehaviour
     public PlayerStats playerStats;
     public Prices prices;
 
+    [Header("Upgrade Values")]
+    public int artilleryDamageIncrease;
+    public int artilleryAttackSpeedIncrease;
+    public int artilleryAttackVelocityIncrease;
+    public int artilleryCritChanceIncrease;
+    public float artilleryCritMultiplierIncrease;
+
+    public int barrelDamageIncrease;
+    public float barrelExplosionRadiusIncrease;
+    public float barrelCooldownDecrease;
+
+    public int harpoonLaunchSpeedIncrease;
+    public int harpoonReturnSpeedIncrease;
+    public int harpoonMaxDistanceIncrease;
+
+    public int arsenalDamageIncrease;
+    public int arsenalAttackSpeedIncrease;
+    public int arsenalCritChanceIncrease;
+    public float arsenalCritMultiplierIncrease;
+    public int arsenalBulletsPerSideIncrease;
+    public int arsenalAttackVelocityIncrease;
+
     public void BuyArtilleryDamage()
     {
         if (CanAfford(prices.artilleryUpgrades.damagePrice))
         {
             CoinManager.instance.AddCoin(-prices.artilleryUpgrades.damagePrice);
-            playerStats.HandCannonDamage += prices.artilleryUpgrades.damagePrice;
+            playerStats.HandCannonDamage += artilleryDamageIncrease;
             UpdateText(prices.artilleryUpgrades.damagePriceText, playerStats.HandCannonDamage);
             IncreasePrice(ref prices.artilleryUpgrades.damagePrice, prices.artilleryUpgrades.damagePriceIncrease, prices.artilleryUpgrades.isDamagePriceIncreasePercentage);
         }
@@ -22,7 +44,7 @@ public class UpgradeManager : MonoBehaviour
         if (CanAfford(prices.artilleryUpgrades.attackSpeedPrice))
         {
             CoinManager.instance.AddCoin(-prices.artilleryUpgrades.attackSpeedPrice);
-            playerStats.HandCannonAttackSpeed += prices.artilleryUpgrades.attackSpeedPrice;
+            playerStats.HandCannonAttackSpeed += artilleryAttackSpeedIncrease;
             UpdateText(prices.artilleryUpgrades.attackSpeedPriceText, playerStats.HandCannonAttackSpeed);
             IncreasePrice(ref prices.artilleryUpgrades.attackSpeedPrice, prices.artilleryUpgrades.attackSpeedPriceIncrease, prices.artilleryUpgrades.isAttackSpeedPriceIncreasePercentage);
         }
@@ -33,7 +55,7 @@ public class UpgradeManager : MonoBehaviour
         if (CanAfford(prices.artilleryUpgrades.attackVelocityPrice))
         {
             CoinManager.instance.AddCoin(-prices.artilleryUpgrades.attackVelocityPrice);
-            playerStats.HandCannonCannonballSpeed += prices.artilleryUpgrades.attackVelocityPrice;
+            playerStats.HandCannonCannonballSpeed += artilleryAttackVelocityIncrease;
             UpdateText(prices.artilleryUpgrades.attackVelocityPriceText, playerStats.HandCannonCannonballSpeed);
             IncreasePrice(ref prices.artilleryUpgrades.attackVelocityPrice, prices.artilleryUpgrades.attackVelocityPriceIncrease, prices.artilleryUpgrades.isAttackVelocityPriceIncreasePercentage);
         }
@@ -44,7 +66,7 @@ public class UpgradeManager : MonoBehaviour
         if (CanAfford(prices.artilleryUpgrades.critChancePrice))
         {
             CoinManager.instance.AddCoin(-prices.artilleryUpgrades.critChancePrice);
-            playerStats.HandCannonCriticalStrikeChance += prices.artilleryUpgrades.critChancePrice;
+            playerStats.HandCannonCriticalStrikeChance += artilleryCritChanceIncrease;
             UpdateText(prices.artilleryUpgrades.critChancePriceText, playerStats.HandCannonCriticalStrikeChance);
             IncreasePrice(ref prices.artilleryUpgrades.critChancePrice, prices.artilleryUpgrades.critChancePriceIncrease, prices.artilleryUpgrades.isCritChancePriceIncreasePercentage);
         }
@@ -55,7 +77,7 @@ public class UpgradeManager : MonoBehaviour
         if (CanAfford(prices.artilleryUpgrades.critMultiplierPrice))
         {
             CoinManager.instance.AddCoin(-prices.artilleryUpgrades.critMultiplierPrice);
-            playerStats.HandCannonCriticalDamageMultiplier += prices.artilleryUpgrades.critMultiplierPrice;
+            playerStats.HandCannonCriticalDamageMultiplier += artilleryCritMultiplierIncrease;
             UpdateText(prices.artilleryUpgrades.critMultiplierPriceText, playerStats.HandCannonCriticalDamageMultiplier);
             IncreasePrice(ref prices.artilleryUpgrades.critMultiplierPrice, prices.artilleryUpgrades.critMultiplierPriceIncrease, prices.artilleryUpgrades.isCritMultiplierPriceIncreasePercentage);
         }
@@ -66,7 +88,7 @@ public class UpgradeManager : MonoBehaviour
         if (CanAfford(prices.barrelFactoryUpgrades.damagePrice))
         {
             CoinManager.instance.AddCoin(-prices.barrelFactoryUpgrades.damagePrice);
-            playerStats.BarrelDamage += prices.barrelFactoryUpgrades.damagePrice;
+            playerStats.BarrelDamage += barrelDamageIncrease;
             UpdateText(prices.barrelFactoryUpgrades.damagePriceText, playerStats.BarrelDamage);
             IncreasePrice(ref prices.barrelFactoryUpgrades.damagePrice, prices.barrelFactoryUpgrades.damagePriceIncrease, prices.barrelFactoryUpgrades.isDamagePriceIncreasePercentage);
         }
@@ -77,7 +99,7 @@ public class UpgradeManager : MonoBehaviour
         if (CanAfford(prices.barrelFactoryUpgrades.boomRadiusPrice))
         {
             CoinManager.instance.AddCoin(-prices.barrelFactoryUpgrades.boomRadiusPrice);
-            playerStats.BarrelExplosionRadius += prices.barrelFactoryUpgrades.boomRadiusPrice;
+            playerStats.BarrelExplosionRadius += barrelExplosionRadiusIncrease;
             UpdateText(prices.barrelFactoryUpgrades.boomRadiusPriceText, playerStats.BarrelExplosionRadius);
             IncreasePrice(ref prices.barrelFactoryUpgrades.boomRadiusPrice, prices.barrelFactoryUpgrades.boomRadiusPriceIncrease, prices.barrelFactoryUpgrades.isBoomRadiusPriceIncreasePercentage);
         }
@@ -88,7 +110,7 @@ public class UpgradeManager : MonoBehaviour
         if (CanAfford(prices.barrelFactoryUpgrades.barrelCooldownPrice))
         {
             CoinManager.instance.AddCoin(-prices.barrelFactoryUpgrades.barrelCooldownPrice);
-            playerStats.barrelCooldown -= prices.barrelFactoryUpgrades.barrelCooldownPrice;
+            playerStats.barrelCooldown -= barrelCooldownDecrease;
             UpdateText(prices.barrelFactoryUpgrades.barrelCooldownPriceText, playerStats.barrelCooldown);
             IncreasePrice(ref prices.barrelFactoryUpgrades.barrelCooldownPrice, prices.barrelFactoryUpgrades.barrelCooldownPriceIncrease, prices.barrelFactoryUpgrades.isBarrelCooldownPriceIncreasePercentage);
         }
@@ -99,8 +121,8 @@ public class UpgradeManager : MonoBehaviour
         if (CanAfford(prices.harpoonStationUpgrades.launchSpeedPrice))
         {
             CoinManager.instance.AddCoin(-prices.harpoonStationUpgrades.launchSpeedPrice);
-            playerStats.launchSpeed += prices.harpoonStationUpgrades.launchSpeedPrice;
-            UpdateText(prices.harpoonStationUpgrades.launchSpeedPriceText, playerStats.cannonballSpeed);
+            playerStats.launchSpeed += harpoonLaunchSpeedIncrease;
+            UpdateText(prices.harpoonStationUpgrades.launchSpeedPriceText, playerStats.launchSpeed);
             IncreasePrice(ref prices.harpoonStationUpgrades.launchSpeedPrice, prices.harpoonStationUpgrades.launchSpeedPriceIncrease, prices.harpoonStationUpgrades.isLaunchSpeedPriceIncreasePercentage);
         }
     }
@@ -110,8 +132,8 @@ public class UpgradeManager : MonoBehaviour
         if (CanAfford(prices.harpoonStationUpgrades.returnSpeedPrice))
         {
             CoinManager.instance.AddCoin(-prices.harpoonStationUpgrades.returnSpeedPrice);
-            playerStats.returnSpeed += prices.harpoonStationUpgrades.returnSpeedPrice;
-            UpdateText(prices.harpoonStationUpgrades.returnSpeedPriceText, playerStats.attackSpeed);
+            playerStats.returnSpeed += harpoonReturnSpeedIncrease;
+            UpdateText(prices.harpoonStationUpgrades.returnSpeedPriceText, playerStats.returnSpeed);
             IncreasePrice(ref prices.harpoonStationUpgrades.returnSpeedPrice, prices.harpoonStationUpgrades.returnSpeedPriceIncrease, prices.harpoonStationUpgrades.isReturnSpeedPriceIncreasePercentage);
         }
     }
@@ -121,8 +143,8 @@ public class UpgradeManager : MonoBehaviour
         if (CanAfford(prices.harpoonStationUpgrades.maxDistancePrice))
         {
             CoinManager.instance.AddCoin(-prices.harpoonStationUpgrades.maxDistancePrice);
-            playerStats.maxDistance += prices.harpoonStationUpgrades.maxDistancePrice;
-            UpdateText(prices.harpoonStationUpgrades.maxDistancePriceText, playerStats.pickupRadius);
+            playerStats.maxDistance += harpoonMaxDistanceIncrease;
+            UpdateText(prices.harpoonStationUpgrades.maxDistancePriceText, playerStats.maxDistance);
             IncreasePrice(ref prices.harpoonStationUpgrades.maxDistancePrice, prices.harpoonStationUpgrades.maxDistancePriceIncrease, prices.harpoonStationUpgrades.isMaxDistancePriceIncreasePercentage);
         }
     }
@@ -132,7 +154,7 @@ public class UpgradeManager : MonoBehaviour
         if (CanAfford(prices.arsenalHubUpgrades.damagePrice))
         {
             CoinManager.instance.AddCoin(-prices.arsenalHubUpgrades.damagePrice);
-            playerStats.damage += prices.arsenalHubUpgrades.damagePrice;
+            playerStats.damage += arsenalDamageIncrease;
             UpdateText(prices.arsenalHubUpgrades.damagePriceText, playerStats.damage);
             IncreasePrice(ref prices.arsenalHubUpgrades.damagePrice, prices.arsenalHubUpgrades.damagePriceIncrease, prices.arsenalHubUpgrades.isDamagePriceIncreasePercentage);
         }
@@ -143,7 +165,7 @@ public class UpgradeManager : MonoBehaviour
         if (CanAfford(prices.arsenalHubUpgrades.attackSpeedPrice))
         {
             CoinManager.instance.AddCoin(-prices.arsenalHubUpgrades.attackSpeedPrice);
-            playerStats.attackSpeed += prices.arsenalHubUpgrades.attackSpeedPrice;
+            playerStats.attackSpeed += arsenalAttackSpeedIncrease;
             UpdateText(prices.arsenalHubUpgrades.attackSpeedPriceText, playerStats.attackSpeed);
             IncreasePrice(ref prices.arsenalHubUpgrades.attackSpeedPrice, prices.arsenalHubUpgrades.attackSpeedPriceIncrease, prices.arsenalHubUpgrades.isAttackSpeedPriceIncreasePercentage);
         }
@@ -154,7 +176,7 @@ public class UpgradeManager : MonoBehaviour
         if (CanAfford(prices.arsenalHubUpgrades.critChancePrice))
         {
             CoinManager.instance.AddCoin(-prices.arsenalHubUpgrades.critChancePrice);
-            playerStats.criticalStrikeChance += prices.arsenalHubUpgrades.critChancePrice;
+            playerStats.criticalStrikeChance += arsenalCritChanceIncrease;
             UpdateText(prices.arsenalHubUpgrades.critChancePriceText, playerStats.criticalStrikeChance);
             IncreasePrice(ref prices.arsenalHubUpgrades.critChancePrice, prices.arsenalHubUpgrades.critChancePriceIncrease, prices.arsenalHubUpgrades.isCritChancePriceIncreasePercentage);
         }
@@ -165,7 +187,7 @@ public class UpgradeManager : MonoBehaviour
         if (CanAfford(prices.arsenalHubUpgrades.critMultiplierPrice))
         {
             CoinManager.instance.AddCoin(-prices.arsenalHubUpgrades.critMultiplierPrice);
-            playerStats.criticalDamageMultiplier += prices.arsenalHubUpgrades.critMultiplierPrice;
+            playerStats.criticalDamageMultiplier += arsenalCritMultiplierIncrease;
             UpdateText(prices.arsenalHubUpgrades.critMultiplierPriceText, playerStats.criticalDamageMultiplier);
             IncreasePrice(ref prices.arsenalHubUpgrades.critMultiplierPrice, prices.arsenalHubUpgrades.critMultiplierPriceIncrease, prices.arsenalHubUpgrades.isCritMultiplierPriceIncreasePercentage);
         }
@@ -176,7 +198,7 @@ public class UpgradeManager : MonoBehaviour
         if (CanAfford(prices.arsenalHubUpgrades.bulletsPerSidePrice))
         {
             CoinManager.instance.AddCoin(-prices.arsenalHubUpgrades.bulletsPerSidePrice);
-            playerStats.bulletsPerSide += prices.arsenalHubUpgrades.bulletsPerSidePrice;
+            playerStats.bulletsPerSide += arsenalBulletsPerSideIncrease;
             UpdateText(prices.arsenalHubUpgrades.bulletsPerSidePriceText, playerStats.bulletsPerSide);
             IncreasePrice(ref prices.arsenalHubUpgrades.bulletsPerSidePrice, prices.arsenalHubUpgrades.bulletsPerSidePriceIncrease, prices.arsenalHubUpgrades.isBulletsPerSidePriceIncreasePercentage);
         }
@@ -187,7 +209,7 @@ public class UpgradeManager : MonoBehaviour
         if (CanAfford(prices.arsenalHubUpgrades.attackVelocityPrice))
         {
             CoinManager.instance.AddCoin(-prices.arsenalHubUpgrades.attackVelocityPrice);
-            playerStats.cannonballSpeed += prices.arsenalHubUpgrades.attackVelocityPrice;
+            playerStats.cannonballSpeed += arsenalAttackVelocityIncrease;
             UpdateText(prices.arsenalHubUpgrades.attackVelocityPriceText, playerStats.cannonballSpeed);
             IncreasePrice(ref prices.arsenalHubUpgrades.attackVelocityPrice, prices.arsenalHubUpgrades.attackVelocityPriceIncrease, prices.arsenalHubUpgrades.isAttackVelocityPriceIncreasePercentage);
         }
