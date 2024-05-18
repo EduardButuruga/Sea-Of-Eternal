@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+
 public class UnlockManager : MonoBehaviour
 {
     [System.Serializable]
@@ -12,7 +13,8 @@ public class UnlockManager : MonoBehaviour
         public Text priceText;
         public GameObject associatedBuilding;
         public GameObject weaponGameObject;
-        public bool unlocksBarrels; // Adăugă un flag pentru deblocarea butoaielor
+        public bool unlocksBarrels; // Flag pentru deblocarea butoaielor
+        public Button relatedUnlockButton; // Butonul care trebuie activat după achiziționare
     }
 
     public Weapon[] weapons;
@@ -24,6 +26,12 @@ public class UnlockManager : MonoBehaviour
         {
             weapon.priceText.text = weapon.price.ToString();
             weapon.buyButton.onClick.AddListener(() => BuyWeapon(weapon));
+
+            // Dezactivează butonul de deblocare inițial
+            if (weapon.relatedUnlockButton != null)
+            {
+                weapon.relatedUnlockButton.gameObject.SetActive(false);
+            }
         }
     }
 
@@ -48,6 +56,12 @@ public class UnlockManager : MonoBehaviour
             if (weapon.unlocksBarrels)
             {
                 playerCtrl.areBarrelsUnlocked = true;
+            }
+
+            // Activează butonul de deblocare asociat
+            if (weapon.relatedUnlockButton != null)
+            {
+                weapon.relatedUnlockButton.gameObject.SetActive(true);
             }
         }
     }
