@@ -7878,8 +7878,8 @@ GameObject:
   m_Component:
   - component: {fileID: 276350215}
   - component: {fileID: 276350214}
-  - component: {fileID: 276350216}
   - component: {fileID: 276350217}
+  - component: {fileID: 276350218}
   m_Layer: 0
   m_Name: CasaDubluTunuri
   m_TagString: Untagged
@@ -7954,19 +7954,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 679928317}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &276350216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 276350213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7ef55070df173348b9a398b184de338, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  artilleryUI: {fileID: 1014045170}
 --- !u!61 &276350217
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8012,6 +7999,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.92, y: 1.92}
   m_EdgeRadius: 0
+--- !u!114 &276350218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276350213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f98c6f9263fbfa24e8a187042fa64bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arsenalHubUI: {fileID: 1712533255}
 --- !u!1 &277673935
 GameObject:
   m_ObjectHideFlags: 0
@@ -8698,7 +8698,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 276350216}
+      - m_Target: {fileID: 984104033}
         m_TargetAssemblyTypeName: ArtilleryBarrack, Assembly-CSharp
         m_MethodName: CloseUI
         m_Mode: 1
@@ -11210,7 +11210,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: e8625dc2498eecd4d8e3886eed5bc6b0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 531119579270fc84a9b921c14a2cacd2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -11531,7 +11531,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.5, y: 2.35}
+    oldSize: {x: 2.44, y: 1.97}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -13659,8 +13659,8 @@ GameObject:
   m_Component:
   - component: {fileID: 984104030}
   - component: {fileID: 984104029}
-  - component: {fileID: 984104031}
   - component: {fileID: 984104032}
+  - component: {fileID: 984104033}
   m_Layer: 0
   m_Name: CasaTun
   m_TagString: Untagged
@@ -13735,19 +13735,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 679928317}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &984104031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 984104028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f98c6f9263fbfa24e8a187042fa64bd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arsenalHubUI: {fileID: 1712533255}
 --- !u!61 &984104032
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13793,6 +13780,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.92, y: 1.92}
   m_EdgeRadius: 0
+--- !u!114 &984104033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984104028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7ef55070df173348b9a398b184de338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  artilleryUI: {fileID: 1014045170}
 --- !u!1 &988388347
 GameObject:
   m_ObjectHideFlags: 0
@@ -14123,12 +14123,12 @@ GameObject:
   - component: {fileID: 1014045173}
   - component: {fileID: 1014045172}
   m_Layer: 5
-  m_Name: ARTILERRY
+  m_Name: Hand Cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1014045171
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18908,7 +18908,7 @@ MonoBehaviour:
   artilleryAttackSpeedIncrease: 1
   artilleryAttackVelocityIncrease: 1
   artilleryCritChanceIncrease: 1
-  artilleryCritMultiplierIncrease: 1
+  artilleryCritMultiplierIncrease: 0.05
   barrelDamageIncrease: 1
   barrelExplosionRadiusIncrease: 1
   barrelCooldownDecrease: 1
@@ -19524,7 +19524,7 @@ GameObject:
   - component: {fileID: 1712533258}
   - component: {fileID: 1712533257}
   m_Layer: 5
-  m_Name: ARSENAL HUB
+  m_Name: Double Cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22172,7 +22172,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 984104031}
+      - m_Target: {fileID: 276350218}
         m_TargetAssemblyTypeName: ArsenalHub, Assembly-CSharp
         m_MethodName: CloseUI
         m_Mode: 1
