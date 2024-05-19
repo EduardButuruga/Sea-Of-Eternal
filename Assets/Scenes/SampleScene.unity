@@ -14155,7 +14155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   luck: 0
   armor: 0
-  lifeRegen: 0
+  lifeRegen: 5
   xpMultiplier: 1
   dmgMultiplier: 1
   pickupRadius: 31.3

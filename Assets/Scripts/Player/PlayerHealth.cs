@@ -39,6 +39,7 @@ public class PlayerHealth : MonoBehaviour
         }
         playerStats.currentHealth = playerStats.maxHealth;
         healthBar.SetMaxHealth(playerStats.maxHealth);
+        StartCoroutine(HealthRegenCoroutine());
     }
 
     public void TakeDamage(int damage, Vector3 enemypos)
@@ -59,7 +60,6 @@ public class PlayerHealth : MonoBehaviour
         if (playerStats.currentHealth <= 0 && !isDead)
         {
             isDead = true;
-            // Poți adăuga logică pentru când jucătorul moare, de exemplu reîncărcarea scenei
             Debug.Log("Player is dead!");
             // SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Decomentează pentru a reîncărca scena
         }
@@ -77,5 +77,19 @@ public class PlayerHealth : MonoBehaviour
         isInvulnerable = true;
         yield return new WaitForSeconds(invulnerabilityDuration);
         isInvulnerable = false;
+    }
+
+    private IEnumerator HealthRegenCoroutine()
+    {
+        while (true)
+        {
+            if (!isDead && playerStats.currentHealth < playerStats.maxHealth)
+            {
+                playerStats.currentHealth += Mathf.FloorToInt(playerStats.lifeRegen);
+                playerStats.currentHealth = Mathf.Clamp(playerStats.currentHealth, 0, playerStats.maxHealth);
+                healthBar.SetHealth(playerStats.currentHealth);
+            }
+            yield return new WaitForSeconds(1f);
+        }
     }
 }
