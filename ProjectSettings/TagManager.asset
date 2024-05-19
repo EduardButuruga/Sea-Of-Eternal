@@ -9,6 +9,8 @@ TagManager:
   - Treasure
   - Bullet
   - Coin
+  - BBossBar
+  - Boss
   layers:
   - Default
   - TransparentFX
