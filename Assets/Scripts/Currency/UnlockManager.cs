@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class UnlockManager : MonoBehaviour
@@ -13,13 +14,13 @@ public class UnlockManager : MonoBehaviour
         public Text priceText;
         public GameObject associatedBuilding;
         public GameObject weaponGameObject;
-        public bool unlocksBarrels; // Flag pentru deblocarea butoaielor
-        public Button relatedUnlockButton; // Butonul care trebuie activat după achiziționare
-        public MonoBehaviour scriptToEnable; // Referință la scriptul care trebuie activat după achiziționare
+        public bool unlocksBarrels;
+        public Button relatedUnlockButton;
+        public MonoBehaviour scriptToEnable;
     }
 
     public Weapon[] weapons;
-    public PlayerCtrl playerCtrl; // Referință către scriptul PlayerCtrl
+    public PlayerCtrl playerCtrl;
 
     void Start()
     {
@@ -28,13 +29,11 @@ public class UnlockManager : MonoBehaviour
             weapon.priceText.text = weapon.price.ToString();
             weapon.buyButton.onClick.AddListener(() => BuyWeapon(weapon));
 
-            // Dezactivează butonul de deblocare inițial
             if (weapon.relatedUnlockButton != null)
             {
                 weapon.relatedUnlockButton.gameObject.SetActive(false);
             }
 
-            // Dezactivează scriptul inițial
             if (weapon.scriptToEnable != null)
             {
                 weapon.scriptToEnable.enabled = false;
@@ -65,16 +64,51 @@ public class UnlockManager : MonoBehaviour
                 playerCtrl.areBarrelsUnlocked = true;
             }
 
-            // Activează butonul de deblocare asociat
             if (weapon.relatedUnlockButton != null)
             {
                 weapon.relatedUnlockButton.gameObject.SetActive(true);
             }
 
-            // Activează scriptul asociat
             if (weapon.scriptToEnable != null)
             {
                 weapon.scriptToEnable.enabled = true;
+            }
+        }
+    }
+
+    public void UpdateWeaponStates(List<string> unlockedWeapons)
+    {
+        foreach (var weapon in weapons)
+        {
+            if (unlockedWeapons.Contains(weapon.name))
+            {
+                weapon.weaponImage.color = Color.white;
+                weapon.buyButton.gameObject.SetActive(false);
+                weapon.priceText.gameObject.SetActive(false);
+
+                if (weapon.associatedBuilding != null)
+                {
+                    weapon.associatedBuilding.SetActive(true);
+                }
+                if (weapon.weaponGameObject != null)
+                {
+                    weapon.weaponGameObject.SetActive(true);
+                }
+
+                if (weapon.unlocksBarrels)
+                {
+                    playerCtrl.areBarrelsUnlocked = true;
+                }
+
+                if (weapon.relatedUnlockButton != null)
+                {
+                    weapon.relatedUnlockButton.gameObject.SetActive(true);
+                }
+
+                if (weapon.scriptToEnable != null)
+                {
+                    weapon.scriptToEnable.enabled = true;
+                }
             }
         }
     }
