@@ -1,17 +1,25 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class WaveManager : MonoBehaviour
 {
-    public GameObject enemyPrefab;
+    [System.Serializable]
+    public class WaveConfig
+    {
+        public List<GameObject> enemyPrefabs; // List of enemy types for this wave
+        public int enemiesPerWave = 120; // Number of enemies for this wave
+        public float timeBetweenEnemies = 0.1f; // Time interval between enemy spawns
+    }
+
+    public List<WaveConfig> waves; // List of wave configurations
     public WaveTextController waveTextController;
-    public int enemiesPerWave = 120; // Numărul de inamici per val
     public float timeBetweenWaves = 5f;
     public float spawnDistance = 20f;
     private int currentWave = 0;
-    // Start is called before the first frame update
     private Camera mainCamera;
+
     void Start()
     {
         mainCamera = Camera.main;
@@ -24,23 +32,29 @@ public class WaveManager : MonoBehaviour
 
     private IEnumerator SpawnWaves()
     {
-        while (true)
+        while (currentWave < waves.Count)
         {
-            for (int i = 0; i < enemiesPerWave; i++)
+            ShowWaveText();
+            WaveConfig waveConfig = waves[currentWave];
+
+            for (int i = 0; i < waveConfig.enemiesPerWave; i++)
             {
-                SpawnEnemy();
-                yield return new WaitForSeconds(0.1f); // Interval între inamici
+                SpawnEnemy(waveConfig.enemyPrefabs);
+                yield return new WaitForSeconds(waveConfig.timeBetweenEnemies); // Interval between enemies
             }
-            yield return new WaitForSeconds(timeBetweenWaves); // Interval între valuri
+
+            yield return new WaitForSeconds(timeBetweenWaves); // Interval between waves
+            currentWave++;
         }
     }
 
-    private void SpawnEnemy()
+    private void SpawnEnemy(List<GameObject> enemyPrefabs)
     {
-        // Calculează o poziție random în afara ecranului
+        // Calculate a random position off-screen
         Vector2 spawnPosition = GetRandomSpawnPosition();
 
-        // Instanțiază inamicul
+        // Instantiate a random enemy from the list
+        GameObject enemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
         GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
     }
 
@@ -51,16 +65,16 @@ public class WaveManager : MonoBehaviour
 
         switch (Random.Range(0, 4))
         {
-            case 0: // Stânga
+            case 0: // Left
                 spawnPosition = new Vector2(-screenBounds.x - spawnDistance, Random.Range(-screenBounds.y, screenBounds.y));
                 break;
-            case 1: // Dreapta
+            case 1: // Right
                 spawnPosition = new Vector2(screenBounds.x + spawnDistance, Random.Range(-screenBounds.y, screenBounds.y));
                 break;
-            case 2: // Sus
+            case 2: // Up
                 spawnPosition = new Vector2(Random.Range(-screenBounds.x, screenBounds.x), screenBounds.y + spawnDistance);
                 break;
-            case 3: // Jos
+            case 3: // Down
                 spawnPosition = new Vector2(Random.Range(-screenBounds.x, screenBounds.x), -screenBounds.y - spawnDistance);
                 break;
             default:
@@ -70,10 +84,10 @@ public class WaveManager : MonoBehaviour
 
         return spawnPosition;
     }
+
     public void ShowWaveText()
     {
-        currentWave++;
-        waveTextController.DisplayWaveText(currentWave);
-        Debug.Log("Next wave");
+        waveTextController.DisplayWaveText(currentWave + 1);
+        Debug.Log("Next wave: " + (currentWave + 1));
     }
 }

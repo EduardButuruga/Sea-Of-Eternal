@@ -11966,7 +11966,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 580885463e51e074ea913d1d7baeac02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 2
+  rotationSpeed: 10
   maxSpeed: 2
   animator: {fileID: 565056949}
   explosiveBarrelPrefab: {fileID: 3892395704446459728, guid: 4ee02db451f6bfb49aa1c969f520a28b, type: 3}
@@ -12424,11 +12424,11 @@ MonoBehaviour:
   lifeRegen: 0
   xpMultiplier: 1
   dmgMultiplier: 1
-  pickupRadius: 5
+  pickupRadius: 31.3
   maxHealth: 10
   currentHealth: 0
-  moveSpeed: 10
-  damage: 50
+  moveSpeed: 15
+  damage: 10
   attackSpeed: 1
   criticalStrikeChance: 0.1
   criticalDamageMultiplier: 2
@@ -20022,7 +20022,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.1283195, y: -2.1833472}
+  m_AnchoredPosition: {x: 2.04, y: -2.25}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1503292169
@@ -26000,9 +26000,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 391089b6294d85a42ac095dff96a3dcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 1195864594365841073, guid: f909d6c22d899f549ad6cf88478a4065, type: 3}
+  waves:
+  - enemyPrefabs:
+    - {fileID: 1195864594365841073, guid: 7d1dadab3dcf48a458589ed32f0a5c56, type: 3}
+    - {fileID: 1195864594365841073, guid: 7d1dadab3dcf48a458589ed32f0a5c56, type: 3}
+    enemiesPerWave: 50
+    timeBetweenEnemies: 0.5
+  - enemyPrefabs:
+    - {fileID: 1195864594365841073, guid: f41e153291a74f043bd436927421e0f9, type: 3}
+    - {fileID: 1195864594365841073, guid: f41e153291a74f043bd436927421e0f9, type: 3}
+    enemiesPerWave: 50
+    timeBetweenEnemies: 0.5
+  - enemyPrefabs:
+    - {fileID: 1195864594365841073, guid: f41e153291a74f043bd436927421e0f9, type: 3}
+    - {fileID: 1195864594365841073, guid: eee19a87a39cdb64ba50996c41e529ac, type: 3}
+    enemiesPerWave: 50
+    timeBetweenEnemies: 0
+  - enemyPrefabs:
+    - {fileID: 1195864594365841073, guid: eee19a87a39cdb64ba50996c41e529ac, type: 3}
+    - {fileID: 1195864594365841073, guid: f909d6c22d899f549ad6cf88478a4065, type: 3}
+    enemiesPerWave: 50
+    timeBetweenEnemies: 0
   waveTextController: {fileID: 1341762896}
-  enemiesPerWave: 5
   timeBetweenWaves: 5
   spawnDistance: 20
 --- !u!114 &2134480209
