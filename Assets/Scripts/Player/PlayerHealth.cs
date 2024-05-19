@@ -1,6 +1,6 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -8,7 +8,7 @@ public class PlayerHealth : MonoBehaviour
     private Animator animator;
     public PlayerStats playerStats;
     public DamageFlicker damageFlicker;
-
+    public GameObject respawnUI;
     public static PlayerHealth Instance { get; private set; }
     private bool isDead;
     private bool isInvulnerable;
@@ -26,7 +26,7 @@ public class PlayerHealth : MonoBehaviour
         else
         {
             Instance = this;
-            DontDestroyOnLoad(this.gameObject); // Optional: Keep the player across scenes
+            DontDestroyOnLoad(this.gameObject); // Opțional: păstrează jucătorul între scene
         }
         animator = GetComponent<Animator>();
     }
@@ -61,7 +61,7 @@ public class PlayerHealth : MonoBehaviour
         {
             isDead = true;
             Debug.Log("Player is dead!");
-            // SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Decomentează pentru a reîncărca scena
+            Die();
         }
         else
         {
@@ -70,6 +70,54 @@ public class PlayerHealth : MonoBehaviour
                 damageFlicker.StartFlicker();
             }
         }
+    }
+
+    private void Die()
+    {
+        Time.timeScale = 0f;
+        WaveManager.Instance.ResetWaves();
+
+        // Afișează UI de respawn
+        if (respawnUI != null)
+        {
+            respawnUI.SetActive(true);
+            // Afișează numărul de inamici omorâți
+            Text enemiesKilledText = respawnUI.transform.Find("EnemiesKilledText").GetComponent<Text>();
+            enemiesKilledText.text = "Enemies killed: " + EnemyManager.Instance.GetEnemiesKilledCount();
+
+            Button respawnButton = respawnUI.transform.Find("RespawnButton").GetComponent<Button>();
+            respawnButton.onClick.AddListener(() => Respawn());
+        }
+    }
+
+    public void Respawn()
+    {
+        Time.timeScale = 1f;
+        // Reinițializează sănătatea jucătorului
+        playerStats.currentHealth = playerStats.maxHealth;
+        healthBar.SetHealth(playerStats.currentHealth);
+
+        // Reinițializează poziția jucătorului în port
+        transform.position = new Vector3(-88f, -24.56f, 0f);
+
+        // Reactivează flag-ul isInPort
+        PlayerCtrl playerCtrl = GetComponent<PlayerCtrl>();
+        if (playerCtrl != null)
+        {
+            playerCtrl.isInPort = true;
+        }
+
+        // Resetează flag-ul de moarte
+        isDead = false;
+
+        // Ascunde UI de respawn
+        if (respawnUI != null)
+        {
+            respawnUI.SetActive(false);
+        }
+
+        // Reîncepe regenerarea sănătății
+        StartCoroutine(HealthRegenCoroutine());
     }
 
     private IEnumerator InvulnerabilityCoroutine()

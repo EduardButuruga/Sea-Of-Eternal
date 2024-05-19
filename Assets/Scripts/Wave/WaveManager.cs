@@ -8,19 +8,21 @@ public class WaveManager : MonoBehaviour
     [System.Serializable]
     public class EnemyConfig
     {
-        public GameObject enemyPrefab; // Prefab for this type of enemy
-        public int count; // Number of this type of enemy
+        public GameObject enemyPrefab; // Prefab pentru acest tip de inamic
+        public int count; // Numărul acestui tip de inamic
     }
 
     [System.Serializable]
     public class WaveConfig
     {
-        public List<EnemyConfig> enemyConfigs; // List of enemy types for this wave
-        public GameObject bossPrefab; // Prefab for the boss
-        public float timeBetweenEnemies = 0.1f; // Time interval between enemy spawns
+        public List<EnemyConfig> enemyConfigs; // Lista tipurilor de inamici pentru acest wave
+        public GameObject bossPrefab; // Prefab pentru boss
+        public float timeBetweenEnemies = 0.1f; // Intervalul de timp între apariția inamicilor
     }
 
-    public List<WaveConfig> waves; // List of wave configurations
+    public static WaveManager Instance { get; private set; }
+
+    public List<WaveConfig> waves; // Lista configurărilor pentru wave-uri
     public Text waveText; // Referință la componenta Text din UI pentru numărul wave-ului
     public Text waveAnnouncementText; // Referință la componenta Text pentru anunțul wave-ului
     public Text warningText; // Referință la componenta Text pentru avertismentul boss-ului
@@ -32,10 +34,23 @@ public class WaveManager : MonoBehaviour
     private int totalEnemiesInWave;
     private bool bossSpawned = false;
 
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void Start()
     {
         mainCamera = Camera.main;
-        UpdateWaveText(); // Display the initial wave
+        UpdateWaveText(); // Afișează wave-ul inițial
     }
 
     public void StartWaves()
@@ -48,7 +63,7 @@ public class WaveManager : MonoBehaviour
         while (currentWave < waves.Count)
         {
             ShowWaveAnnouncement();
-            yield return new WaitForSeconds(3f); // Time to display wave announcement
+            yield return new WaitForSeconds(3f); // Timp pentru a afișa anunțul wave-ului
 
             HideWaveAnnouncement();
 
@@ -65,7 +80,7 @@ public class WaveManager : MonoBehaviour
                 for (int i = 0; i < enemyConfig.count; i++)
                 {
                     SpawnEnemy(enemyConfig.enemyPrefab);
-                    yield return new WaitForSeconds(waveConfig.timeBetweenEnemies); // Interval between enemies
+                    yield return new WaitForSeconds(waveConfig.timeBetweenEnemies); // Interval între inamici
                 }
             }
 
@@ -92,20 +107,20 @@ public class WaveManager : MonoBehaviour
 
     private void SpawnEnemy(GameObject enemyPrefab)
     {
-        // Calculate a random position off-screen
+        // Calculează o poziție random în afara ecranului
         Vector2 spawnPosition = GetRandomSpawnPosition();
 
-        // Instantiate the enemy and add it to the list of active enemies
+        // Instanțiază inamicul și îl adaugă în lista de inamici activi
         GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
         activeEnemies.Add(enemy);
     }
 
     private void SpawnBoss(GameObject bossPrefab)
     {
-        // Calculate a random position off-screen
+        // Calculează o poziție random în afara ecranului
         Vector2 spawnPosition = GetRandomSpawnPosition();
 
-        // Instantiate the boss and add it to the list of active enemies
+        // Instanțiază boss-ul și îl adaugă în lista de inamici activi
         GameObject boss = Instantiate(bossPrefab, spawnPosition, Quaternion.identity);
         activeEnemies.Add(boss);
     }
@@ -117,16 +132,16 @@ public class WaveManager : MonoBehaviour
 
         switch (Random.Range(0, 4))
         {
-            case 0: // Left
+            case 0: // Stânga
                 spawnPosition = new Vector2(-screenBounds.x - spawnDistance, Random.Range(-screenBounds.y, screenBounds.y));
                 break;
-            case 1: // Right
+            case 1: // Dreapta
                 spawnPosition = new Vector2(screenBounds.x + spawnDistance, Random.Range(-screenBounds.y, screenBounds.y));
                 break;
-            case 2: // Up
+            case 2: // Sus
                 spawnPosition = new Vector2(Random.Range(-screenBounds.x, screenBounds.x), screenBounds.y + spawnDistance);
                 break;
-            case 3: // Down
+            case 3: // Jos
                 spawnPosition = new Vector2(Random.Range(-screenBounds.x, screenBounds.x), -screenBounds.y - spawnDistance);
                 break;
             default:
@@ -147,7 +162,7 @@ public class WaveManager : MonoBehaviour
         waveAnnouncementText.text = "Wave " + (currentWave + 1) + " incoming...";
         StartCoroutine(FadeTextInAndOut(waveAnnouncementText));
 
-        // Display warning text if there is a boss in this wave
+        // Afișează textul de avertisment dacă există un boss în acest wave
         if (waves[currentWave].bossPrefab != null)
         {
             warningText.text = "BEWARE!!!";
@@ -189,5 +204,14 @@ public class WaveManager : MonoBehaviour
         }
 
         text.gameObject.SetActive(false);
+    }
+
+    public void ResetWaves()
+    {
+        StopAllCoroutines(); // Oprește toate corutinele active
+        currentWave = 0;
+        activeEnemies.ForEach(enemy => Destroy(enemy)); // Distruge toți inamicii activi
+        activeEnemies.Clear();
+        UpdateWaveText(); // Actualizează textul pentru wave
     }
 }
