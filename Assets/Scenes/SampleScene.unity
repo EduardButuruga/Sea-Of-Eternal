@@ -17448,7 +17448,10 @@ MonoBehaviour:
   invulnerabilityDuration: 1
   rb: {fileID: 565056944}
   colliderManager: {fileID: 565056958}
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 565056946}
+  startWaves: {fileID: 405981615}
+  port: {fileID: 271934193}
+  cannonController: {fileID: 2076924727}
 --- !u!114 &565056955
 MonoBehaviour:
   m_ObjectHideFlags: 0

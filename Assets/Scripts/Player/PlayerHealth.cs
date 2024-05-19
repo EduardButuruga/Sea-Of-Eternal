@@ -16,7 +16,9 @@ public class PlayerHealth : MonoBehaviour
     public Rigidbody2D rb;
     public EnemyColliderManager colliderManager; // Referință la DirectionalColliderManager
     public SpriteRenderer spriteRenderer;
-
+    public StartWaves startWaves; // Referință la scriptul StartWaves
+    public GameObject port;
+    public CannonController cannonController;
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -74,6 +76,9 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
+        rb.velocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+        transform.rotation = Quaternion.Euler(0, 0, 0);     
         Time.timeScale = 0f;
         WaveManager.Instance.ResetWaves();
 
@@ -92,7 +97,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void Respawn()
     {
-        Time.timeScale = 1f;
+        Time.timeScale = 1f;      
         // Reinițializează sănătatea jucătorului
         playerStats.currentHealth = playerStats.maxHealth;
         healthBar.SetHealth(playerStats.currentHealth);
@@ -116,8 +121,17 @@ public class PlayerHealth : MonoBehaviour
             respawnUI.SetActive(false);
         }
 
+        if (startWaves != null)
+        {
+            startWaves.ResetActiv();
+        }
         // Reîncepe regenerarea sănătății
         StartCoroutine(HealthRegenCoroutine());
+        port.SetActive(true);
+        if (cannonController != null)
+        {
+            cannonController.ResetCannon(); // Resetează starea tunului
+        }
     }
 
     private IEnumerator InvulnerabilityCoroutine()
