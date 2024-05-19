@@ -169,4 +169,14 @@ public class CannonController : MonoBehaviour
     {
         cannonPoint = point;
     }
+    public void ResetCannon()
+    {
+        isFiring = false;
+        canFire = true;
+        if (firingCoroutine != null)
+        {
+            StopCoroutine(firingCoroutine);
+            firingCoroutine = null;
+        }
+    }
 }

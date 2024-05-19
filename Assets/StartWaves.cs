@@ -38,7 +38,7 @@ public class StartWaves : MonoBehaviour
                 waveManager.StartWaves();
             }
 
-            if(waveTimer != null)
+            if (waveTimer != null)
             {
                 waveTimer.StartTimer();
             }
@@ -54,5 +54,9 @@ public class StartWaves : MonoBehaviour
             }
             Activ = false;
         }
+    }
+    public void ResetActiv()
+    {
+        Activ = true;
     }
 }

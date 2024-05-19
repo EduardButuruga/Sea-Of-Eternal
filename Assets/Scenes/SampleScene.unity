@@ -17448,7 +17448,10 @@ MonoBehaviour:
   invulnerabilityDuration: 1
   rb: {fileID: 565056944}
   colliderManager: {fileID: 565056958}
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 565056946}
+  startWaves: {fileID: 405981615}
+  port: {fileID: 271934193}
+  cannonController: {fileID: 2076924727}
 --- !u!114 &565056955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17502,9 +17505,9 @@ MonoBehaviour:
   xpMultiplier: 1
   dmgMultiplier: 1
   pickupRadius: 31.3
-  maxHealth: 25
-  currentHealth: 25
-  moveSpeed: 1000
+  maxHealth: 1
+  currentHealth: 1
+  moveSpeed: 100
   damage: 10
   attackSpeed: 1
   criticalStrikeChance: 0.1
@@ -26844,7 +26847,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unlockPanel: {fileID: 1938013187}
-  playerCtrl: {fileID: 0}
+  playerCtrl: {fileID: 565056945}
 --- !u!61 &1114108090
 BoxCollider2D:
   m_ObjectHideFlags: 0
