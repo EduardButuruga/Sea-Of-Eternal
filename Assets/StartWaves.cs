@@ -1,18 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class StartWaves : MonoBehaviour
 {
-    public WaveManager waveManager; // Referință către scriptul WaveManager
+    public WaveManager waveManager;
     public bool Activ = true;
     public WaveTimer waveTimer;
     public PlayerCtrl playerController;
-    
+    public GameObject port;
+    public float activationDistance = 5f;
 
-    public AudioSource audioSource; // Componenta AudioSource
-    public AudioClip shootSound; // Sunetul de împușcare
+    public GameObject player;
+    public AudioSource audioSource;
+    public AudioClip shootSound;
 
+    void Update()
+    {
+        if (Vector3.Distance(player.transform.position, transform.position) >= activationDistance)
+        {
+                TogglePort();
+        }
+    }
+
+    void TogglePort()
+    {
+        if (port != null)
+        {
+            port.SetActive(!port.activeSelf);
+        }
+    }
     private void OnMouseDown()
     {
         Debug.Log("Clopot");
@@ -30,7 +45,7 @@ public class StartWaves : MonoBehaviour
 
             if (playerController != null)
             {
-                playerController.isInPort = false; // Setează că corabia nu mai este în port
+                playerController.isInPort = false;
             }
 
             if (audioSource != null && shootSound != null)
