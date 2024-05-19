@@ -37,8 +37,7 @@ public class PlayerStats : MonoBehaviour
     [Header("Harpon Stats")]
     public float launchSpeed = 10f;
     public float returnSpeed = 5f;
-    public float maxDistance = 10f;
-
+    public float maxDistance = 10f;  
     public void IncreaseLuck(float amount)
     {
         luck += amount;

@@ -24,12 +24,20 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             Debug.Log("Bullet hit enemy with damage: " + this.damage); // Debug message
+
             maxHealth enemyHealth = collision.GetComponent<maxHealth>();
             if (enemyHealth != null)
             {
                 enemyHealth.TakeDamage(this.damage, isCriticalHit);
             }
-            Destroy(gameObject);
+            else
+            {
+                BossHealth bossHealth = collision.GetComponent<BossHealth>();
+                if (bossHealth != null)
+                {
+                    bossHealth.TakeDamage(this.damage, isCriticalHit);
+                }
+            }           
         }
     }
 }

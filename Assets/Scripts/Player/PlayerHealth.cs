@@ -10,9 +10,12 @@ public class PlayerHealth : MonoBehaviour
 
     public static PlayerHealth Instance { get; private set; }
     private bool isDead;
+    private bool isInvulnerable;
+    public float invulnerabilityDuration = 0.10f; // Durata invulnerabilității în secunde
     public Rigidbody2D rb;
     public EnemyColliderManager colliderManager; // Referință la DirectionalColliderManager
     public SpriteRenderer spriteRenderer;
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -26,6 +29,7 @@ public class PlayerHealth : MonoBehaviour
         }
         animator = GetComponent<Animator>();
     }
+
     void Start()
     {
         if (playerStats == null)
@@ -35,8 +39,11 @@ public class PlayerHealth : MonoBehaviour
         playerStats.currentHealth = playerStats.maxHealth;
         healthBar.SetMaxHealth(playerStats.maxHealth);
     }
+
     public void TakeDamage(int damage, Vector3 enemypos)
     {
+        if (isInvulnerable || isDead)
+            return;
 
         var trueDamage = damage - playerStats.armor;
         playerStats.currentHealth -= damage;
@@ -46,12 +53,21 @@ public class PlayerHealth : MonoBehaviour
             animator.SetTrigger("hurt");
         }
 
+        StartCoroutine(InvulnerabilityCoroutine());
+
         if (playerStats.currentHealth <= 0 && !isDead)
         {
             isDead = true;
             // Poți adăuga logică pentru când jucătorul moare, de exemplu reîncărcarea scenei
             Debug.Log("Player is dead!");
-            // SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Decomentariu pentru a reîncărca scena
+            // SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Decomentează pentru a reîncărca scena
         }
+    }
+
+    private IEnumerator InvulnerabilityCoroutine()
+    {
+        isInvulnerable = true;
+        yield return new WaitForSeconds(invulnerabilityDuration);
+        isInvulnerable = false;
     }
 }

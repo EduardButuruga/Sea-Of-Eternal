@@ -9,8 +9,6 @@ public class CannonSettings
     public float bulletSpeed = 10f;
     public float attackSpeed = 1f; // Viteza de atac pentru tun
     public float damage = 10f; // Daunele tunului
-    public float criticalStrikeChance = 0.1f; // Șansa de lovitură critică
-    public float criticalDamageMultiplier = 2f; // Multiplicatorul pentru daune critice
     public float bulletSpread = 10f; // Unghiul de dispersie a ghiulelelor
 }
 
@@ -33,11 +31,11 @@ public class BossCannon : MonoBehaviour
         {
             float angleOffset = (i - (cannon.numberOfBullets - 1) / 2f) * (cannon.bulletSpread / cannon.numberOfBullets); // Distribuie unghiul pe mai multe ghiulele
             Vector2 fireDirection = Quaternion.Euler(0, 0, angleOffset) * baseDirection;
-            FireBullet(cannon.bulletSpawnPoint, fireDirection, cannon.bulletSpeed, cannon.damage, cannon.criticalStrikeChance, cannon.criticalDamageMultiplier);
+            FireBullet(cannon.bulletSpawnPoint, fireDirection, cannon.bulletSpeed, cannon.damage);
         }
     }
 
-    private void FireBullet(Transform spawnPoint, Vector2 direction, float bulletSpeed, float damage, float critChance, float critMultiplier)
+    private void FireBullet(Transform spawnPoint, Vector2 direction, float bulletSpeed, float damage)
     {
         Quaternion rotation = Quaternion.LookRotation(Vector3.forward, direction);
         Transform bulletTransform = Instantiate(bulletPrefab, spawnPoint.position, rotation).transform;
@@ -45,24 +43,10 @@ public class BossCannon : MonoBehaviour
         Rigidbody2D rb = bulletTransform.GetComponent<Rigidbody2D>();
         rb.velocity = direction * bulletSpeed;
 
-        Bullet cannonballScript = bulletTransform.GetComponent<Bullet>();
+        EnemyBullet cannonballScript = bulletTransform.GetComponent<EnemyBullet>();
         if (cannonballScript != null)
         {
-            float finalDamage = damage;
-            bool isCriticalHit = Random.value < critChance;
-            if (isCriticalHit)
-            {
-                finalDamage *= critMultiplier;
-                Debug.Log("Critical hit!");
-            }
-            cannonballScript.SetDamage(finalDamage, isCriticalHit);
-
-            // Setează parametrul isCritical în Animatorul cannonball-ului
-            Animator cannonballAnimator = bulletTransform.GetComponent<Animator>();
-            if (cannonballAnimator != null)
-            {
-                cannonballAnimator.SetFloat("isCritical", isCriticalHit ? 1f : 0f);
-            }
+            cannonballScript.SetDamage(damage);          
         }
     }
 

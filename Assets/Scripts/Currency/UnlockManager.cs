@@ -15,6 +15,7 @@ public class UnlockManager : MonoBehaviour
         public GameObject weaponGameObject;
         public bool unlocksBarrels; // Flag pentru deblocarea butoaielor
         public Button relatedUnlockButton; // Butonul care trebuie activat după achiziționare
+        public MonoBehaviour scriptToEnable; // Referință la scriptul care trebuie activat după achiziționare
     }
 
     public Weapon[] weapons;
@@ -31,6 +32,12 @@ public class UnlockManager : MonoBehaviour
             if (weapon.relatedUnlockButton != null)
             {
                 weapon.relatedUnlockButton.gameObject.SetActive(false);
+            }
+
+            // Dezactivează scriptul inițial
+            if (weapon.scriptToEnable != null)
+            {
+                weapon.scriptToEnable.enabled = false;
             }
         }
     }
@@ -62,6 +69,12 @@ public class UnlockManager : MonoBehaviour
             if (weapon.relatedUnlockButton != null)
             {
                 weapon.relatedUnlockButton.gameObject.SetActive(true);
+            }
+
+            // Activează scriptul asociat
+            if (weapon.scriptToEnable != null)
+            {
+                weapon.scriptToEnable.enabled = true;
             }
         }
     }

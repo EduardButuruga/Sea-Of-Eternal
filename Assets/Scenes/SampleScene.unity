@@ -1119,7 +1119,7 @@ Transform:
   m_GameObject: {fileID: 51803936}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -88.96, y: -24.76, z: -10}
+  m_LocalPosition: {x: -88.58, y: -24.45, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1814,6 +1814,7 @@ RectTransform:
   - {fileID: 1532595969}
   - {fileID: 1357211118}
   - {fileID: 175791609}
+  - {fileID: 514332931}
   m_Father: {fileID: 1341762895}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -1865,6 +1866,9 @@ MonoBehaviour:
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   fill: {fileID: 1532595970}
+  healthText: {fileID: 514332932}
+  playerStats: {fileID: 565056957}
+  healthBar: {fileID: 122034572}
 --- !u!114 &122034573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2681,7 +2685,7 @@ GameObject:
   - component: {fileID: 215664556}
   m_Layer: 7
   m_Name: DOWNRIGHT
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10524,7 +10528,7 @@ GameObject:
   - component: {fileID: 424245530}
   m_Layer: 7
   m_Name: DOWN
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10824,12 +10828,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: d8957e9cd3c58e048bfecd93b172a0c1, type: 3}
     m_FontSize: 30
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 300
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -11046,7 +11050,7 @@ GameObject:
   - component: {fileID: 459703850}
   m_Layer: 7
   m_Name: DOWNLEFT
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11224,7 +11228,7 @@ GameObject:
   - component: {fileID: 462229813}
   m_Layer: 7
   m_Name: UPLEFT
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11425,6 +11429,87 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 499110565}
   m_CullTransparentMesh: 1
+--- !u!1 &514332930
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 514332931}
+  - component: {fileID: 514332933}
+  - component: {fileID: 514332932}
+  m_Layer: 5
+  m_Name: Text (Legacy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &514332931
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514332930}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 122034571}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 35, y: 0}
+  m_SizeDelta: {x: 176.249, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &514332932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514332930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: d8957e9cd3c58e048bfecd93b172a0c1, type: 3}
+    m_FontSize: 28
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 300
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'HP
+
+'
+--- !u!222 &514332933
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514332930}
+  m_CullTransparentMesh: 1
 --- !u!1 &516361562
 GameObject:
   m_ObjectHideFlags: 0
@@ -11587,7 +11672,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -88.96, y: -24.76, z: -10}
+  m_LocalPosition: {x: -88.58, y: -24.45, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12549,7 +12634,7 @@ Transform:
   m_GameObject: {fileID: 565056943}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -88.96, y: -24.76, z: 0}
+  m_LocalPosition: {x: -88.58, y: -24.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12803,7 +12888,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 565056943}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 929793f8100ddf34c8fa80cb58724906, type: 3}
   m_Name: 
@@ -12828,9 +12913,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 122034572}
-  playerStats: {fileID: 0}
+  playerStats: {fileID: 565056957}
+  invulnerabilityDuration: 1
   rb: {fileID: 565056944}
-  colliderManager: {fileID: 0}
+  colliderManager: {fileID: 565056958}
   spriteRenderer: {fileID: 0}
 --- !u!114 &565056955
 MonoBehaviour:
@@ -12885,9 +12971,9 @@ MonoBehaviour:
   xpMultiplier: 1
   dmgMultiplier: 1
   pickupRadius: 31.3
-  maxHealth: 10
-  currentHealth: 0
-  moveSpeed: 100
+  maxHealth: 25
+  currentHealth: 25
+  moveSpeed: 0
   damage: 10
   attackSpeed: 1
   criticalStrikeChance: 0.1
@@ -13100,7 +13186,7 @@ GameObject:
   - component: {fileID: 603623825}
   m_Layer: 7
   m_Name: UPRIGHT
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14328,12 +14414,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: d8957e9cd3c58e048bfecd93b172a0c1, type: 3}
     m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
-    m_MaxSize: 40
+    m_MaxSize: 300
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -17231,7 +17317,7 @@ GameObject:
   - component: {fileID: 1102082689}
   m_Layer: 7
   m_Name: RIGHT
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22025,6 +22111,7 @@ MonoBehaviour:
     weaponGameObject: {fileID: 1307042801}
     unlocksBarrels: 0
     relatedUnlockButton: {fileID: 0}
+    scriptToEnable: {fileID: 0}
   - name: Harpoon
     price: 2500
     weaponImage: {fileID: 77902063}
@@ -22034,6 +22121,7 @@ MonoBehaviour:
     weaponGameObject: {fileID: 244212535}
     unlocksBarrels: 0
     relatedUnlockButton: {fileID: 246134692}
+    scriptToEnable: {fileID: 565056952}
   - name: Explosive Barrel
     price: 3000
     weaponImage: {fileID: 370621080}
@@ -22043,6 +22131,7 @@ MonoBehaviour:
     weaponGameObject: {fileID: 737972554}
     unlocksBarrels: 1
     relatedUnlockButton: {fileID: 1498029787}
+    scriptToEnable: {fileID: 0}
   - name: Cannon
     price: 4500
     weaponImage: {fileID: 16162653}
@@ -22052,6 +22141,7 @@ MonoBehaviour:
     weaponGameObject: {fileID: 2076924724}
     unlocksBarrels: 0
     relatedUnlockButton: {fileID: 555952613}
+    scriptToEnable: {fileID: 0}
   playerCtrl: {fileID: 565056945}
 --- !u!114 &1612453694
 MonoBehaviour:
@@ -24044,7 +24134,7 @@ GameObject:
   - component: {fileID: 1790896013}
   m_Layer: 7
   m_Name: UP
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24849,7 +24939,7 @@ GameObject:
   - component: {fileID: 1858661289}
   m_Layer: 7
   m_Name: LEFT
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32692,18 +32782,14 @@ MonoBehaviour:
     bulletSpeed: 10
     attackSpeed: 1
     damage: 10
-    criticalStrikeChance: 0.1
-    criticalDamageMultiplier: 2
-    bulletSpread: 10
+    bulletSpread: 25
   rightCannon:
     bulletSpawnPoint: {fileID: 253355605}
     numberOfBullets: 5
     bulletSpeed: 10
     attackSpeed: 1
     damage: 10
-    criticalStrikeChance: 0.1
-    criticalDamageMultiplier: 2
-    bulletSpread: 10
+    bulletSpread: 25
   bulletPrefab: {fileID: 6678981804312863122, guid: 900557e28d85dff4ab165f7b351b153b, type: 3}
   boatAnimator: {fileID: 6032221303877980411}
 --- !u!114 &9137940115908017913
@@ -32748,7 +32834,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  rotationSpeed: 0.5
+  rotationSpeed: 0.1
   player: {fileID: 565056943}
   animator: {fileID: 6032221303877980411}
   colliderManager: {fileID: 9137940115908017913}
