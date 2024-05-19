@@ -24,8 +24,7 @@ public class WaveTimer : MonoBehaviour
             timer -= Time.deltaTime;
 
             if (timer <= 0)
-            {
-                showWaveText.ShowWaveText(); // Apelează scriptul ShowWaveText
+            {               // Apelează scriptul ShowWaveText
                 timer = timeBetweenWaves; // Resetează timerul
             }
 
@@ -34,8 +33,7 @@ public class WaveTimer : MonoBehaviour
     }
     public void StartTimer()
     {
-        isTimerRunning = true;
-        showWaveText.ShowWaveText();
+        isTimerRunning = true;      
     }
 
     void UpdateTimerText()

@@ -7,6 +7,9 @@ public class Bullet : MonoBehaviour
     public float life = 3;
     private float damage;
     private bool isCriticalHit;
+    public int maxPierceCount = 1; // Max enemies to pierce through for normal hits
+    public int maxPierceCountCritical = 3; // Max enemies to pierce through for critical hits
+    private int pierceCount = 0; // Counter for pierced enemies
 
     private void Awake()
     {
@@ -37,7 +40,23 @@ public class Bullet : MonoBehaviour
                 {
                     bossHealth.TakeDamage(this.damage, isCriticalHit);
                 }
-            }           
+                GhostBossHealth GbossHealth = collision.GetComponent<GhostBossHealth>();
+                if (GbossHealth != null)
+                {
+                    GbossHealth.TakeDamage(this.damage, isCriticalHit);
+                }
+            }
+
+            pierceCount++;
+
+            // Determine the max number of enemies the bullet can pierce through
+            int currentMaxPierceCount = isCriticalHit ? maxPierceCountCritical : maxPierceCount;
+
+            // Destroy the bullet if it has reached the max number of pierces
+            if (pierceCount >= currentMaxPierceCount)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

@@ -14,7 +14,8 @@ public class maxHealth : MonoBehaviour
     public int minCoins = 1; // Numărul minim de monede droppate
     public int maxCoins = 5;// Numărul de monede droppate
     public float dropRadius = 0.5f;
-    public Vector3 damagePopupOffset = new Vector3(0, 1, 0); // Offset pentru poziția popup-ului
+    public Vector3 damagePopupOffset = new Vector3(0, 1, 0); // Offset pentru poziția popup-ulu
+    public Animator animator;
 
     void Start()
     {
@@ -31,7 +32,7 @@ public class maxHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             Die();
-        }
+        }     
     }
 
     public void TakeFlatDamage(float amount)
@@ -54,13 +55,14 @@ public class maxHealth : MonoBehaviour
 
     private void Die()
     {
+        animator.SetTrigger("Die");
         if (playerXp != null)
         {
             playerXp.AddXP(xpValue);
         }
 
         DropCoins();
-        Destroy(gameObject);
+        Destroy(gameObject, 0.5f);
         // Sau alte efecte la moarte, de exemplu: animații, particule etc.
     }
 

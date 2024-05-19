@@ -46,7 +46,7 @@ public class BossCannon : MonoBehaviour
         EnemyBullet cannonballScript = bulletTransform.GetComponent<EnemyBullet>();
         if (cannonballScript != null)
         {
-            cannonballScript.SetDamage(damage);          
+            cannonballScript.SetDamage(damage);
         }
     }
 
@@ -54,61 +54,14 @@ public class BossCannon : MonoBehaviour
     {
         while (isFiring)
         {
-            Vector2 leftDirection;
-            Vector2 rightDirection;
-
             float horizontal = boatAnimator.GetFloat("Horizontal");
             float vertical = boatAnimator.GetFloat("Vertical");
 
-            if (Mathf.Abs(horizontal) > Mathf.Abs(vertical))
-            {
-                if (horizontal > 0)
-                {
-                    leftDirection = Vector2.up;
-                    rightDirection = Vector2.down;
-                }
-                else
-                {
-                    leftDirection = Vector2.down;
-                    rightDirection = Vector2.up;
-                }
-            }
-            else if (Mathf.Abs(vertical) > Mathf.Abs(horizontal))
-            {
-                if (vertical > 0)
-                {
-                    leftDirection = Vector2.left;
-                    rightDirection = Vector2.right;
-                }
-                else
-                {
-                    leftDirection = Vector2.right;
-                    rightDirection = Vector2.left;
-                }
-            }
-            else
-            {
-                if (horizontal > 0 && vertical > 0)
-                {
-                    leftDirection = (Vector2.up + Vector2.left).normalized;
-                    rightDirection = (Vector2.down + Vector2.right).normalized;
-                }
-                else if (horizontal > 0 && vertical < 0)
-                {
-                    leftDirection = (Vector2.down + Vector2.left).normalized;
-                    rightDirection = (Vector2.up + Vector2.right).normalized;
-                }
-                else if (horizontal < 0 && vertical > 0)
-                {
-                    leftDirection = (Vector2.up + Vector2.right).normalized;
-                    rightDirection = (Vector2.down + Vector2.left).normalized;
-                }
-                else
-                {
-                    leftDirection = (Vector2.down + Vector2.right).normalized;
-                    rightDirection = (Vector2.up + Vector2.left).normalized;
-                }
-            }
+            Vector2 direction = new Vector2(horizontal, vertical).normalized;
+
+            // Calculează direcțiile de tragere pentru tunuri
+            Vector2 leftDirection = Quaternion.Euler(0, 0, 90) * direction;
+            Vector2 rightDirection = Quaternion.Euler(0, 0, -90) * direction;
 
             Fire(leftCannon, leftDirection);
             Fire(rightCannon, rightDirection);

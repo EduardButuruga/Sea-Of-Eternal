@@ -163,6 +163,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 3
+  maxPierceCount: 4
+  maxPierceCountCritical: 8
 --- !u!95 &-7130072723569604581
 Animator:
   serializedVersion: 5

@@ -160,7 +160,7 @@ Animator:
   m_GameObject: {fileID: 1195864594365841073}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d2be86eb3e22a0142a2556c7f5d3527e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c127d068c2954f84f8a1f31dd055903c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.75
+  speed: 1
   player: {fileID: 0}
 --- !u!114 &4471668477835448946
 MonoBehaviour:
@@ -204,6 +204,7 @@ MonoBehaviour:
   maxCoins: 5
   dropRadius: 0.5
   damagePopupOffset: {x: 3.09, y: -0.21, z: 0}
+  animator: {fileID: 4467058239861264573}
 --- !u!60 &6858389120658725240
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -5239,6 +5240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  playerHealth: {fileID: 0}
 --- !u!1 &5936653666912038544
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ TagManager:
   - Coin
   - BBossBar
   - Boss
+  - GBossBar
   layers:
   - Default
   - TransparentFX
@@ -29,7 +30,7 @@ TagManager:
   - Coin
   - DamageDealer
   - EnemyBullet
-  - Helpers
+  - ObstacleHelpers
   - 
   - 
   - 

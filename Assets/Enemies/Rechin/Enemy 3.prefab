@@ -162,7 +162,7 @@ Animator:
   m_GameObject: {fileID: 1195864594365841073}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c567964729a3b8a4da533e1fc7fee8c7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -192,6 +192,7 @@ MonoBehaviour:
   maxCoins: 5
   dropRadius: 0.5
   damagePopupOffset: {x: 3.09, y: -0.21, z: 0}
+  animator: {fileID: 4467058239861264573}
 --- !u!114 &3178252704546216124
 MonoBehaviour:
   m_ObjectHideFlags: 0

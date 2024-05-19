@@ -7,6 +7,7 @@ public class PlayerHealth : MonoBehaviour
     public HealthBar healthBar;
     private Animator animator;
     public PlayerStats playerStats;
+    public DamageFlicker damageFlicker;
 
     public static PlayerHealth Instance { get; private set; }
     private bool isDead;
@@ -61,6 +62,13 @@ public class PlayerHealth : MonoBehaviour
             // Poți adăuga logică pentru când jucătorul moare, de exemplu reîncărcarea scenei
             Debug.Log("Player is dead!");
             // SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Decomentează pentru a reîncărca scena
+        }
+        else
+        {
+            if (damageFlicker != null)
+            {
+                damageFlicker.StartFlicker();
+            }
         }
     }
 
