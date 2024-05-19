@@ -3,11 +3,13 @@
 public class AIChase : MonoBehaviour
 {
     public float speed;
-
     public GameObject player;
-    private Animator animator;
+    public Animator animator;
     private Vector2 currentDirection;
     private maxHealth health;
+
+    public EnemyColliderManager colliderManager; // Referință la DirectionalColliderManager
+    public SpriteRenderer spriteRenderer; // Referință la SpriteRenderer
 
     void Start()
     {
@@ -21,6 +23,7 @@ public class AIChase : MonoBehaviour
         }
 
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (rb != null)
@@ -38,16 +41,23 @@ public class AIChase : MonoBehaviour
             return;
         }
 
-        Vector2 directionToPlayer = (player.transform.position - transform.position).normalized;       
-        currentDirection = directionToPlayer;      
-        transform.position = Vector2.MoveTowards(transform.position, (Vector2)transform.position + currentDirection, speed * Time.deltaTime);      
+        Vector2 directionToPlayer = (player.transform.position - transform.position).normalized;
+        currentDirection = directionToPlayer;
+        transform.position = Vector2.MoveTowards(transform.position, (Vector2)transform.position + currentDirection, speed * Time.deltaTime);
         UpdateAnimator(currentDirection);
+        UpdateColliderDirection();
     }
 
     void UpdateAnimator(Vector2 direction)
-    {             
+    {
         animator.SetFloat("Horizontal", direction.x);
         animator.SetFloat("Vertical", direction.y);
         animator.SetFloat("Speed", direction.magnitude);
+    }
+
+    void UpdateColliderDirection()
+    {
+        string spriteName = spriteRenderer.sprite.name;
+        colliderManager.SetDirection(spriteName);
     }
 }

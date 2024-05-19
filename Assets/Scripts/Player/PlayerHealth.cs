@@ -11,7 +11,8 @@ public class PlayerHealth : MonoBehaviour
     public static PlayerHealth Instance { get; private set; }
     private bool isDead;
     public Rigidbody2D rb;
-
+    public EnemyColliderManager colliderManager; // Referință la DirectionalColliderManager
+    public SpriteRenderer spriteRenderer;
     void Awake()
     {
         if (Instance != null && Instance != this)

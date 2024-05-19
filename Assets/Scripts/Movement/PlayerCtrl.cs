@@ -24,7 +24,8 @@ public class PlayerCtrl : MonoBehaviour
 
     public AudioSource audioSource; // Componenta AudioSource
     public AudioClip shootSound; // Sunetul de împușcare
-
+    public EnemyColliderManager colliderManager; // Referință la DirectionalColliderManager
+    public SpriteRenderer spriteRenderer;
     public bool isInPort = true;
 
     void Start()
@@ -87,6 +88,7 @@ public class PlayerCtrl : MonoBehaviour
             nextBarrelTime = Time.time + playerStats.barrelCooldown;
         }
         AttractCoins();
+        UpdateColliderDirection();
     }
 
     void FixedUpdate()
@@ -152,5 +154,10 @@ public class PlayerCtrl : MonoBehaviour
                 coin.StartAttraction(transform);
             }
         }
+    }
+    void UpdateColliderDirection()
+    {
+        string spriteName = spriteRenderer.sprite.name;
+        colliderManager.SetDirection(spriteName);
     }
 }
