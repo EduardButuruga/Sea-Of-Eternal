@@ -29,7 +29,7 @@ TagManager:
   - Coin
   - DamageDealer
   - EnemyBullet
-  - 
+  - Helpers
   - 
   - 
   - 
@@ -50,4 +50,7 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 3289044349
+    locked: 0
+  - name: Helpers
+    uniqueID: 2181325911
     locked: 0
