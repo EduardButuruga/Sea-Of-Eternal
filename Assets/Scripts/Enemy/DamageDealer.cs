@@ -9,7 +9,8 @@ public class DamageDealer : MonoBehaviour
     private void Start()
     {
         waveManager = GameObject.FindWithTag("WaveManager").GetComponent<WaveManager>();
-        damage = damage * waveManager.currentWave;
+        if(waveManager.currentWave > 1)
+            damage = damage * waveManager.currentWave;
         // Dacă referința nu este setată în Inspector, încearcă să o găsești automat
         if (playerHealth == null)
         {

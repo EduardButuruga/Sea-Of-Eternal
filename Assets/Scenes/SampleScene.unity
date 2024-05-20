@@ -17603,7 +17603,7 @@ MonoBehaviour:
   HandCannonDamage: 10
   HandCannonAttackSpeed: 1
   HandCannonCannonballSpeed: 10
-  HandCannonCriticalStrikeChance: 0.1
+  HandCannonCriticalStrikeChance: 1
   HandCannonCriticalDamageMultiplier: 2
   BarrelDamage: 50
   BarrelExplosionRadius: 2
