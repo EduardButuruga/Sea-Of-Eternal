@@ -35,6 +35,11 @@ public class WaveManager : MonoBehaviour
     private List<GameObject> activeEnemies = new List<GameObject>();
     private int totalEnemiesInWave;
     private bool bossSpawned = false;
+    private bool isBossWave = false; // Boolean pentru a verifica dacă este o rundă de boss
+
+    // Referințe la AudioSource pentru muzica normală și de boss
+    public AudioSource normalMusic;
+    public AudioSource bossMusic;
 
     void Awake()
     {
@@ -94,6 +99,8 @@ public class WaveManager : MonoBehaviour
                 {
                     SpawnBoss(waveConfig.bossPrefab);
                     bossSpawned = true;
+                    isBossWave = true;
+                    PlayBossMusic(); // Pornește muzica de boss
                 }
 
                 yield return null;
@@ -101,9 +108,9 @@ public class WaveManager : MonoBehaviour
 
             bossSpawned = false;
             currentWave++;
+            isBossWave = false;
+            PlayNormalMusic(); // Revine la muzica normală după terminarea wave-ului cu boss
             UpdateWaveText();
-
-            // Declanșează evenimentul OnWaveEnd
         }
     }
 
@@ -205,5 +212,23 @@ public class WaveManager : MonoBehaviour
         activeEnemies.ForEach(enemy => Destroy(enemy));
         activeEnemies.Clear();
         UpdateWaveText();
+    }
+
+    private void PlayBossMusic()
+    {
+        if (bossMusic != null)
+        {
+            normalMusic.Stop();
+            bossMusic.Play();
+        }
+    }
+
+    private void PlayNormalMusic()
+    {
+        if (normalMusic != null)
+        {
+            bossMusic.Stop();
+            normalMusic.Play();
+        }
     }
 }

@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c127d068c2954f84f8a1f31dd055903c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 1.75
   player: {fileID: 0}
 --- !u!114 &4471668477835448946
 MonoBehaviour:
@@ -202,8 +202,8 @@ MonoBehaviour:
   healthGrowing: 1.2
   currentHealth: 0
   coinPrefab: {fileID: 1802321396517906589, guid: d485e01ecfa628e4caa421c7ced0fcab, type: 3}
-  minCoins: 1
-  maxCoins: 5
+  minCoins: 3
+  maxCoins: 8
   dropRadius: 0.5
   damagePopupOffset: {x: 3.09, y: -0.21, z: 0}
   animator: {fileID: 4467058239861264573}

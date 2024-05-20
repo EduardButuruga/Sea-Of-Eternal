@@ -688,6 +688,9 @@ MonoBehaviour:
   animator: {fileID: 3473121585687284998}
   colliderManager: {fileID: 8178013655492796099}
   spriteRenderer: {fileID: 5359399160050447897}
+  optimalDistance: 5
+  directionChangeDelay: 0.5
+  smoothingSpeed: 0.1
 --- !u!50 &4831854077372031592
 Rigidbody2D:
   serializedVersion: 4
@@ -748,14 +751,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 054522d854aa545459e71615e59cf2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseHealth: 10
-  xpValue: 20
+  baseHealth: 800
+  xpValue: 300
+  healthGrowing: 1.1
+  currentHealth: 0
   coinPrefab: {fileID: 1802321396517906589, guid: d485e01ecfa628e4caa421c7ced0fcab, type: 3}
-  minCoins: 1
-  maxCoins: 5
-  dropRadius: 0.5
+  minCoins: 40
+  maxCoins: 50
+  dropRadius: 1
   damagePopupOffset: {x: 3.09, y: -0.21, z: 0}
   animator: {fileID: 3473121585687284998}
+  waveManager: {fileID: 0}
 --- !u!114 &8178013655492796099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -801,15 +807,15 @@ MonoBehaviour:
     bulletSpawnPoint: {fileID: 3844494925917297064}
     numberOfBullets: 5
     bulletSpeed: 5
-    attackSpeed: 0.4
-    damage: 15
+    attackSpeed: 0.7
+    damage: 40
     bulletSpread: 90
   rightCannon:
     bulletSpawnPoint: {fileID: 1823455426042672980}
     numberOfBullets: 5
     bulletSpeed: 5
-    attackSpeed: 0.4
-    damage: 15
+    attackSpeed: 0.7
+    damage: 40
     bulletSpread: 90
   bulletPrefab: {fileID: 4510200643473301273, guid: 9f07d4d3f429c5349a66f60bb1159c5e, type: 3}
   boatAnimator: {fileID: 3473121585687284998}

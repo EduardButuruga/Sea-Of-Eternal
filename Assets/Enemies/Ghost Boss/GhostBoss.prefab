@@ -5362,8 +5362,8 @@ Transform:
   m_GameObject: {fileID: 5046434045173458137}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.901972, y: -20.287529, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -9.1418, y: -19.5771, z: 0}
+  m_LocalScale: {x: 1.1894, y: 1.1894, z: 1.1894}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2571390095287813350}
@@ -5494,14 +5494,14 @@ MonoBehaviour:
     numberOfBullets: 2
     bulletSpeed: 10
     attackSpeed: 1
-    damage: 10
+    damage: 200
     bulletSpread: 75
   rightCannon:
     bulletSpawnPoint: {fileID: 1234889513916838414}
     numberOfBullets: 2
     bulletSpeed: 10
     attackSpeed: 1
-    damage: 10
+    damage: 200
     bulletSpread: 75
   bulletPrefab: {fileID: 281009902616506376, guid: b1d72792ee4fa434583492cc497790bc, type: 3}
   boatAnimator: {fileID: 7806691032453027493}
@@ -5609,13 +5609,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad710241e2692d049941577987acb6a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseHealth: 833
-  xpValue: 20
-  currentHealth: 122.78
+  baseHealth: 40000
+  xpValue: 2500
+  currentHealth: 40000
   coinPrefab: {fileID: 1802321396517906589, guid: d485e01ecfa628e4caa421c7ced0fcab, type: 3}
-  minCoins: 1
-  maxCoins: 5
-  dropRadius: 0.5
+  minCoins: 125
+  maxCoins: 150
+  dropRadius: 10.02
   damagePopupOffset: {x: 0, y: 1, z: 0}
 --- !u!114 &3674987829103457905
 MonoBehaviour:

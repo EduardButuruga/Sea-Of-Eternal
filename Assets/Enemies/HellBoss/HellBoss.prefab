@@ -324,16 +324,16 @@ MonoBehaviour:
   leftCannon:
     bulletSpawnPoint: {fileID: 125527294631858176}
     numberOfBullets: 12
-    bulletSpeed: 10
-    attackSpeed: 1
-    damage: 10
+    bulletSpeed: 6
+    attackSpeed: 0.7
+    damage: 200
     bulletSpread: 175
   rightCannon:
     bulletSpawnPoint: {fileID: 529620566552670754}
     numberOfBullets: 12
-    bulletSpeed: 10
-    attackSpeed: 1
-    damage: 10
+    bulletSpeed: 6
+    attackSpeed: 0.7
+    damage: 200
     bulletSpread: 175
   bulletPrefab: {fileID: 6678981804312863122, guid: 900557e28d85dff4ab165f7b351b153b, type: 3}
   boatAnimator: {fileID: 2536213964320186629}
@@ -378,7 +378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d22c28abafbabc4ca0fb959d40f6208, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
+  speed: 1
   rotationSpeed: 0.3
   player: {fileID: 0}
   animator: {fileID: 2536213964320186629}
@@ -441,13 +441,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f75a730090a6504c9644056492e03a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseHealth: 3000
-  xpValue: 20
-  currentHealth: 3000
+  baseHealth: 200000
+  xpValue: 5000
+  currentHealth: 200000
   coinPrefab: {fileID: 1802321396517906589, guid: d485e01ecfa628e4caa421c7ced0fcab, type: 3}
-  minCoins: 1
-  maxCoins: 5
-  dropRadius: 0.5
+  minCoins: 125
+  maxCoins: 150
+  dropRadius: 10.38
   damagePopupOffset: {x: 3, y: 0.94, z: 0}
 --- !u!114 &7702689323068680264
 MonoBehaviour:
