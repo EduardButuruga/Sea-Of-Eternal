@@ -1732,14 +1732,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 595591503}
+  m_Children: []
   m_Father: {fileID: 1938013188}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -72.45001, y: -80.82001}
-  m_SizeDelta: {x: 144.90002, y: 161.56299}
+  m_AnchoredPosition: {x: -104.91, y: -118.959}
+  m_SizeDelta: {x: 209.84, y: 237.928}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &62745071
 MonoBehaviour:
@@ -11918,7 +11917,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -72.44985, y: -159.98857}
+  m_AnchoredPosition: {x: -72.449, y: -238}
   m_SizeDelta: {x: 144.90002, y: 161.56299}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &338005586
@@ -12792,7 +12791,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1612453695}
         m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
-        m_MethodName: BuyArsenalDamage
+        m_MethodName: BuyLuck
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14038,7 +14037,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 4}
+    oldSize: {x: 1.92, y: 1.92}
     newSize: {x: 1.92, y: 1.92}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -18806,7 +18805,7 @@ MonoBehaviour:
   luck: 0
   armor: 0
   lifeRegen: 0
-  xpMultiplier: 10
+  xpMultiplier: 1.1
   dmgMultiplier: 1
   pickupRadius: 30
   maxHealth: 50
@@ -18825,7 +18824,7 @@ MonoBehaviour:
   HandCannonCriticalDamageMultiplier: 2
   BarrelDamage: 50
   BarrelExplosionRadius: 2
-  barrelCooldown: 10
+  barrelCooldown: 7
   launchSpeed: 10
   returnSpeed: 5
   maxDistance: 10
@@ -19216,12 +19215,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 62745070}
+  m_Father: {fileID: 1938013188}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.26245117, y: -0.000030517578}
-  m_SizeDelta: {x: -0.525, y: 0.000091553}
+  m_AnchoredPosition: {x: 887.8125, y: 459.21896}
+  m_SizeDelta: {x: -1775.625, y: -918.4369}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &595591504
 MonoBehaviour:
@@ -20539,7 +20538,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1612453695}
         m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
-        m_MethodName: BuyArsenalCritMultiplier
+        m_MethodName: BuyMaxHealth
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -20623,7 +20622,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -72.44985, y: -159.98857}
+  m_AnchoredPosition: {x: -72.45, y: -237}
   m_SizeDelta: {x: 144.90002, y: 161.56299}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &684084908
@@ -22735,8 +22734,6 @@ RectTransform:
   - {fileID: 2065135917}
   - {fileID: 683105065}
   - {fileID: 1857486627}
-  - {fileID: 1626630448}
-  - {fileID: 1674233243}
   m_Father: {fileID: 1341762895}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -27653,6 +27650,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1046837648}
   - component: {fileID: 1046837649}
+  - component: {fileID: 1046837650}
+  - component: {fileID: 1046837651}
   m_Layer: 0
   m_Name: Stats
   m_TagString: Untagged
@@ -27727,6 +27726,64 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1046837650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046837647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4005075937ac3948a8b2ba888879b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StatsUI: {fileID: 762110444}
+--- !u!61 &1046837651
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046837647}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2}
+  m_EdgeRadius: 0
 --- !u!1 &1054705958
 GameObject:
   m_ObjectHideFlags: 0
@@ -28883,7 +28940,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -72.44985, y: -159.98857}
+  m_AnchoredPosition: {x: -72.45, y: -241}
   m_SizeDelta: {x: 144.90002, y: 161.56299}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1083288696
@@ -32221,7 +32278,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1612453695}
         m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
-        m_MethodName: BuyArsenalAttackSpeed
+        m_MethodName: BuyArmor
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -39795,33 +39852,33 @@ MonoBehaviour:
     isCritMultiplierPriceIncreasePercentage: 1
     bulletsPerSidePrice: 1000
     bulletsPerSidePriceText: {fileID: 459741178}
-    bulletsPerSidePriceIncrease: 500
+    bulletsPerSidePriceIncrease: 200
     isBulletsPerSidePriceIncreasePercentage: 1
     attackVelocityPrice: 25
     attackVelocityPriceText: {fileID: 1292437177}
     attackVelocityPriceIncrease: 30
     isAttackVelocityPriceIncreasePercentage: 1
   statsUpgradePrices:
-    luckPrice: 0
-    luckPriceText: {fileID: 0}
-    luckPriceIncrease: 0
-    isLuckPriceIncreasePercentage: 0
-    maxHealthPrice: 0
-    maxHealthPriceText: {fileID: 0}
-    maxHealthPriceIncrease: 0
-    isMaxHealthPriceIncreasePercentage: 0
-    armorPrice: 0
-    armorPriceText: {fileID: 0}
-    armorPriceIncrease: 0
-    isArmorPriceIncreasePercentage: 0
-    moveSpeedPrice: 0
-    moveSpeedPriceText: {fileID: 0}
-    moveSpeedPriceIncrease: 0
-    isMoveSpeedPriceIncreasePercentage: 0
-    lifeRegenPrice: 0
-    lifeRegenPriceText: {fileID: 0}
-    lifeRegenPriceIncrease: 0
-    isLifeRegenPriceIncreasePercentage: 0
+    luckPrice: 100
+    luckPriceText: {fileID: 592668193}
+    luckPriceIncrease: 15
+    isLuckPriceIncreasePercentage: 1
+    maxHealthPrice: 50
+    maxHealthPriceText: {fileID: 515110238}
+    maxHealthPriceIncrease: 50
+    isMaxHealthPriceIncreasePercentage: 1
+    armorPrice: 100
+    armorPriceText: {fileID: 976933838}
+    armorPriceIncrease: 100
+    isArmorPriceIncreasePercentage: 1
+    moveSpeedPrice: 100
+    moveSpeedPriceText: {fileID: 759715511}
+    moveSpeedPriceIncrease: 25
+    isMoveSpeedPriceIncreasePercentage: 1
+    lifeRegenPrice: 1000
+    lifeRegenPriceText: {fileID: 387641839}
+    lifeRegenPriceIncrease: 10
+    isLifeRegenPriceIncreasePercentage: 1
 --- !u!114 &1612453695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39853,6 +39910,11 @@ MonoBehaviour:
   arsenalCritMultiplierIncrease: 0.1
   arsenalBulletsPerSideIncrease: 1
   arsenalAttackVelocityIncrease: 1
+  luckIncrease: 1
+  maxHealthIncrease: 1
+  armorIncrease: 1
+  moveSpeedIncrease: 5
+  lifeRegenIncrease: 1
 --- !u!114 &1612453696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40005,81 +40067,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1624298362}
-  m_CullTransparentMesh: 1
---- !u!1 &1626630447
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1626630448}
-  - component: {fileID: 1626630450}
-  - component: {fileID: 1626630449}
-  m_Layer: 5
-  m_Name: Image
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1626630448
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1626630447}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 762110445}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -729.6, y: -331}
-  m_SizeDelta: {x: 460.802, y: 460.802}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1626630449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1626630447}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 269c7044d8e7ea146b84288a06e10bb6, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1626630450
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1626630447}
   m_CullTransparentMesh: 1
 --- !u!1 &1629272738
 GameObject:
@@ -40940,81 +40927,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1674233242
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1674233243}
-  - component: {fileID: 1674233245}
-  - component: {fileID: 1674233244}
-  m_Layer: 5
-  m_Name: Image (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1674233243
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1674233242}
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 762110445}
-  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 715, y: -321}
-  m_SizeDelta: {x: 460.802, y: 460.802}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1674233244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1674233242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 269c7044d8e7ea146b84288a06e10bb6, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1674233245
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1674233242}
-  m_CullTransparentMesh: 1
 --- !u!1 &1675581056
 GameObject:
   m_ObjectHideFlags: 0
@@ -44175,7 +44087,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1612453695}
         m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
-        m_MethodName: BuyArsenalAttackVelocity
+        m_MethodName: BuyMoveSpeed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -45816,7 +45728,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -72.44985, y: -159.98857}
+  m_AnchoredPosition: {x: -72.45, y: -235}
   m_SizeDelta: {x: 144.90002, y: 161.56299}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1918819962
@@ -45863,8 +45775,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 276350218}
-        m_TargetAssemblyTypeName: ArsenalHub, Assembly-CSharp
+      - m_Target: {fileID: 1046837650}
+        m_TargetAssemblyTypeName: Stats, Assembly-CSharp
         m_MethodName: CloseUI
         m_Mode: 1
         m_Arguments:
@@ -46513,7 +46425,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1938013188
 RectTransform:
   m_ObjectHideFlags: 0
@@ -46531,6 +46443,7 @@ RectTransform:
   - {fileID: 77902061}
   - {fileID: 370621078}
   - {fileID: 16162651}
+  - {fileID: 595591503}
   - {fileID: 62745070}
   - {fileID: 1602243056}
   - {fileID: 1233539012}
@@ -48468,7 +48381,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1612453695}
         m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
-        m_MethodName: BuyArsenalCritChance
+        m_MethodName: BuyLifeRegen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -49278,7 +49191,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -72.44985, y: -159.98857}
+  m_AnchoredPosition: {x: -72.45, y: -241}
   m_SizeDelta: {x: 144.90002, y: 161.56299}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2082525483

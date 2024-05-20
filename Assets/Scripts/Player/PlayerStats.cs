@@ -167,6 +167,8 @@ public class PlayerStats : MonoBehaviour
             moveSpeed = 3f;
     }
 
+
+
     public void CopyStatsFromPermanent()
     {
         luck = permanentStats.luck;

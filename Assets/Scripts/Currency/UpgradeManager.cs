@@ -28,6 +28,13 @@ public class UpgradeManager : MonoBehaviour
     public int arsenalBulletsPerSideIncrease;
     public int arsenalAttackVelocityIncrease;
 
+    [Header("New Upgrade Values")]
+    public float luckIncrease;
+    public int maxHealthIncrease;
+    public float armorIncrease;
+    public float moveSpeedIncrease;
+    public float lifeRegenIncrease;
+
     public void BuyArtilleryDamage()
     {
         if (CanAfford(prices.artilleryUpgrades.damagePrice))
@@ -212,6 +219,62 @@ public class UpgradeManager : MonoBehaviour
             playerStats.cannonballSpeed += arsenalAttackVelocityIncrease;
             UpdateText(prices.arsenalHubUpgrades.attackVelocityPriceText, playerStats.cannonballSpeed);
             IncreasePrice(ref prices.arsenalHubUpgrades.attackVelocityPrice, prices.arsenalHubUpgrades.attackVelocityPriceIncrease, prices.arsenalHubUpgrades.isAttackVelocityPriceIncreasePercentage);
+        }
+    }
+
+    public void BuyLuck()
+    {
+        if (CanAfford(prices.statsUpgradePrices.luckPrice))
+        {
+            CoinManager.instance.AddCoin(-prices.statsUpgradePrices.luckPrice);
+            playerStats.luck += luckIncrease;
+            UpdateText(prices.statsUpgradePrices.luckPriceText, playerStats.luck);
+            IncreasePrice(ref prices.statsUpgradePrices.luckPrice, prices.statsUpgradePrices.luckPriceIncrease, prices.statsUpgradePrices.isLuckPriceIncreasePercentage);
+        }
+    }
+
+    public void BuyMaxHealth()
+    {
+        if (CanAfford(prices.statsUpgradePrices.maxHealthPrice))
+        {
+            CoinManager.instance.AddCoin(-prices.statsUpgradePrices.maxHealthPrice);
+            playerStats.maxHealth += maxHealthIncrease;
+            playerStats.currentHealth += maxHealthIncrease; // Opțional: Ajustează și sănătatea curentă
+            UpdateText(prices.statsUpgradePrices.maxHealthPriceText, playerStats.maxHealth);
+            IncreasePrice(ref prices.statsUpgradePrices.maxHealthPrice, prices.statsUpgradePrices.maxHealthPriceIncrease, prices.statsUpgradePrices.isMaxHealthPriceIncreasePercentage);
+        }
+    }
+
+    public void BuyArmor()
+    {
+        if (CanAfford(prices.statsUpgradePrices.armorPrice))
+        {
+            CoinManager.instance.AddCoin(-prices.statsUpgradePrices.armorPrice);
+            playerStats.armor += armorIncrease;
+            UpdateText(prices.statsUpgradePrices.armorPriceText, playerStats.armor);
+            IncreasePrice(ref prices.statsUpgradePrices.armorPrice, prices.statsUpgradePrices.armorPriceIncrease, prices.statsUpgradePrices.isArmorPriceIncreasePercentage);
+        }
+    }
+
+    public void BuyMoveSpeed()
+    {
+        if (CanAfford(prices.statsUpgradePrices.moveSpeedPrice))
+        {
+            CoinManager.instance.AddCoin(-prices.statsUpgradePrices.moveSpeedPrice);
+            playerStats.moveSpeed += moveSpeedIncrease;
+            UpdateText(prices.statsUpgradePrices.moveSpeedPriceText, playerStats.moveSpeed);
+            IncreasePrice(ref prices.statsUpgradePrices.moveSpeedPrice, prices.statsUpgradePrices.moveSpeedPriceIncrease, prices.statsUpgradePrices.isMoveSpeedPriceIncreasePercentage);
+        }
+    }
+
+    public void BuyLifeRegen()
+    {
+        if (CanAfford(prices.statsUpgradePrices.lifeRegenPrice))
+        {
+            CoinManager.instance.AddCoin(-prices.statsUpgradePrices.lifeRegenPrice);
+            playerStats.lifeRegen += lifeRegenIncrease;
+            UpdateText(prices.statsUpgradePrices.lifeRegenPriceText, playerStats.lifeRegen);
+            IncreasePrice(ref prices.statsUpgradePrices.lifeRegenPrice, prices.statsUpgradePrices.lifeRegenPriceIncrease, prices.statsUpgradePrices.isLifeRegenPriceIncreasePercentage);
         }
     }
 
