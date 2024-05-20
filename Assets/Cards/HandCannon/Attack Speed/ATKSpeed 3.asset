@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ATKSpeed 3
   m_EditorClassIdentifier: 
   cardName: FASTERRR
-  description: Increase the attack speed of your HandCannon by 0.4
-  effect: 0.4
+  description: Increase the attack speed of your HandCannon by 60%
+  effect: 0.6
   rarity: 3
   icon: {fileID: 21300000, guid: 82ccadb4d4b30d0459719159a920a1a3, type: 3}

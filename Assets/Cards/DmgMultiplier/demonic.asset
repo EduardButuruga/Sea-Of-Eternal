@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: demonic
   m_EditorClassIdentifier: 
   cardName: Hell Cannons
-  description: OK! Increase your Damage Multiplier by 2 but lose 20 health and 40
-    speed, this card can kill you.
+  description: Increase your Damage Multiplier by 2 but lose 20 health and 40 speed.
   effect: 2
   rarity: 3
   icon: {fileID: 21300000, guid: 39a57dbb9dbe12e479b076a4469de1de, type: 3}

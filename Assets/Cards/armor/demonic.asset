@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: demonic
   m_EditorClassIdentifier: 
   cardName: Painful Tastes
-  description: You'll eat a cactus. Increase your armor + 6 but lose 20 health
-  effect: 6
+  description: Increase your armor +15 but lose 20 health
+  effect: 15
   rarity: 3
   icon: {fileID: 21300000, guid: 39a57dbb9dbe12e479b076a4469de1de, type: 3}

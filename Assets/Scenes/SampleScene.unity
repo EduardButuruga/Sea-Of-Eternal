@@ -36204,75 +36204,75 @@ MonoBehaviour:
   artilleryUpgrades:
     damagePrice: 25
     damagePriceText: {fileID: 1129879645}
-    damagePriceIncrease: 15
-    isDamagePriceIncreasePercentage: 0
-    attackSpeedPrice: 20
+    damagePriceIncrease: 20
+    isDamagePriceIncreasePercentage: 1
+    attackSpeedPrice: 50
     attackSpeedPriceText: {fileID: 297685347}
-    attackSpeedPriceIncrease: 0
-    isAttackSpeedPriceIncreasePercentage: 0
-    attackVelocityPrice: 10
+    attackSpeedPriceIncrease: 50
+    isAttackSpeedPriceIncreasePercentage: 1
+    attackVelocityPrice: 100
     attackVelocityPriceText: {fileID: 1947458504}
-    attackVelocityPriceIncrease: 0
-    isAttackVelocityPriceIncreasePercentage: 0
+    attackVelocityPriceIncrease: 200
+    isAttackVelocityPriceIncreasePercentage: 1
     critChancePrice: 50
     critChancePriceText: {fileID: 1235738952}
-    critChancePriceIncrease: 0
-    isCritChancePriceIncreasePercentage: 0
-    critMultiplierPrice: 50
+    critChancePriceIncrease: 50
+    isCritChancePriceIncreasePercentage: 1
+    critMultiplierPrice: 100
     critMultiplierPriceText: {fileID: 348816531}
-    critMultiplierPriceIncrease: 0
-    isCritMultiplierPriceIncreasePercentage: 0
+    critMultiplierPriceIncrease: 25
+    isCritMultiplierPriceIncreasePercentage: 1
   barrelFactoryUpgrades:
     damagePrice: 75
     damagePriceText: {fileID: 1604537635}
-    damagePriceIncrease: 0
-    isDamagePriceIncreasePercentage: 0
+    damagePriceIncrease: 25
+    isDamagePriceIncreasePercentage: 1
     boomRadiusPrice: 100
     boomRadiusPriceText: {fileID: 1278445127}
-    boomRadiusPriceIncrease: 0
-    isBoomRadiusPriceIncreasePercentage: 0
-    barrelCooldownPrice: 25
+    boomRadiusPriceIncrease: 50
+    isBoomRadiusPriceIncreasePercentage: 1
+    barrelCooldownPrice: 100
     barrelCooldownPriceText: {fileID: 880686863}
-    barrelCooldownPriceIncrease: 0
-    isBarrelCooldownPriceIncreasePercentage: 0
+    barrelCooldownPriceIncrease: 1000
+    isBarrelCooldownPriceIncreasePercentage: 1
   harpoonStationUpgrades:
-    launchSpeedPrice: 15
+    launchSpeedPrice: 100
     launchSpeedPriceText: {fileID: 781770898}
-    launchSpeedPriceIncrease: 0
+    launchSpeedPriceIncrease: 100
     isLaunchSpeedPriceIncreasePercentage: 0
-    returnSpeedPrice: 15
+    returnSpeedPrice: 100
     returnSpeedPriceText: {fileID: 1650564173}
-    returnSpeedPriceIncrease: 0
+    returnSpeedPriceIncrease: 100
     isReturnSpeedPriceIncreasePercentage: 0
-    maxDistancePrice: 20
+    maxDistancePrice: 100
     maxDistancePriceText: {fileID: 118820762}
-    maxDistancePriceIncrease: 0
+    maxDistancePriceIncrease: 100
     isMaxDistancePriceIncreasePercentage: 0
   arsenalHubUpgrades:
     damagePrice: 25
     damagePriceText: {fileID: 38427281}
-    damagePriceIncrease: 0
-    isDamagePriceIncreasePercentage: 0
+    damagePriceIncrease: 20
+    isDamagePriceIncreasePercentage: 1
     attackSpeedPrice: 25
     attackSpeedPriceText: {fileID: 998027141}
-    attackSpeedPriceIncrease: 0
-    isAttackSpeedPriceIncreasePercentage: 0
+    attackSpeedPriceIncrease: 50
+    isAttackSpeedPriceIncreasePercentage: 1
     critChancePrice: 50
     critChancePriceText: {fileID: 16238713}
-    critChancePriceIncrease: 0
-    isCritChancePriceIncreasePercentage: 0
-    critMultiplierPrice: 50
+    critChancePriceIncrease: 75
+    isCritChancePriceIncreasePercentage: 1
+    critMultiplierPrice: 100
     critMultiplierPriceText: {fileID: 1573179023}
-    critMultiplierPriceIncrease: 0
-    isCritMultiplierPriceIncreasePercentage: 0
-    bulletsPerSidePrice: 125
+    critMultiplierPriceIncrease: 25
+    isCritMultiplierPriceIncreasePercentage: 1
+    bulletsPerSidePrice: 1000
     bulletsPerSidePriceText: {fileID: 1292437177}
-    bulletsPerSidePriceIncrease: 0
-    isBulletsPerSidePriceIncreasePercentage: 0
-    attackVelocityPrice: 15
+    bulletsPerSidePriceIncrease: 500
+    isBulletsPerSidePriceIncreasePercentage: 1
+    attackVelocityPrice: 25
     attackVelocityPriceText: {fileID: 459741178}
-    attackVelocityPriceIncrease: 0
-    isAttackVelocityPriceIncreasePercentage: 0
+    attackVelocityPriceIncrease: 30
+    isAttackVelocityPriceIncreasePercentage: 1
 --- !u!114 &1612453695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36288,20 +36288,20 @@ MonoBehaviour:
   playerStats: {fileID: 565056957}
   prices: {fileID: 1612453694}
   artilleryDamageIncrease: 1
-  artilleryAttackSpeedIncrease: 1
+  artilleryAttackSpeedIncrease: 0.1
   artilleryAttackVelocityIncrease: 1
-  artilleryCritChanceIncrease: 1
-  artilleryCritMultiplierIncrease: 0.05
-  barrelDamageIncrease: 1
+  artilleryCritChanceIncrease: 0.01
+  artilleryCritMultiplierIncrease: 0.1
+  barrelDamageIncrease: 5
   barrelExplosionRadiusIncrease: 1
   barrelCooldownDecrease: 1
   harpoonLaunchSpeedIncrease: 1
   harpoonReturnSpeedIncrease: 1
   harpoonMaxDistanceIncrease: 1
   arsenalDamageIncrease: 1
-  arsenalAttackSpeedIncrease: 1
-  arsenalCritChanceIncrease: 1
-  arsenalCritMultiplierIncrease: 1
+  arsenalAttackSpeedIncrease: 0
+  arsenalCritChanceIncrease: 0
+  arsenalCritMultiplierIncrease: 0.1
   arsenalBulletsPerSideIncrease: 1
   arsenalAttackVelocityIncrease: 1
 --- !u!114 &1612453696

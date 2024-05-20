@@ -4,7 +4,7 @@ using UnityEngine.UI;
 [System.Serializable]
 public class ArtilleryUpgrades
 {
-    [Header("Artillery Upgrades")]
+    [Header("Hand cannon upgrades")]
     public int damagePrice;
     public Text damagePriceText;
     public float damagePriceIncrease; // Suma sau procentul cu care crește prețul după achiziție
@@ -66,7 +66,7 @@ public class HarpoonStationUpgrades
 [System.Serializable]
 public class ArsenalHubUpgrades
 {
-    [Header("Arsenal Hub Upgrades")]
+    [Header("Side cannons upgrades")]
     public int damagePrice;
     public Text damagePriceText;
     public float damagePriceIncrease; // Suma sau procentul cu care crește prețul după achiziție

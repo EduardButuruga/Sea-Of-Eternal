@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: HCDamage 3
   m_EditorClassIdentifier: 
   cardName: OneManArmy
-  description: I need just one cannon! Increase the damage of your HandCannon by
-    40
-  effect: 40
+  description: Increase the damage of your HandCannon by 45
+  effect: 45
   rarity: 3
   icon: {fileID: 21300000, guid: 82ccadb4d4b30d0459719159a920a1a3, type: 3}

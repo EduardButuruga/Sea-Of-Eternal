@@ -156,6 +156,8 @@ public class PlayerStats : MonoBehaviour
     public void IncreaseBarrelCooldown(float amount)
     {
         barrelCooldown += amount;
+        if(barrelCooldown < 0f)
+            barrelCooldown = 0.5f;
     }
 
     public void IncreaseMoveSpeed(float amount)

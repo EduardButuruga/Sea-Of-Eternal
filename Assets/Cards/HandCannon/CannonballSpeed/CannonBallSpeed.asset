@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CannonBallSpeed
   m_EditorClassIdentifier: 
   cardName: XLR8
-  description: Increase the velocity of the HandCannon's cannonballs by 1
-  effect: 1
+  description: Increase the velocity of the HandCannon's cannonballs by 3
+  effect: 3
   rarity: 0
   icon: {fileID: 21300000, guid: 1bfc39da978fdfb49b3d024c4c0c898f, type: 3}

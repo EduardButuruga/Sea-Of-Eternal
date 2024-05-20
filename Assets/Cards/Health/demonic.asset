@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: demonic
   m_EditorClassIdentifier: 
   cardName: Hell Gambler
-  description: I don't think dice will bring me much luck... Increase your Health
-    by 40 but lose 100 luck
-  effect: 40
+  description: Increase your Health by 120 but lose 100 luck
+  effect: 120
   rarity: 3
   icon: {fileID: 21300000, guid: 39a57dbb9dbe12e479b076a4469de1de, type: 3}

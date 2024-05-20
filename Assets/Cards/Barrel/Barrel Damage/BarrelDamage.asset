@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BarrelDamage
   m_EditorClassIdentifier: 
   cardName: Barrel DMG
-  description: Mini Bomba. Increase Barrel Damage by 15
-  effect: 15
+  description: Increase Barrel Damage by 25
+  effect: 25
   rarity: 0
   icon: {fileID: 21300000, guid: 1bfc39da978fdfb49b3d024c4c0c898f, type: 3}

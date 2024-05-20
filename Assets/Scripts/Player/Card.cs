@@ -90,10 +90,10 @@ public class Card : ScriptableObject
                 playerStats.IncreaseLuck(-100);
                 break;
             case "Quicksilver":
-                playerStats.IncreaseMaxHealth((int)effect);
+                playerStats.IncreaseLifeRegen((int)effect);
                 break;
             case "Blood Bag":
-                playerStats.IncreaseMaxHealth((int)effect);
+                playerStats.IncreaseLifeRegen((int)effect);
                 playerStats.IncreaseMoveSpeed(-40);
                 break;
             case "Rabbit's Paw":

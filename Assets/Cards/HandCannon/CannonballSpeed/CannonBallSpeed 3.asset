@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: CannonBallSpeed 3
   m_EditorClassIdentifier: 
   cardName: XLR8
-  description: Faster is better. Increase the velocity of the HandCannon's cannonballs
-    by 4
-  effect: 4
+  description: Increase the velocity of the HandCannon's cannonballs by 10
+  effect: 10
   rarity: 3
   icon: {fileID: 21300000, guid: 82ccadb4d4b30d0459719159a920a1a3, type: 3}

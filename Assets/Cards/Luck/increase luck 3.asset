@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: increase luck 3
   m_EditorClassIdentifier: 
   cardName: Rabbit's Paw
-  description: Increase your Luck by 40
-  effect: 40
+  description: Increase your Luck by 125
+  effect: 125
   rarity: 3
   icon: {fileID: 21300000, guid: 82ccadb4d4b30d0459719159a920a1a3, type: 3}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Heavy Balls 2
   m_EditorClassIdentifier: 
   cardName: Heavy Balls
-  description: Your cannonballs are heavier, increase critical damage by 30%
-  effect: 0.3
+  description: Increase critical damage by 60%
+  effect: 0.6
   rarity: 2
   icon: {fileID: 21300000, guid: 0420ffc7df5a9c74ba9a10d1ba622a58, type: 3}

@@ -8,9 +8,9 @@ public class UpgradeManager : MonoBehaviour
 
     [Header("Upgrade Values")]
     public int artilleryDamageIncrease;
-    public int artilleryAttackSpeedIncrease;
+    public float artilleryAttackSpeedIncrease;
     public int artilleryAttackVelocityIncrease;
-    public int artilleryCritChanceIncrease;
+    public float artilleryCritChanceIncrease;
     public float artilleryCritMultiplierIncrease;
 
     public int barrelDamageIncrease;
