@@ -17478,7 +17478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bdeaf636cc2cc046be4c20b22f3b94e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentXP: 80
+  currentXP: 0
   currentLevel: 1
   xpToNextLevel: 100
   xpSlider: {fileID: 1775672729}
@@ -17499,24 +17499,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d267bb9add20044faef5362378b91f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  luck: 0
+  luck: 200
   armor: 0
-  lifeRegen: 5
+  lifeRegen: 0
   xpMultiplier: 1
   dmgMultiplier: 1
-  pickupRadius: 31.3
-  maxHealth: 25
-  currentHealth: 25
-  moveSpeed: 10
-  damage: 10
+  pickupRadius: 30
+  maxHealth: 50
+  currentHealth: 50
+  moveSpeed: 20
+  damage: 15
   attackSpeed: 1
   criticalStrikeChance: 0.1
   criticalDamageMultiplier: 2
   bulletsPerSide: 1
-  cannonballSpeed: 10
-  HandCannonDamage: 10
+  cannonballSpeed: 5
+  HandCannonDamage: 15
   HandCannonAttackSpeed: 1
-  HandCannonCannonballSpeed: 10
+  HandCannonCannonballSpeed: 15
   HandCannonCriticalStrikeChance: 0.1
   HandCannonCriticalDamageMultiplier: 2
   BarrelDamage: 50
@@ -44826,7 +44826,7 @@ GameObject:
   - component: {fileID: 2134480209}
   m_Layer: 0
   m_Name: WaveManager
-  m_TagString: Untagged
+  m_TagString: WaveManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44860,31 +44860,66 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - enemyConfigs:
-    - enemyPrefab: {fileID: 1195864594365841073, guid: f41e153291a74f043bd436927421e0f9, type: 3}
-      count: 1
     - enemyPrefab: {fileID: 1195864594365841073, guid: 7d1dadab3dcf48a458589ed32f0a5c56, type: 3}
-      count: 1
+      count: 30
+    bossPrefab: {fileID: 0}
+    timeBetweenEnemies: 0.01
+  - enemyConfigs:
+    - enemyPrefab: {fileID: 1195864594365841073, guid: 7d1dadab3dcf48a458589ed32f0a5c56, type: 3}
+      count: 30
+    - enemyPrefab: {fileID: 1195864594365841073, guid: eee19a87a39cdb64ba50996c41e529ac, type: 3}
+      count: 10
     bossPrefab: {fileID: 0}
     timeBetweenEnemies: 0.02
   - enemyConfigs:
+    - enemyPrefab: {fileID: 1195864594365841073, guid: 7d1dadab3dcf48a458589ed32f0a5c56, type: 3}
+      count: 45
+    - enemyPrefab: {fileID: 1195864594365841073, guid: f41e153291a74f043bd436927421e0f9, type: 3}
+      count: 15
     - enemyPrefab: {fileID: 1195864594365841073, guid: eee19a87a39cdb64ba50996c41e529ac, type: 3}
-      count: 2
-    bossPrefab: {fileID: 310655290496325625, guid: 61b2a497023763d488aa0fd5cde41b2a, type: 3}
-    timeBetweenEnemies: 0.5
-  - enemyConfigs: []
+      count: 10
     bossPrefab: {fileID: 0}
-    timeBetweenEnemies: 0
-  - enemyConfigs: []
+    timeBetweenEnemies: 0.01
+  - enemyConfigs:
+    - enemyPrefab: {fileID: 1195864594365841073, guid: f41e153291a74f043bd436927421e0f9, type: 3}
+      count: 50
+    - enemyPrefab: {fileID: 1195864594365841073, guid: 7d1dadab3dcf48a458589ed32f0a5c56, type: 3}
+      count: 100
     bossPrefab: {fileID: 0}
-    timeBetweenEnemies: 0
-  - enemyConfigs: []
+    timeBetweenEnemies: 0.01
+  - enemyConfigs:
+    - enemyPrefab: {fileID: 1195864594365841073, guid: f41e153291a74f043bd436927421e0f9, type: 3}
+      count: 50
+    - enemyPrefab: {fileID: 1195864594365841073, guid: eee19a87a39cdb64ba50996c41e529ac, type: 3}
+      count: 20
+    - enemyPrefab: {fileID: 1195864594365841073, guid: 7d1dadab3dcf48a458589ed32f0a5c56, type: 3}
+      count: 50
     bossPrefab: {fileID: 0}
-    timeBetweenEnemies: 0
+    timeBetweenEnemies: 0.01
+  - enemyConfigs:
+    - enemyPrefab: {fileID: 1195864594365841073, guid: f41e153291a74f043bd436927421e0f9, type: 3}
+      count: 50
+    - enemyPrefab: {fileID: 1195864594365841073, guid: eee19a87a39cdb64ba50996c41e529ac, type: 3}
+      count: 50
+    - enemyPrefab: {fileID: 1195864594365841073, guid: 7d1dadab3dcf48a458589ed32f0a5c56, type: 3}
+      count: 50
+    bossPrefab: {fileID: 0}
+    timeBetweenEnemies: 0.01
+  - enemyConfigs:
+    - enemyPrefab: {fileID: 1195864594365841073, guid: f41e153291a74f043bd436927421e0f9, type: 3}
+      count: 50
+    - enemyPrefab: {fileID: 1195864594365841073, guid: eee19a87a39cdb64ba50996c41e529ac, type: 3}
+      count: 20
+    - enemyPrefab: {fileID: 1195864594365841073, guid: 7d1dadab3dcf48a458589ed32f0a5c56, type: 3}
+      count: 50
+    bossPrefab: {fileID: 1195864594365841073, guid: eee19a87a39cdb64ba50996c41e529ac, type: 3}
+    timeBetweenEnemies: 100
   waveText: {fileID: 434941354}
   waveAnnouncementText: {fileID: 446346309}
   warningText: {fileID: 443883467}
   spawnDistance: 20
   fadeDuration: 1
+  currentWave: 0
 --- !u!114 &2134480209
 MonoBehaviour:
   m_ObjectHideFlags: 0

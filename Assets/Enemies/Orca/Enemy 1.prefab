@@ -197,14 +197,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 054522d854aa545459e71615e59cf2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseHealth: 35
-  xpValue: 20
+  baseHealth: 200
+  xpValue: 30
+  healthGrowing: 1.2
+  currentHealth: 0
   coinPrefab: {fileID: 1802321396517906589, guid: d485e01ecfa628e4caa421c7ced0fcab, type: 3}
   minCoins: 1
   maxCoins: 5
   dropRadius: 0.5
   damagePopupOffset: {x: 3.09, y: -0.21, z: 0}
   animator: {fileID: 4467058239861264573}
+  waveManager: {fileID: 0}
 --- !u!60 &6858389120658725240
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -5239,8 +5242,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dc29b965192e70499c0d25ce4f4b27c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 20
   playerHealth: {fileID: 0}
+  waveManager: {fileID: 0}
 --- !u!1 &5936653666912038544
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,11 +2,14 @@
 
 public class DamageDealer : MonoBehaviour
 {
-    public int damage = 1; // Cantitatea de damage dată jucătorului
+    public int damage; // Cantitatea de damage dată jucătorului
     public PlayerHealth playerHealth; // Referință la componenta PlayerHealth a jucătorului
+    public WaveManager waveManager;
 
     private void Start()
     {
+        waveManager = GameObject.FindWithTag("WaveManager").GetComponent<WaveManager>();
+        damage = damage * waveManager.currentWave;
         // Dacă referința nu este setată în Inspector, încearcă să o găsești automat
         if (playerHealth == null)
         {

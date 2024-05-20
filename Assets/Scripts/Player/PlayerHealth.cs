@@ -49,8 +49,8 @@ public class PlayerHealth : MonoBehaviour
         if (isInvulnerable || isDead)
             return;
 
-        var trueDamage = damage - playerStats.armor;
-        playerStats.currentHealth -= damage;
+        int trueDamage = damage - (int)playerStats.armor;
+        playerStats.currentHealth -= trueDamage;
         healthBar.SetHealth(playerStats.currentHealth);
         if (animator != null)
         {

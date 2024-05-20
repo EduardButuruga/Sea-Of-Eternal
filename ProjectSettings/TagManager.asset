@@ -12,6 +12,7 @@ TagManager:
   - BBossBar
   - Boss
   - GBossBar
+  - WaveManager
   layers:
   - Default
   - TransparentFX

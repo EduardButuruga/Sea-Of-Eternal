@@ -82,7 +82,7 @@ public class Cannon : MonoBehaviour
         Bullet cannonballScript = bullet.GetComponent<Bullet>();
         if (cannonballScript != null)
         {
-            float finalDamage = playerStats.damage;
+            float finalDamage = playerStats.damage * playerStats.dmgMultiplier;
             bool isCriticalHit = Random.value < playerStats.criticalStrikeChance;
             if (isCriticalHit)
             {
