@@ -17729,12 +17729,12 @@ MonoBehaviour:
   luck: 50
   armor: 0
   lifeRegen: 0
-  xpMultiplier: 1
+  xpMultiplier: 10
   dmgMultiplier: 1
   pickupRadius: 30
   maxHealth: 50
   currentHealth: 50
-  moveSpeed: 71
+  moveSpeed: 20
   damage: 10
   attackSpeed: 1
   criticalStrikeChance: 0
@@ -32200,6 +32200,7 @@ MonoBehaviour:
   playerXP: {fileID: 565056956}
   cardDatabase: {fileID: 11400000, guid: 8fa119e800bae8e42be22cd2472fb989, type: 2}
   playerStats: {fileID: 565056957}
+  weaponUnlocks: {fileID: 1612453698}
 --- !u!114 &1341762898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32932,6 +32933,8 @@ MonoBehaviour:
   portMusic: {fileID: 8300000, guid: 22cf55dea26af6b4a8c473c68d9ef11f, type: 3}
   seaMusic: {fileID: 8300000, guid: 4d9506ac1252bac4e9d7a33408c93a8a, type: 3}
   playerCtrl: {fileID: 565056945}
+  waveManager: {fileID: 2134480208}
+  bossMusic: {fileID: 8300000, guid: 9c59146d66ffc584f936eeb24d451649, type: 3}
 --- !u!1 &1387659510
 GameObject:
   m_ObjectHideFlags: 0
@@ -46041,8 +46044,7 @@ MonoBehaviour:
   spawnDistance: 10
   fadeDuration: 1
   currentWave: 0
-  normalMusic: {fileID: 0}
-  bossMusic: {fileID: 0}
+  isBossWave: 0
 --- !u!114 &2134480209
 MonoBehaviour:
   m_ObjectHideFlags: 0

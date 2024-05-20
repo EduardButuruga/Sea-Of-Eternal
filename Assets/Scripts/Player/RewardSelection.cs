@@ -15,6 +15,7 @@ public class RewardSelection : MonoBehaviour
     public PlayerXp playerXP;
     public CardDatabase cardDatabase; // Referință către baza de date a cardurilor
     public PlayerStats playerStats;
+    public WeaponUnlocks weaponUnlocks;
 
     private void Start()
     {
@@ -31,7 +32,7 @@ public class RewardSelection : MonoBehaviour
         rewardPanel.SetActive(true);
         Time.timeScale = 0f;
 
-        List<Card> randomCards = cardDatabase.GetRandomCards(rewardButtons.Length, playerStats.luck);
+        List<Card> randomCards = cardDatabase.GetRandomCards(rewardButtons.Length, playerStats.luck, weaponUnlocks);
 
         for (int i = 0; i < rewardButtons.Length; i++)
         {
