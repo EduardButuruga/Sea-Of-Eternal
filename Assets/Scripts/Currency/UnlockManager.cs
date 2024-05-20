@@ -21,6 +21,7 @@ public class UnlockManager : MonoBehaviour
 
     public Weapon[] weapons;
     public PlayerCtrl playerCtrl;
+    public WeaponUnlocks weaponUnlocks; // Referință la WeaponUnlocks
 
     void Start()
     {
@@ -73,6 +74,29 @@ public class UnlockManager : MonoBehaviour
             {
                 weapon.scriptToEnable.enabled = true;
             }
+
+            // Setează boolean-ul corespunzător în WeaponUnlocks
+            SetWeaponUnlocked(weapon.name);
+        }
+    }
+
+    private void SetWeaponUnlocked(string weaponName)
+    {
+        switch (weaponName)
+        {
+            case "Cannon":
+                weaponUnlocks.isHandCannonUnlocked = true;
+                break;
+            case "Harpoon":
+                weaponUnlocks.isHarpoonUnlocked = true;
+                break;
+            case "Tunuri":
+                weaponUnlocks.isDoubleCannonUnlocked = true;
+                break;
+            case "Explosive Barrel":
+                weaponUnlocks.isBarrelUnlocked = true;
+                break;
+                // Adaugă mai multe cazuri pentru fiecare armă după cum este necesar
         }
     }
 
@@ -109,6 +133,9 @@ public class UnlockManager : MonoBehaviour
                 {
                     weapon.scriptToEnable.enabled = true;
                 }
+
+                // Setează boolean-ul corespunzător în WeaponUnlocks
+                SetWeaponUnlocked(weapon.name);
             }
         }
     }

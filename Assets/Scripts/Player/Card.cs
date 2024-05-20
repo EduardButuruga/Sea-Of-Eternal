@@ -1,6 +1,7 @@
 using UnityEngine;
 
 public enum CardRarity { Common, Rare, Epic, Legendary }
+public enum CardCategory { HandCannon, DoubleCannon, Barrel, OverallStats }
 
 [CreateAssetMenu(fileName = "NewCard", menuName = "Card")]
 public class Card : ScriptableObject
@@ -10,14 +11,15 @@ public class Card : ScriptableObject
     public float effect;
     public CardRarity rarity;
     public Sprite icon;
-
-    public Card(string name, string desc, float eff, CardRarity rar, Sprite icn)
+    public CardCategory category;
+    public Card(string name, string desc, float eff, CardRarity rar, Sprite icn, CardCategory cat)
     {
         cardName = name;
         description = desc;
         effect = eff;
         rarity = rar;
         icon = icn;
+        category = cat;
     }
     public void ApplyEffect(PlayerStats playerStats)
     {

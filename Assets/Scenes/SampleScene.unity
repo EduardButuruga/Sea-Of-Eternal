@@ -17734,15 +17734,15 @@ MonoBehaviour:
   pickupRadius: 30
   maxHealth: 50
   currentHealth: 50
-  moveSpeed: 35
+  moveSpeed: 71
   damage: 10
   attackSpeed: 1
   criticalStrikeChance: 0
   criticalDamageMultiplier: 2
   bulletsPerSide: 1
   cannonballSpeed: 5
-  HandCannonDamage: 10
-  HandCannonAttackSpeed: 1
+  HandCannonDamage: 23.42
+  HandCannonAttackSpeed: 3.78
   HandCannonCannonballSpeed: 15
   HandCannonCriticalStrikeChance: 0
   HandCannonCriticalDamageMultiplier: 2
@@ -36910,6 +36910,7 @@ GameObject:
   - component: {fileID: 1612453695}
   - component: {fileID: 1612453696}
   - component: {fileID: 1612453697}
+  - component: {fileID: 1612453698}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -36948,7 +36949,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinText: {fileID: 267643268}
   coinText2: {fileID: 1590450650}
-  coins: 0
+  coins: 984
 --- !u!114 &1612453693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37003,6 +37004,7 @@ MonoBehaviour:
     relatedUnlockButton: {fileID: 0}
     scriptToEnable: {fileID: 0}
   playerCtrl: {fileID: 565056945}
+  weaponUnlocks: {fileID: 1612453698}
 --- !u!114 &1612453694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37174,6 +37176,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7c16735a81436849ae06b6f1369164f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1612453698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612453690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1abb7aad26ec2a419f1c08d6bdf7a49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHandCannonUnlocked: 1
+  isHarpoonUnlocked: 0
+  isDoubleCannonUnlocked: 0
+  isBarrelUnlocked: 0
 --- !u!1 &1624298362
 GameObject:
   m_ObjectHideFlags: 0

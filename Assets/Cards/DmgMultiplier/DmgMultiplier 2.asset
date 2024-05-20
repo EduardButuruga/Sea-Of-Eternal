@@ -17,3 +17,4 @@ MonoBehaviour:
   effect: 0.75
   rarity: 2
   icon: {fileID: 21300000, guid: 0420ffc7df5a9c74ba9a10d1ba622a58, type: 3}
+  category: 3
