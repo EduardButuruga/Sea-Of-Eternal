@@ -6,9 +6,11 @@ using UnityEngine;
 public class CardDatabase : ScriptableObject
 {
     public List<Card> allCards = new List<Card>();
+    public WeaponUnlocks weaponUnlocks;
 
-    public List<Card> GetRandomCards(int count, float luck)
+    public List<Card> GetRandomCards(int count, float luck, WeaponUnlocks weaponUnlockss)
     {
+        weaponUnlocks = weaponUnlockss;
         List<Card> randomCards = new List<Card>();
         for (int i = 0; i < count; i++)
         {
@@ -66,7 +68,28 @@ public class CardDatabase : ScriptableObject
         List<Card> cardsOfRarity = allCards.FindAll(card => card.rarity == rarity);
         if (cardsOfRarity.Count > 0)
         {
-            return cardsOfRarity[Random.Range(0, cardsOfRarity.Count)];
+            Card x;
+            while(true)
+            { x = cardsOfRarity[Random.Range(0, cardsOfRarity.Count)];
+                if (x.category.ToString() == "OverallStats")
+                {
+                    return x;
+                }
+                if (x.category.ToString() == "Barrel" && weaponUnlocks.isBarrelUnlocked)
+                {
+                    return x;
+
+                }
+                if (x.category.ToString() == "DoubleCannon" && weaponUnlocks.isDoubleCannonUnlocked)
+                {
+                    return x;
+
+                }
+                if (x.category.ToString() == "HandCannon" && weaponUnlocks.isHandCannonUnlocked)
+                {
+                    return x;
+                }
+            }
         }
         return null;
     }
