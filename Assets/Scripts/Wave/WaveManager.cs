@@ -91,11 +91,19 @@ public class WaveManager : MonoBehaviour
                 }
             }
 
-            while (activeEnemies.Count > 0)
+            while (true)
             {
                 activeEnemies.RemoveAll(enemy => enemy == null);
 
-                if (!bossSpawned && activeEnemies.Count <= 3 && waveConfig.bossPrefab != null)
+                // Filtrează obiectele cu tag-ul "Treasure"
+                List<GameObject> nonTreasureEnemies = activeEnemies.FindAll(enemy => enemy.tag != "Treasure");
+
+                if (nonTreasureEnemies.Count == 0)
+                {
+                    break;
+                }
+
+                if (!bossSpawned && nonTreasureEnemies.Count <= 3 && waveConfig.bossPrefab != null)
                 {
                     SpawnBoss(waveConfig.bossPrefab);
                     bossSpawned = true;

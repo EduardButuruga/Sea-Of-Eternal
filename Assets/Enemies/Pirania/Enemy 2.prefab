@@ -5140,7 +5140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dc29b965192e70499c0d25ce4f4b27c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 3
   playerHealth: {fileID: 0}
   waveManager: {fileID: 0}
 --- !u!1 &6512079440001328859

@@ -93,12 +93,42 @@ public class ArsenalHubUpgrades
     public bool isAttackVelocityPriceIncreasePercentage; // Determină dacă creșterea este procentuală
 }
 
+[System.Serializable]
+public class StatsUpgradePrices
+{
+    public int luckPrice;
+    public Text luckPriceText;
+    public float luckPriceIncrease;
+    public bool isLuckPriceIncreasePercentage;
+
+    public int maxHealthPrice;
+    public Text maxHealthPriceText;
+    public float maxHealthPriceIncrease;
+    public bool isMaxHealthPriceIncreasePercentage;
+
+    public int armorPrice;
+    public Text armorPriceText;
+    public float armorPriceIncrease;
+    public bool isArmorPriceIncreasePercentage;
+
+    public int moveSpeedPrice;
+    public Text moveSpeedPriceText;
+    public float moveSpeedPriceIncrease;
+    public bool isMoveSpeedPriceIncreasePercentage;
+
+    public int lifeRegenPrice;
+    public Text lifeRegenPriceText;
+    public float lifeRegenPriceIncrease;
+    public bool isLifeRegenPriceIncreasePercentage;
+}
+
 public class Prices : MonoBehaviour
 {
     public ArtilleryUpgrades artilleryUpgrades;
     public BarrelFactoryUpgrades barrelFactoryUpgrades;
     public HarpoonStationUpgrades harpoonStationUpgrades;
     public ArsenalHubUpgrades arsenalHubUpgrades;
+    public StatsUpgradePrices statsUpgradePrices;
 
     public void Update()
     {
@@ -131,5 +161,12 @@ public class Prices : MonoBehaviour
         arsenalHubUpgrades.critMultiplierPriceText.text = arsenalHubUpgrades.critMultiplierPrice.ToString();
         arsenalHubUpgrades.bulletsPerSidePriceText.text = arsenalHubUpgrades.bulletsPerSidePrice.ToString();
         arsenalHubUpgrades.attackVelocityPriceText.text = arsenalHubUpgrades.attackVelocityPrice.ToString();
+
+        // Stats Upgrades
+        statsUpgradePrices.luckPriceText.text = statsUpgradePrices.luckPrice.ToString();
+        statsUpgradePrices.maxHealthPriceText.text = statsUpgradePrices.maxHealthPrice.ToString();
+        statsUpgradePrices.armorPriceText.text = statsUpgradePrices.armorPrice.ToString();
+        statsUpgradePrices.moveSpeedPriceText.text = statsUpgradePrices.moveSpeedPrice.ToString();
+        statsUpgradePrices.lifeRegenPriceText.text = statsUpgradePrices.lifeRegenPrice.ToString();
     }
 }

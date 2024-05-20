@@ -45,6 +45,28 @@ public class Bullet : MonoBehaviour
                 {
                     GbossHealth.TakeDamage(this.damage, isCriticalHit);
                 }
+                HellBossHealth HbossHealth = collision.GetComponent<HellBossHealth>();
+                if (HbossHealth != null)
+                {
+                    HbossHealth.TakeDamage(this.damage, isCriticalHit);
+                }
+                PiranhaBossHealth PBossHealth = collision.GetComponent<PiranhaBossHealth>();
+                if (PBossHealth != null)
+                {
+                    PBossHealth.TakeDamage(this.damage, isCriticalHit);
+                }
+                SharkBossHealth ShbossHealth = collision.GetComponent<SharkBossHealth>();
+                if (ShbossHealth != null)
+                {
+                    ShbossHealth.TakeDamage(this.damage, isCriticalHit);
+                }
+                OrcaBossHealth ObossHealth = collision.GetComponent<OrcaBossHealth>();
+                {
+                    if(ObossHealth != null)
+                    {
+                        ObossHealth.TakeDamage(this.damage, isCriticalHit);
+                    }
+                }
             }
 
             pierceCount++;
