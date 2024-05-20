@@ -160,4 +160,6 @@ public class PlayerCtrl : MonoBehaviour
         string spriteName = spriteRenderer.sprite.name;
         colliderManager.SetDirection(spriteName);
     }
+
+
 }

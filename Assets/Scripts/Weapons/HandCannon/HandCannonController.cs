@@ -169,8 +169,15 @@ public class CannonController : MonoBehaviour
     {
         cannonPoint = point;
     }
+    public void OnDeath()
+    {
+        gameObject.SetActive(false);
+    }
+    
     public void ResetCannon()
     {
+        gameObject.SetActive(true);
+        transform.position = new Vector3(-0.968f, -0.58f, 0f);
         isFiring = false;
         canFire = true;
         if (firingCoroutine != null)

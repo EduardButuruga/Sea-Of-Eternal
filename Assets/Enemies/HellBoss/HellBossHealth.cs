@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GhostBossHealth : MonoBehaviour
+public class HellBossHealth : MonoBehaviour
 {
     public float baseHealth = 100f;
     public int xpValue = 20;

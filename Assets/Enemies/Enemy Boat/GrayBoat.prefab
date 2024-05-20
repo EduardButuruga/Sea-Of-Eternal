@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 7835374869284253384}
   - component: {fileID: 5467788145663111451}
   - component: {fileID: 7297681845865735344}
+  - component: {fileID: -613961159177379513}
   m_Layer: 8
   m_Name: GrayBoat
   m_TagString: Enemy
@@ -141,8 +142,8 @@ MonoBehaviour:
   speed: 2.5
   player: {fileID: 0}
   animator: {fileID: 4467058239861264573}
-  colliderManager: {fileID: 0}
-  spriteRenderer: {fileID: 0}
+  colliderManager: {fileID: 7835374869284253384}
+  spriteRenderer: {fileID: 9182194069682855025}
 --- !u!50 &1655670094777442071
 Rigidbody2D:
   serializedVersion: 4
@@ -303,6 +304,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2.025
+--- !u!114 &-613961159177379513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195864594365841073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aa4c4779362c3b46a3a1f67ac70c2c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1385739819203758631
 GameObject:
   m_ObjectHideFlags: 0

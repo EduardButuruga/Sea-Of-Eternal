@@ -61,4 +61,16 @@ public class PlayerXp : MonoBehaviour
     {
         xpSlider.value = (float)currentXP / xpToNextLevel;
     }
+
+    public void ResetLevel()
+    {
+        currentXP = 0;
+        currentLevel = 1;
+        xpToNextLevel = 100; // Resetarea la valoarea inițială
+
+        UpdateXPUI();
+
+        // Actualizează UI-ul pentru nivel
+        levelText.text = "Level: " + currentLevel;
+    }
 }

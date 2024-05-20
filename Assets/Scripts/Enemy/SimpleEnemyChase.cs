@@ -28,6 +28,11 @@ public class SimpleEnemyChase : MonoBehaviour
 
     void Update()
     {
+       
+    }
+
+    void FixedUpdate()
+    {
         if (player != null)
         {
             // Calculate the direction from the enemy to the player
@@ -52,10 +57,6 @@ public class SimpleEnemyChase : MonoBehaviour
                 spriteRenderer.flipY = false;
             }
         }
-    }
-
-    void FixedUpdate()
-    {
         if (player != null)
         {
             // Move the enemy towards the player

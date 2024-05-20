@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
+    [Header("Permanent Stats Reference")]
+    public PlayerStatsPort permanentStats;
+
+
     [Header("Player Stats")]
     public float luck = 0f;
     public float armor = 0f;
@@ -160,4 +164,39 @@ public class PlayerStats : MonoBehaviour
         if(moveSpeed < 0f) 
             moveSpeed = 5f;
     }
+
+    public void CopyStatsFromPermanent()
+    {
+        luck = permanentStats.luck;
+        armor = permanentStats.armor;
+        lifeRegen = permanentStats.lifeRegen;
+        xpMultiplier = permanentStats.xpMultiplier;
+        dmgMultiplier = permanentStats.dmgMultiplier;
+        pickupRadius = permanentStats.pickupRadius;
+        maxHealth = permanentStats.maxHealth;
+        currentHealth = permanentStats.currentHealth;
+        moveSpeed = permanentStats.moveSpeed;
+
+        damage = permanentStats.damage;
+        attackSpeed = permanentStats.attackSpeed;
+        criticalStrikeChance = permanentStats.criticalStrikeChance;
+        criticalDamageMultiplier = permanentStats.criticalDamageMultiplier;
+        bulletsPerSide = permanentStats.bulletsPerSide;
+        cannonballSpeed = permanentStats.cannonballSpeed;
+
+        HandCannonDamage = permanentStats.HandCannonDamage;
+        HandCannonAttackSpeed = permanentStats.HandCannonAttackSpeed;
+        HandCannonCannonballSpeed = permanentStats.HandCannonCannonballSpeed;
+        HandCannonCriticalStrikeChance = permanentStats.HandCannonCriticalStrikeChance;
+        HandCannonCriticalDamageMultiplier = permanentStats.HandCannonCriticalDamageMultiplier;
+
+        BarrelDamage = permanentStats.BarrelDamage;
+        BarrelExplosionRadius = permanentStats.BarrelExplosionRadius;
+        barrelCooldown = permanentStats.barrelCooldown;
+
+        launchSpeed = permanentStats.launchSpeed;
+        returnSpeed = permanentStats.returnSpeed;
+        maxDistance = permanentStats.maxDistance;
+    }
+   
 }

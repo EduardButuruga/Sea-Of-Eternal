@@ -6,10 +6,16 @@ public class AIChase : MonoBehaviour
     public GameObject player;
     public Animator animator;
     private Vector2 currentDirection;
+    private Vector2 smoothedDirection;
     private maxHealth health;
 
     public EnemyColliderManager colliderManager; // Referință la DirectionalColliderManager
     public SpriteRenderer spriteRenderer; // Referință la SpriteRenderer
+    public float optimalDistance = 5f; // Distanța optimă față de jucător
+    public float directionChangeDelay = 0.5f; // Întârziere între schimbările de direcție
+    public float smoothingSpeed = 0.1f; // Viteza de interpolare pentru direcție
+
+    private float lastDirectionChangeTime;
 
     void Start()
     {
@@ -32,6 +38,8 @@ public class AIChase : MonoBehaviour
         }
 
         health.IncreaseHealth(1);
+
+        smoothedDirection = Vector2.zero;
     }
 
     void Update()
@@ -42,9 +50,42 @@ public class AIChase : MonoBehaviour
         }
 
         Vector2 directionToPlayer = (player.transform.position - transform.position).normalized;
-        currentDirection = directionToPlayer;
-        transform.position = Vector2.MoveTowards(transform.position, (Vector2)transform.position + currentDirection, speed * Time.deltaTime);
-        UpdateAnimator(currentDirection);
+        float distanceToPlayer = Vector2.Distance(player.transform.position, transform.position);
+
+        // Calculate the perpendicular direction for the lateral
+        Vector2 lateralDirection = Vector2.Perpendicular(directionToPlayer).normalized;
+
+        // Choose the lateral direction that is closer to the current facing direction
+        if (Vector2.Dot(transform.right, lateralDirection) < 0)
+        {
+            lateralDirection = -lateralDirection;
+        }
+
+        // Change direction only if the time elapsed since the last change is greater than the delay
+        if (Time.time - lastDirectionChangeTime > directionChangeDelay)
+        {
+            if (distanceToPlayer < optimalDistance)
+            {
+                currentDirection = -directionToPlayer + lateralDirection;
+            }
+            else if (distanceToPlayer > optimalDistance)
+            {
+                currentDirection = directionToPlayer + lateralDirection;
+            }
+            else
+            {
+                currentDirection = lateralDirection;
+            }
+            lastDirectionChangeTime = Time.time;
+        }
+
+        // Smoothly interpolate the direction
+        smoothedDirection = Vector2.Lerp(smoothedDirection, currentDirection, smoothingSpeed);
+
+        // Move the boat towards the new direction
+        transform.position = Vector2.MoveTowards(transform.position, (Vector2)transform.position + smoothedDirection, speed * Time.deltaTime);
+
+        UpdateAnimator(smoothedDirection);
         UpdateColliderDirection();
     }
 

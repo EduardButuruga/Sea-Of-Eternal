@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class StartWaves : MonoBehaviour
 {
+    public PlayerStats playerStats;
+    public PlayerStatsPort playerStatsPort;
     public WaveManager waveManager;
     public bool Activ = true;
     public WaveTimer waveTimer;
@@ -17,7 +19,7 @@ public class StartWaves : MonoBehaviour
     {
         if (Vector3.Distance(player.transform.position, transform.position) >= activationDistance)
         {
-                TogglePort();
+            TogglePort();
         }
     }
 
@@ -30,6 +32,8 @@ public class StartWaves : MonoBehaviour
     }
     private void OnMouseDown()
     {
+        SaveStatsToPort();
+        Debug.Log("Stats Saved");
         Debug.Log("Clopot");
         if (Activ == true)
         {
@@ -58,5 +62,38 @@ public class StartWaves : MonoBehaviour
     public void ResetActiv()
     {
         Activ = true;
+    }
+    void SaveStatsToPort()
+    {
+        playerStatsPort.luck = playerStats.luck;
+        playerStatsPort.armor = playerStats.armor;
+        playerStatsPort.lifeRegen = playerStats.lifeRegen;
+        playerStatsPort.xpMultiplier = playerStats.xpMultiplier;
+        playerStatsPort.dmgMultiplier = playerStats.dmgMultiplier;
+        playerStatsPort.pickupRadius = playerStats.pickupRadius;
+        playerStatsPort.maxHealth = playerStats.maxHealth;
+        playerStatsPort.currentHealth = playerStats.currentHealth;
+        playerStatsPort.moveSpeed = playerStats.moveSpeed;
+
+        playerStatsPort.damage = playerStats.damage;
+        playerStatsPort.attackSpeed = playerStats.attackSpeed;
+        playerStatsPort.criticalStrikeChance = playerStats.criticalStrikeChance;
+        playerStatsPort.criticalDamageMultiplier = playerStats.criticalDamageMultiplier;
+        playerStatsPort.bulletsPerSide = playerStats.bulletsPerSide;
+        playerStatsPort.cannonballSpeed = playerStats.cannonballSpeed;
+
+        playerStatsPort.HandCannonDamage = playerStats.HandCannonDamage;
+        playerStatsPort.HandCannonAttackSpeed = playerStats.HandCannonAttackSpeed;
+        playerStatsPort.HandCannonCannonballSpeed = playerStats.HandCannonCannonballSpeed;
+        playerStatsPort.HandCannonCriticalStrikeChance = playerStats.HandCannonCriticalStrikeChance;
+        playerStatsPort.HandCannonCriticalDamageMultiplier = playerStats.HandCannonCriticalDamageMultiplier;
+
+        playerStatsPort.BarrelDamage = playerStats.BarrelDamage;
+        playerStatsPort.BarrelExplosionRadius = playerStats.BarrelExplosionRadius;
+        playerStatsPort.barrelCooldown = playerStats.barrelCooldown;
+
+        playerStatsPort.launchSpeed = playerStats.launchSpeed;
+        playerStatsPort.returnSpeed = playerStats.returnSpeed;
+        playerStatsPort.maxDistance = playerStats.maxDistance;
     }
 }

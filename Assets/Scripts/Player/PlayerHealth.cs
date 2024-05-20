@@ -9,6 +9,8 @@ public class PlayerHealth : MonoBehaviour
     public PlayerStats playerStats;
     public DamageFlicker damageFlicker;
     public GameObject respawnUI;
+    public PlayerXp playerXp;
+
     public static PlayerHealth Instance { get; private set; }
     private bool isDead;
     private bool isInvulnerable;
@@ -19,6 +21,14 @@ public class PlayerHealth : MonoBehaviour
     public StartWaves startWaves; // Referință la scriptul StartWaves
     public GameObject port;
     public CannonController cannonController;
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            TakeDamage(10, Vector3.zero);
+        }
+    }
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -52,11 +62,7 @@ public class PlayerHealth : MonoBehaviour
         int trueDamage = damage - (int)playerStats.armor;
         playerStats.currentHealth -= trueDamage;
         healthBar.SetHealth(playerStats.currentHealth);
-        if (animator != null)
-        {
-            animator.SetTrigger("hurt");
-        }
-
+        
         StartCoroutine(InvulnerabilityCoroutine());
 
         if (playerStats.currentHealth <= 0 && !isDead)
@@ -76,12 +82,17 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
+        Enemy[] enemies = FindObjectsOfType<Enemy>();
+        foreach (Enemy enemy in enemies)
+        {
+            Destroy(enemy.gameObject);
+        }
         rb.velocity = Vector2.zero;
         rb.angularVelocity = 0f;
-        transform.rotation = Quaternion.Euler(0, 0, 0);     
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+        cannonController.OnDeath();
         Time.timeScale = 0f;
-        WaveManager.Instance.ResetWaves();
-
+        WaveManager.Instance.ResetWaves();       
         // Afișează UI de respawn
         if (respawnUI != null)
         {
@@ -92,11 +103,13 @@ public class PlayerHealth : MonoBehaviour
 
             Button respawnButton = respawnUI.transform.Find("RespawnButton").GetComponent<Button>();
             respawnButton.onClick.AddListener(() => Respawn());
-        }
+        }     
     }
 
     public void Respawn()
     {
+        playerStats.CopyStatsFromPermanent();
+        playerXp.ResetLevel();
         Time.timeScale = 1f;      
         // Reinițializează sănătatea jucătorului
         playerStats.currentHealth = playerStats.maxHealth;
@@ -127,11 +140,8 @@ public class PlayerHealth : MonoBehaviour
         }
         // Reîncepe regenerarea sănătății
         StartCoroutine(HealthRegenCoroutine());
-        port.SetActive(true);
-        if (cannonController != null)
-        {
-            cannonController.ResetCannon(); // Resetează starea tunului
-        }
+        port.SetActive(true); 
+        cannonController.ResetCannon();      
     }
 
     private IEnumerator InvulnerabilityCoroutine()
