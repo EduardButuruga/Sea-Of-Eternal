@@ -24,9 +24,9 @@ public class PlayerHealth : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.R))
         {
-            TakeDamage(10, Vector3.zero);
+            TakeDamage(10000, Vector3.zero);
         }
     }
     void Awake()
@@ -60,6 +60,11 @@ public class PlayerHealth : MonoBehaviour
             return;
 
         int trueDamage = damage - (int)playerStats.armor;
+        if (trueDamage < 0)
+        {
+            trueDamage = 1;
+        }
+        Debug.Log(trueDamage);
         playerStats.currentHealth -= trueDamage;
         healthBar.SetHealth(playerStats.currentHealth);
         

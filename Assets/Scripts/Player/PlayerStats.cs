@@ -164,7 +164,7 @@ public class PlayerStats : MonoBehaviour
     {
         moveSpeed += amount;
         if(moveSpeed < 0f) 
-            moveSpeed = 5f;
+            moveSpeed = 3f;
     }
 
     public void CopyStatsFromPermanent()

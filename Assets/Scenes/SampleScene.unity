@@ -17504,7 +17504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   permanentStats: {fileID: 565056960}
-  luck: 200
+  luck: 50
   armor: 0
   lifeRegen: 0
   xpMultiplier: 1
@@ -17513,16 +17513,16 @@ MonoBehaviour:
   maxHealth: 50
   currentHealth: 50
   moveSpeed: 20
-  damage: 15
+  damage: 10
   attackSpeed: 1
-  criticalStrikeChance: 0.1
+  criticalStrikeChance: 0
   criticalDamageMultiplier: 2
   bulletsPerSide: 1
   cannonballSpeed: 5
-  HandCannonDamage: 15
+  HandCannonDamage: 10
   HandCannonAttackSpeed: 1
   HandCannonCannonballSpeed: 15
-  HandCannonCriticalStrikeChance: 0.1
+  HandCannonCriticalStrikeChance: 0
   HandCannonCriticalDamageMultiplier: 2
   BarrelDamage: 50
   BarrelExplosionRadius: 2
