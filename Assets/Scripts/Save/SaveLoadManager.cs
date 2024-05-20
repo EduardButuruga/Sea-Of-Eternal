@@ -11,7 +11,7 @@ public class SaveLoadManager : MonoBehaviour
         filePath = Path.Combine(Application.persistentDataPath, "gamedata.json");
     }
 
-    public void SaveGame(PlayerStats playerStats, UnlockManager unlockManager, Prices prices)
+    public void SaveGame(PlayerStats playerStats, UnlockManager unlockManager, Prices prices, CoinManager coinManager)
     {
         GameData gameData = new GameData
         {
@@ -41,6 +41,7 @@ public class SaveLoadManager : MonoBehaviour
             launchSpeed = playerStats.launchSpeed,
             returnSpeed = playerStats.returnSpeed,
             maxDistance = playerStats.maxDistance,
+            Coins = coinManager.coins,
             artilleryUpgradesData = new ArtilleryUpgradesData
             {
                 damagePrice = prices.artilleryUpgrades.damagePrice,
@@ -85,7 +86,7 @@ public class SaveLoadManager : MonoBehaviour
         Debug.Log("Game Saved");
     }
 
-    public void LoadGame(PlayerStats playerStats, UnlockManager unlockManager, Prices prices)
+    public void LoadGame(PlayerStats playerStats, UnlockManager unlockManager, Prices prices, CoinManager coinManager)
     {
         if (File.Exists(filePath))
         {
@@ -118,6 +119,7 @@ public class SaveLoadManager : MonoBehaviour
             playerStats.launchSpeed = gameData.launchSpeed;
             playerStats.returnSpeed = gameData.returnSpeed;
             playerStats.maxDistance = gameData.maxDistance;
+            coinManager.coins = gameData.Coins;
 
             prices.artilleryUpgrades.damagePrice = gameData.artilleryUpgradesData.damagePrice;
             prices.artilleryUpgrades.attackSpeedPrice = gameData.artilleryUpgradesData.attackSpeedPrice;

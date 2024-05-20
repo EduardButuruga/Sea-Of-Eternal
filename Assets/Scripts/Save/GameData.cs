@@ -49,6 +49,9 @@ public class GameData
     public BarrelFactoryUpgradesData barrelFactoryUpgradesData;
     public HarpoonStationUpgradesData harpoonStationUpgradesData;
     public ArsenalHubUpgradesData arsenalHubUpgradesData;
+
+    // Money
+    public int Coins;
 }
 
 [System.Serializable]

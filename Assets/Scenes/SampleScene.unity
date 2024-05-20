@@ -36123,6 +36123,7 @@ MonoBehaviour:
   unlockManager: {fileID: 1612453693}
   prices: {fileID: 1612453694}
   saveLoadManager: {fileID: 2071163288}
+  coinManager: {fileID: 1612453692}
   confirmText: {fileID: 935293823}
   confirmTextDuration: 2
 --- !u!1 &1573179021
