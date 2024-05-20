@@ -13103,6 +13103,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b4c2ea04014bdc4abc09e852cb293c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStats: {fileID: 565056957}
+  playerStatsPort: {fileID: 565056960}
   waveManager: {fileID: 2134480208}
   Activ: 1
   waveTimer: {fileID: 2134480209}
@@ -16702,7 +16704,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &555952612
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16719,7 +16721,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 70.872986, y: -465.15698}
+  m_AnchoredPosition: {x: 68.138, y: -346.46}
   m_SizeDelta: {x: 116.059, y: 108.163}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &555952613
@@ -17034,6 +17036,7 @@ GameObject:
   - component: {fileID: 565056957}
   - component: {fileID: 565056958}
   - component: {fileID: 565056959}
+  - component: {fileID: 565056960}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -17184,7 +17187,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 565056943}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c0965bc349a68f4281b69b041c6337b, type: 3}
   m_Name: 
@@ -17445,6 +17448,7 @@ MonoBehaviour:
   playerStats: {fileID: 565056957}
   damageFlicker: {fileID: 565056959}
   respawnUI: {fileID: 580245754}
+  playerXp: {fileID: 565056956}
   invulnerabilityDuration: 1
   rb: {fileID: 565056944}
   colliderManager: {fileID: 565056958}
@@ -17499,6 +17503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d267bb9add20044faef5362378b91f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  permanentStats: {fileID: 565056960}
   luck: 200
   armor: 0
   lifeRegen: 0
@@ -17568,6 +17573,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flickerDuration: 0.2
   flickerInterval: 0.05
+--- !u!114 &565056960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565056943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f35a5759bf692374fa8b7bdb30e4d0f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  luck: 0
+  armor: 0
+  lifeRegen: 0
+  xpMultiplier: 1
+  dmgMultiplier: 1
+  pickupRadius: 5
+  maxHealth: 10
+  currentHealth: 0
+  moveSpeed: 2
+  damage: 10
+  attackSpeed: 1
+  criticalStrikeChance: 0.1
+  criticalDamageMultiplier: 2
+  bulletsPerSide: 1
+  cannonballSpeed: 10
+  HandCannonDamage: 10
+  HandCannonAttackSpeed: 1
+  HandCannonCannonballSpeed: 10
+  HandCannonCriticalStrikeChance: 0.1
+  HandCannonCriticalDamageMultiplier: 2
+  BarrelDamage: 50
+  BarrelExplosionRadius: 2
+  barrelCooldown: 10
+  launchSpeed: 10
+  returnSpeed: 5
+  maxDistance: 10
 --- !u!1 &572449185
 GameObject:
   m_ObjectHideFlags: 0
@@ -28242,7 +28285,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1188158838
 RectTransform:
   m_ObjectHideFlags: 0
@@ -28259,7 +28302,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 70.1001, y: -352}
+  m_AnchoredPosition: {x: 67.365, y: -460.17}
   m_SizeDelta: {x: 117.605, y: 119.261}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1188158839
@@ -36113,8 +36156,8 @@ MonoBehaviour:
     associatedBuilding: {fileID: 276350213}
     weaponGameObject: {fileID: 1307042801}
     unlocksBarrels: 0
-    relatedUnlockButton: {fileID: 0}
-    scriptToEnable: {fileID: 0}
+    relatedUnlockButton: {fileID: 1188158839}
+    scriptToEnable: {fileID: 565056948}
   - name: Harpoon
     price: 2500
     weaponImage: {fileID: 77902063}
@@ -36143,7 +36186,7 @@ MonoBehaviour:
     associatedBuilding: {fileID: 984104028}
     weaponGameObject: {fileID: 2076924724}
     unlocksBarrels: 0
-    relatedUnlockButton: {fileID: 555952613}
+    relatedUnlockButton: {fileID: 0}
     scriptToEnable: {fileID: 0}
   playerCtrl: {fileID: 565056945}
 --- !u!114 &1612453694
@@ -36357,7 +36400,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 212.15002, y: -490.19}
+  m_AnchoredPosition: {x: 207.85, y: -363.42}
   m_SizeDelta: {x: 171.088, y: 142.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1624298364
@@ -39271,7 +39314,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 214.53003, y: -386.46}
+  m_AnchoredPosition: {x: 212.15, y: -487.11}
   m_SizeDelta: {x: 176.726, y: 173.146}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1815866313
@@ -39651,14 +39694,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5283019, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5b702683fb14e604e8c55fbd23de33d2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 928f2f58c17800640be409e47a7fa59b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -44070,7 +44113,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2076924725
 Transform:
   m_ObjectHideFlags: 0
