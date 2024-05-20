@@ -10,6 +10,7 @@ public class SaveLoadUI : MonoBehaviour
     public UnlockManager unlockManager;
     public Prices prices;
     public SaveLoadManager saveLoadManager;
+    public CoinManager coinManager;
     public Text confirmText;
     public float confirmTextDuration = 2f;
 
@@ -19,13 +20,13 @@ public class SaveLoadUI : MonoBehaviour
     }
     public void SaveGame()
     {
-        saveLoadManager.SaveGame(playerStats, unlockManager, prices);
+        saveLoadManager.SaveGame(playerStats, unlockManager, prices, coinManager);
         confirmText.text = "Game Saved!";
         StartCoroutine(ShowConfirmText());
     }
     public void LoadGame()
     {
-        saveLoadManager.LoadGame(playerStats, unlockManager, prices);
+        saveLoadManager.LoadGame(playerStats, unlockManager, prices, coinManager);
         confirmText.text = "Game Loaded!";
         StartCoroutine(ShowConfirmText());
     }
