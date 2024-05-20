@@ -7,10 +7,12 @@ public class CardDatabase : ScriptableObject
 {
     public List<Card> allCards = new List<Card>();
     public WeaponUnlocks weaponUnlocks;
+    public checkboxCtrl checkboxCtrl;
 
-    public List<Card> GetRandomCards(int count, float luck, WeaponUnlocks weaponUnlockss)
+    public List<Card> GetRandomCards(int count, float luck, WeaponUnlocks weaponUnlockss, checkboxCtrl checkboxCtrls)
     {
         weaponUnlocks = weaponUnlockss;
+        checkboxCtrl = checkboxCtrls;
         List<Card> randomCards = new List<Card>();
         for (int i = 0; i < count; i++)
         {
@@ -68,6 +70,7 @@ public class CardDatabase : ScriptableObject
         List<Card> cardsOfRarity = allCards.FindAll(card => card.rarity == rarity);
         if (cardsOfRarity.Count > 0)
         {
+            Debug.Log("CN e fals" + checkboxCtrl.isDoubleCannonEnabled);
             Card x;
             while(true)
             { x = cardsOfRarity[Random.Range(0, cardsOfRarity.Count)];
@@ -75,17 +78,17 @@ public class CardDatabase : ScriptableObject
                 {
                     return x;
                 }
-                if (x.category.ToString() == "Barrel" && weaponUnlocks.isBarrelUnlocked)
+                if (x.category.ToString() == "Barrel" && weaponUnlocks.isBarrelUnlocked && checkboxCtrl.isBarrelEnabled)
                 {
                     return x;
 
                 }
-                if (x.category.ToString() == "DoubleCannon" && weaponUnlocks.isDoubleCannonUnlocked)
+                if (x.category.ToString() == "DoubleCannon" && weaponUnlocks.isDoubleCannonUnlocked && checkboxCtrl.isDoubleCannonEnabled)
                 {
                     return x;
 
                 }
-                if (x.category.ToString() == "HandCannon" && weaponUnlocks.isHandCannonUnlocked)
+                if (x.category.ToString() == "HandCannon" && weaponUnlocks.isHandCannonUnlocked && checkboxCtrl.isHandCannonEnabled)
                 {
                     return x;
                 }

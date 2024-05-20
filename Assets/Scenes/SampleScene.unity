@@ -38764,6 +38764,27 @@ MonoBehaviour:
     attackVelocityPriceText: {fileID: 1292437177}
     attackVelocityPriceIncrease: 30
     isAttackVelocityPriceIncreasePercentage: 1
+  statsUpgradePrices:
+    luckPrice: 0
+    luckPriceText: {fileID: 0}
+    luckPriceIncrease: 0
+    isLuckPriceIncreasePercentage: 0
+    maxHealthPrice: 0
+    maxHealthPriceText: {fileID: 0}
+    maxHealthPriceIncrease: 0
+    isMaxHealthPriceIncreasePercentage: 0
+    armorPrice: 0
+    armorPriceText: {fileID: 0}
+    armorPriceIncrease: 0
+    isArmorPriceIncreasePercentage: 0
+    moveSpeedPrice: 0
+    moveSpeedPriceText: {fileID: 0}
+    moveSpeedPriceIncrease: 0
+    isMoveSpeedPriceIncreasePercentage: 0
+    lifeRegenPrice: 0
+    lifeRegenPriceText: {fileID: 0}
+    lifeRegenPriceIncrease: 0
+    isLifeRegenPriceIncreasePercentage: 0
 --- !u!114 &1612453695
 MonoBehaviour:
   m_ObjectHideFlags: 0
