@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: armor
   m_EditorClassIdentifier: 
   cardName: Stone Skin
-  description: Increase your armor + 4
-  effect: 4
+  description: Increase your armor + 10
+  effect: 10
   rarity: 0
   icon: {fileID: 21300000, guid: 1bfc39da978fdfb49b3d024c4c0c898f, type: 3}
   category: 3

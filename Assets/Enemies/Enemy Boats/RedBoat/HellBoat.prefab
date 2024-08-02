@@ -753,7 +753,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseHealth: 800
   xpValue: 300
-  healthGrowing: 1.1
+  healthGrowing: 1.2
   currentHealth: 0
   coinPrefab: {fileID: 1802321396517906589, guid: d485e01ecfa628e4caa421c7ced0fcab, type: 3}
   minCoins: 40

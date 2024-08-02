@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: demonic
   m_EditorClassIdentifier: 
   cardName: IShowSpeed
-  description: Increase your MoveSpeed with 60 but lose 20 hp
-  effect: 60
+  description: Increase your MoveSpeed with 80 but lose 20 hp
+  effect: 80
   rarity: 3
   icon: {fileID: 21300000, guid: 39a57dbb9dbe12e479b076a4469de1de, type: 3}
   category: 3

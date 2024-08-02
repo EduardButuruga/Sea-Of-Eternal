@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: BarrelDamage 3
   m_EditorClassIdentifier: 
   cardName: Barrel DMG
-  description: Mastering the bomba tech... Increase Barrel Damage by 90
-  effect: 90
+  description: Mastering the bomba tech... Increase Barrel Damage by 200
+  effect: 200
   rarity: 3
   icon: {fileID: 21300000, guid: 82ccadb4d4b30d0459719159a920a1a3, type: 3}
   category: 2

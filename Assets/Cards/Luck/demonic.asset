@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: demonic
   m_EditorClassIdentifier: 
   cardName: Lucky Pact
-  description: Increase your Luck by 150 but lose 20 health
-  effect: 150
+  description: Increase your Luck by 175 but lose 20 health
+  effect: 175
   rarity: 3
   icon: {fileID: 21300000, guid: 39a57dbb9dbe12e479b076a4469de1de, type: 3}
   category: 3

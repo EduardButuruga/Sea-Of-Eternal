@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: BarrelRadius 3
   m_EditorClassIdentifier: 
   cardName: Bomba Range
-  description: Increase barrel explosion radius with 0.5
-  effect: 0.5
+  description: MEGA BOMB!! Increase barrel explosion radius with 5
+  effect: 5
   rarity: 3
   icon: {fileID: 21300000, guid: 82ccadb4d4b30d0459719159a920a1a3, type: 3}
   category: 2

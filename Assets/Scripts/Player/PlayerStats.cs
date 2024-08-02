@@ -16,6 +16,7 @@ public class PlayerStats : MonoBehaviour
     public int maxHealth = 10;
     public int currentHealth;
     public float moveSpeed = 2f;
+    public int rerolls = 2;
 
     [Header("Double Cannon Stats")]
     public float damage = 10f; 
@@ -165,6 +166,13 @@ public class PlayerStats : MonoBehaviour
         moveSpeed += amount;
         if(moveSpeed < 0f) 
             moveSpeed = 3f;
+    }
+
+    public void IncreaseRerolls(int amount)
+    {
+        rerolls += amount;
+        if (rerolls < 0)
+            rerolls = 0;
     }
 
 

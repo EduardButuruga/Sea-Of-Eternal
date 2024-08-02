@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: increase health
   m_EditorClassIdentifier: 
   cardName: Scorbut Imunity
-  description: Increase your Health by 40
-  effect: 40
+  description: Increase your Health by 50
+  effect: 50
   rarity: 0
   icon: {fileID: 21300000, guid: 1bfc39da978fdfb49b3d024c4c0c898f, type: 3}
   category: 3

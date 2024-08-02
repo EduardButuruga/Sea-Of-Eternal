@@ -44,9 +44,8 @@ public class PlayerXp : MonoBehaviour
     {
         currentXP -= xpToNextLevel;
         currentLevel++;
-        xpToNextLevel = Mathf.RoundToInt(xpToNextLevel * 1.20f); // Crește cerința de XP pentru următorul nivel
+        xpToNextLevel = Mathf.RoundToInt(xpToNextLevel * 1.1f);
 
-        // Actualizează UI-ul pentru nivel
         levelText.text = "Level: " + currentLevel;
 
         if (audioSource != null && shootSound != null)

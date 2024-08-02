@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: BarrelCD 3
   m_EditorClassIdentifier: 
   cardName: Barrel Mania
-  description: Decrease the cooldown of the barrels with 3s
-  effect: 3
+  description: Decrease the cooldown of the barrels with 5s
+  effect: 5
   rarity: 3
   icon: {fileID: 21300000, guid: 82ccadb4d4b30d0459719159a920a1a3, type: 3}
   category: 2

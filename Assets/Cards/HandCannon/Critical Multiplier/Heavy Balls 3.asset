@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Heavy Balls 3
   m_EditorClassIdentifier: 
   cardName: Heavy Balls
-  description: Increase critical damage by 90%
-  effect: 0.9
+  description: Increase hand cannon critical damage by 150%
+  effect: 1.5
   rarity: 3
   icon: {fileID: 21300000, guid: 82ccadb4d4b30d0459719159a920a1a3, type: 3}
+  category: 0

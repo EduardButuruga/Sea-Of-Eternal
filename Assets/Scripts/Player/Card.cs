@@ -89,7 +89,7 @@ public class Card : ScriptableObject
                 break;
             case "Hell Gambler":
                 playerStats.IncreaseMaxHealth((int)effect);
-                playerStats.IncreaseLuck(-100);
+                playerStats.IncreaseLuck(-150);
                 break;
             case "Quicksilver":
                 playerStats.IncreaseLifeRegen((int)effect);
@@ -103,6 +103,7 @@ public class Card : ScriptableObject
                 break;
             case "Lucky Pact":
                 playerStats.IncreaseLuck(effect);
+                playerStats.IncreaseMaxHealth(-20);
                 break;
             case "HyperEngine":
                 playerStats.IncreaseMoveSpeed(effect);
@@ -117,7 +118,7 @@ public class Card : ScriptableObject
             case "Black Magic":
                 playerStats.IncreaseXpMultiplier(effect);
                 playerStats.IncreaseMoveSpeed(-40);
-                playerStats.IncreaseMoveSpeed(-20);
+                playerStats.IncreaseMoveSpeed(-40);
                 break;
         }
     }

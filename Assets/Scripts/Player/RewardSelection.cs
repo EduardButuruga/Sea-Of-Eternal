@@ -9,6 +9,7 @@ public class RewardSelection : MonoBehaviour
 {
     public GameObject rewardPanel;
     public Button[] rewardButtons;
+    public Button confirmButton;
     public Text[] rewardDescriptions;
     public Text[] names;
     public Text[] rarity;
@@ -17,6 +18,9 @@ public class RewardSelection : MonoBehaviour
     public PlayerStats playerStats;
     public WeaponUnlocks weaponUnlocks;
     public checkboxCtrl checkboxCtrl;
+    public StateOfUI stateOfUI;
+    private Card? currentChosenCard;
+    public bool cardChosen = false;
 
     private void Start()
     {
@@ -29,8 +33,9 @@ public class RewardSelection : MonoBehaviour
 
     public void ShowRewardSelection()
     {
-        Debug.Log(playerStats);
         rewardPanel.SetActive(true);
+        cardChosen = false;
+        stateOfUI.SetLvlInterfaceTrue();
         Time.timeScale = 0f;
 
         List<Card> randomCards = cardDatabase.GetRandomCards(rewardButtons.Length, playerStats.luck, weaponUnlocks, checkboxCtrl);
@@ -45,7 +50,7 @@ public class RewardSelection : MonoBehaviour
             else
                 rarity[i].text = randomCards[i].rarity.ToString();
             
-            int index = i; // Necesită pentru a evita problemele de referință în lambda
+            int index = i;
             rewardButtons[i].onClick.RemoveAllListeners();
             rewardButtons[i].onClick.AddListener(() => SelectReward(randomCards[index]));
         }
@@ -53,8 +58,27 @@ public class RewardSelection : MonoBehaviour
 
     public void SelectReward(Card selectedCard)
     {
-        selectedCard.ApplyEffect(playerStats);
-        rewardPanel.SetActive(false);
-        Time.timeScale = 1f;
+        currentChosenCard = selectedCard;
+        cardChosen = true;
+    }
+
+    public void Confirm()
+    {
+        if(cardChosen)
+        {
+            currentChosenCard.ApplyEffect(playerStats);
+            stateOfUI.SetGameTrue();
+            rewardPanel.SetActive(false);
+            Time.timeScale = 1f;
+        }
+    }
+
+    public void Reroll()
+    {
+        if(playerStats.rerolls > 0)
+        {
+            playerStats.rerolls--;
+            ShowRewardSelection();
+        }
     }
 }

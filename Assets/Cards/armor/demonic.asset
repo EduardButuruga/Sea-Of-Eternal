@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: demonic
   m_EditorClassIdentifier: 
   cardName: Painful Tastes
-  description: Increase your armor +15 but lose 20 health
-  effect: 15
+  description: Increase your armor +60 but lose 20 health
+  effect: 60
   rarity: 3
   icon: {fileID: 21300000, guid: 39a57dbb9dbe12e479b076a4469de1de, type: 3}
   category: 3

@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: demonic
   m_EditorClassIdentifier: 
   cardName: Black Magic
-  description: Increase your xpMultiplier by 2 but you'll lose 40 speed and 20 health
-  effect: 2
+  description: Increase your xpMultiplier by 400% but you'll lose 40 speed and 40
+    health
+  effect: 4
   rarity: 3
   icon: {fileID: 21300000, guid: 39a57dbb9dbe12e479b076a4469de1de, type: 3}
   category: 3

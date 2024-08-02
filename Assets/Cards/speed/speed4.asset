@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: speed4
   m_EditorClassIdentifier: 
   cardName: HyperEngine
-  description: Increase you movement speed + 20
-  effect: 20
+  description: Increase you movement speed + 40
+  effect: 40
   rarity: 3
   icon: {fileID: 21300000, guid: 82ccadb4d4b30d0459719159a920a1a3, type: 3}
   category: 3

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: BarrelDamage
   m_EditorClassIdentifier: 
   cardName: Barrel DMG
-  description: Increase Barrel Damage by 25
-  effect: 25
+  description: Increase Barrel Damage by 50
+  effect: 50
   rarity: 0
   icon: {fileID: 21300000, guid: 1bfc39da978fdfb49b3d024c4c0c898f, type: 3}
   category: 2

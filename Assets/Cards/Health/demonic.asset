@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: demonic
   m_EditorClassIdentifier: 
   cardName: Hell Gambler
-  description: Increase your Health by 120 but lose 100 luck
-  effect: 120
+  description: Increase your Health by 300 but lose 150 luck
+  effect: 300
   rarity: 3
   icon: {fileID: 21300000, guid: 39a57dbb9dbe12e479b076a4469de1de, type: 3}
   category: 3

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: xpMultiplier 3
   m_EditorClassIdentifier: 
   cardName: Fast Learner
-  description: Increase your xpMultiplier by 1
-  effect: 1
+  description: Increase your xpMultiplier by 200%
+  effect: 2
   rarity: 3
   icon: {fileID: 21300000, guid: 82ccadb4d4b30d0459719159a920a1a3, type: 3}
   category: 3
